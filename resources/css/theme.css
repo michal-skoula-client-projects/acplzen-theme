@@ -1,0 +1,95 @@
+@theme {
+
+    --color-*: initial; /* Reset */
+
+    --color-brand-main: hsl(47, 92%, 70%);
+    --color-brand-main-hover: color-mix(in srgb, var(--color-brand-main) 80%, black);
+    --color-brand-main-active: color-mix(in srgb, var(--color-brand-main) 60%, black);
+
+
+    --color-brand-accent: hsl(249, 87%, 61%);
+    --color-brand-accent-hover: color-mix(in srgb, var(--color-brand-accent) 80%, black);
+    --color-brand-accent-active: color-mix(in srgb, var(--color-brand-accent) 60%, black);
+
+    --color-primary-highlight: hsl(151, 45%, 70%);
+    --color-primary-elevated: hsl(151, 45%, 60%);
+    --color-primary-surface: hsl(151, 45%, 40%);
+    --color-primary-base: hsl(151, 45%, 27%);
+    --color-primary-muted: hsl(151, 45%, 15%);
+
+    --color-light-base: hsl(0, 0%, 100%);
+    --color-light-soft: hsl(0, 0%, 90%);
+    --color-light-faint: hsl(0, 0%, 85%);
+
+    --color-dark-base: hsl(156 77% 5%);
+    --color-dark-soft: hsl(156 77% 12%);
+    --color-dark-faint: hsl(156 77% 16%);
+
+    --color-state-success: #0DAE3D;
+    --color-state-info: #005DD0;
+    --color-state-warning: #D0A300;
+    --color-state-danger: #D00000;
+
+
+    --font-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+@layer base {
+    body {
+        font-optical-sizing: auto;
+        font-style: normal;
+        @apply tracking-[0.008em]
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-brand-main);
+    }
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-zinc-200, currentColor);
+    }
+
+    h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
+        @apply leading-[110%] font-semibold font-sans tracking-normal;
+    }
+
+    h1, .h1 {
+        @apply sm:text-5xl text-5xl text-balance;
+    }
+    h2, .h2 {
+        @apply text-4xl;
+    }
+    h3, .h3 {
+        @apply text-3xl;
+    }
+    h4, .h4 {
+        @apply text-2xl;
+    }
+    h5, .h5 {
+        @apply text-xl;
+    }
+    h6, .h6 {
+        @apply text-lg;
+    }
+
+    p, li {
+        @apply leading-[150%];
+    }
+    ul {
+        @apply list-disc ml-6 my-1;
+    }
+    a {
+
+    }
+    b, strong {
+        @apply font-semibold;
+    }
+}
+
+@theme inline {
+    --breakpoint-nav: 60rem;
+}

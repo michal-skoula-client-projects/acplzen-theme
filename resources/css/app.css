@@ -1,0 +1,185 @@
+@import 'tailwindcss';
+@import './theme.css';
+@import './navbar.css';
+@import '../../public/fonts/fonts.css';
+
+@source '../../vendor/tailpress/framework/**/*.php';
+@source '../../vendor/tailpress/framework/**/**/*.php';
+
+@layer utilities {
+    .section {
+        @apply lg:py-24 lg:px-16 md:py-20 md:px-12 px-5 py-12
+    }
+
+    .max-content-width {
+        @apply max-w-screen-xl mx-auto;
+    }
+}
+
+@layer components {
+    .button__primary {
+        @apply inline-block px-6 py-3 rounded-full text-light-base bg-brand-accent no-underline! motion-safe:duration-200 transition-colors ease-in-out cursor-pointer;
+
+        &:hover {
+            @apply bg-brand-accent-hover;
+        }
+
+        &:active {
+            @apply bg-brand-accent-active;
+        }
+
+        &::after {
+            @apply content-['→'] ml-2 relative bottom-[.06rem] translate-x-0;
+        }
+
+        &:hover::after {
+            @apply translate-x-2;
+        }
+    }
+
+    .button__link {
+        text-decoration-skip-ink: none;
+        @apply inline-block p-2 underline! underline-offset-4 cursor-pointer transition-colors motion-safe:duration-200 ease-in-out rounded-xl;
+
+        &.--dark {
+            @apply text-dark-base ;
+
+            &:hover {
+                @apply text-dark-faint;
+            }
+        }
+
+        &.--light {
+            @apply text-light-base;
+
+            &:hover {
+                @apply text-light-faint;
+            }
+        }
+    }
+
+    .link-icon {
+        /*@apply text-dark-base! hover:text-dark-soft! active:text-dark-faint!;*/
+    }
+
+    .link__icon::before {
+        position: relative;
+        bottom: -0.2rem;
+        margin-inline-end: 0.3rem;
+    }
+
+    .link__icon--mail::before {
+        content: url('../../public/assets/ico-mail.svg');
+    }
+    .link__icon--web::before {
+        content: url('../../public/assets/ico-web.svg');
+    }
+    .link__icon--tel::before {
+         content: url('../../public/assets/ico-tel.svg');
+    }
+
+
+    .section__format-text {
+        & h1 {
+            margin: 2rem 0 1.5rem;
+        }
+
+        & h2 {
+            margin: 1.8rem 0 1.2rem;
+        }
+
+        & h3 {
+            margin: 1.6rem 0 1rem;
+        }
+
+        & h4, & h5, & h6 {
+            margin: 1.4rem 0 0.8rem;
+        }
+
+        & p {
+            margin: 0 0 1.2rem;
+        }
+
+        & ul, & ol {
+            margin: 1.2rem 0;
+            padding-left: 2rem;
+        }
+
+        & li {
+            margin-bottom: 0.5rem;
+        }
+
+        & li > ul,
+        & li > ol {
+            margin: 0.5rem 0;
+        }
+
+
+        & ul > li {
+            list-style: disc !important;
+        }
+
+        & ol > li {
+            list-style: decimal !important;
+        }
+
+        & blockquote {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        & table {
+            margin: 1.5rem 0;
+        }
+
+        & dl {
+            margin: 1.2rem 0;
+        }
+
+        & dt {
+            margin-top: 1rem;
+        }
+
+        & dd {
+            margin: 0.5rem 0 0.5rem 2rem;
+        }
+
+        & hr {
+            margin: 2rem 0;
+        }
+
+        & pre, & code {
+            margin: 1.2rem 0;
+        }
+
+        & address {
+            margin: 1.2rem 0;
+        }
+
+        & img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+        }
+        & a {
+            color: var(--color-brand-accent);
+            transition: 200ms ease-in-out;
+            font-weight: 500;
+            text-decoration: underline !important;
+
+            &:hover {
+                color: var(--color-brand-accent-hover)
+            }
+            &:active {
+                color: var(--color-brand-accent-active)
+            }
+        }
+        & i {
+            color: var(--color-dark-faint)
+        }
+
+    }
+}
+
+a:where(:not(.wp-element-button)) {
+    text-decoration: none;
+}
