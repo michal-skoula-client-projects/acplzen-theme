@@ -154,6 +154,125 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_68ea90be822c3": {
+                    "key": "layout_68ea90be822c3",
+                    "name": "faq",
+                    "label": "Časté otázky (FAQ)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_68ea90d7822c5",
+                            "label": "Nadpis",
+                            "name": "heading",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "Časté otázky",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_68ea90ee822c6",
+                            "label": "Popisek",
+                            "name": "description",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "Pod popiskem se automaticky zobrazí email a telefon definovaný v sekci administrace \"Kontakt\"",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "rows": "",
+                            "placeholder": "Nenašli jste odpověď? Kontaktujte nás!",
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_68ea9128822c7",
+                            "label": "Otázky a odpovědi",
+                            "name": "questions",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "row",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Přidat řádek",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_68ea9137822c8",
+                                    "label": "Otázka",
+                                    "name": "question",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_68ea9128822c7"
+                                },
+                                {
+                                    "key": "field_68ea9140822c9",
+                                    "label": "Odpověď",
+                                    "name": "answer",
+                                    "aria-label": "",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "allow_in_bindings": 0,
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1,
+                                    "delay": 0,
+                                    "parent_repeater": "field_68ea9128822c7"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -172,7 +291,7 @@
     ],
     "menu_order": 0,
     "position": "normal",
-    "style": "default",
+    "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
@@ -180,5 +299,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760202657
+    "modified": 1760203236
 }
