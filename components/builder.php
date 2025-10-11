@@ -6,6 +6,7 @@
  * @since 1.0.0
  */
 
+require __DIR__ . '/exceptions/InvalidSectionException.php';
 
 /**
  * @param  string  $filepath full file path
@@ -36,6 +37,7 @@ if(have_rows('sections')):
 		endif;
 
 		$section_file = match($section_slug) {
+			'services' => '/sections/services.php',
 			default => null,
 		};
 

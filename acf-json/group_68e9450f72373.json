@@ -17,16 +17,16 @@
                 "id": ""
             },
             "layouts": {
-                "layout_68e94530e838b": {
-                    "key": "layout_68e94530e838b",
-                    "name": "",
-                    "label": "",
+                "layout_68ea6d79c912a": {
+                    "key": "layout_68ea6d79c912a",
+                    "name": "services",
+                    "label": "Co nabízíme",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_68e945712b5ba",
-                            "label": "",
-                            "name": "",
+                            "key": "field_68ea6e29c912c",
+                            "label": "Nadpis",
+                            "name": "heading",
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
@@ -40,9 +40,116 @@
                             "default_value": "",
                             "maxlength": "",
                             "allow_in_bindings": 0,
-                            "placeholder": "",
+                            "placeholder": "Co nabízíme",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_68ea6e43c912d",
+                            "label": "Nabídka",
+                            "name": "cards",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "min": 1,
+                            "max": 6,
+                            "collapsed": "",
+                            "button_label": "Přidat řádek",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_68ea6e88c912e",
+                                    "label": "Ikona",
+                                    "name": "icon",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Využívá sadu ikon FontAwesome. Pro změnu ikony je zapotřebí vložit třídy CSS, např. \"fa-solid fa-heart\". Více na fontawesome.com",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_68ea6e43c912d"
+                                },
+                                {
+                                    "key": "field_68ea6ed2c912f",
+                                    "label": "Název služby",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "Poradenství",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_68ea6e43c912d"
+                                },
+                                {
+                                    "key": "field_68ea6ef3c9130",
+                                    "label": "Popis služby",
+                                    "name": "description",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "rows": "",
+                                    "placeholder": "",
+                                    "new_lines": "",
+                                    "parent_repeater": "field_68ea6e43c912d"
+                                },
+                                {
+                                    "key": "field_68ea6f0ac9131",
+                                    "label": "Odkaz",
+                                    "name": "url",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "allow_in_bindings": 0,
+                                    "parent_repeater": "field_68ea6e43c912d"
+                                }
+                            ]
                         }
                     ],
                     "min": "",
@@ -73,5 +180,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760118164
+    "modified": 1760202657
 }

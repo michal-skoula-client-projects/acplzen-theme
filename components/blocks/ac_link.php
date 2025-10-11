@@ -22,7 +22,7 @@ $underline = match($style) {
 	'dotted' => 'dotted'
 };
 ?>
-<a href="<?= $href ?>" target="<?= $target ?>" class="group">
+<a href="<?= $href ?>" target="<?= $target ?>" class="<?= $class ?> group">
 	<span class="<?= "$underline $colors" ?>"><?=$label?></span>
 	<?php if($style !== 'dotted'): ?>
 		<i class="<?= $colors ?> fa-solid fa-arrow-right fa-2xs group-hover:pl-1 group-focus:pl-1 group-active:pl-1 duration-150 ease-in-out transition-all"></i>
