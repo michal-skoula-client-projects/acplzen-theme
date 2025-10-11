@@ -4,11 +4,11 @@
     "fields": [
         {
             "key": "field_68e9450f2b5b9",
-            "label": "Sekce",
+            "label": "Obsah webu",
             "name": "sections",
             "aria-label": "",
             "type": "flexible_content",
-            "instructions": "",
+            "instructions": "Zde se definují všechny sekce webu. Jednotlivé sekce je možné přejmenovat a pro nejjedonušší úpravy doporučuji vždy zavírat všechny aktuálně neupravované sekce, ať je editor přehlednější.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -302,18 +302,18 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_68eac4f76df8c": {
-                    "key": "layout_68eac4f76df8c",
-                    "name": "gallery_full",
-                    "label": "Galerie plnohodnotná",
+                "layout_68ead29f085af": {
+                    "key": "layout_68ead29f085af",
+                    "name": "pamphlets",
+                    "label": "Letáčky",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_68eac5086df8e",
-                            "label": "info",
-                            "name": "",
+                            "key": "field_68ead2b1085b1",
+                            "label": "Nadpis",
+                            "name": "heading",
                             "aria-label": "",
-                            "type": "message",
+                            "type": "text",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -322,9 +322,79 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "message": "Veškeré nastavení galerie najdete v administraci v sekci \"Fotogalerie\".",
-                            "new_lines": "wpautop",
-                            "esc_html": 0
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "Letáčky ke stažení",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_68ead2c7085b2",
+                            "label": "Letáčky",
+                            "name": "files",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "min": 1,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Přidat řádek",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_68ead336085b4",
+                                    "label": "Název letáčku",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_68ead2c7085b2"
+                                },
+                                {
+                                    "key": "field_68ead2e5085b3",
+                                    "label": "Složka",
+                                    "name": "file",
+                                    "aria-label": "",
+                                    "type": "file",
+                                    "instructions": "Soubor letáčku, ideálně PDF. Podporuje také časté formáty z MS word.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_size": "",
+                                    "max_size": "",
+                                    "mime_types": "pdf,docx,doc,odt",
+                                    "allow_in_bindings": 0,
+                                    "parent_repeater": "field_68ead2c7085b2"
+                                }
+                            ]
                         }
                     ],
                     "min": "",
@@ -402,6 +472,34 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_68eac4f76df8c": {
+                    "key": "layout_68eac4f76df8c",
+                    "name": "gallery_full",
+                    "label": "Galerie plnohodnotná",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_68eac5086df8e",
+                            "label": "info",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Veškeré nastavení galerie najdete v administraci v sekci \"Fotogalerie\".",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -428,5 +526,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760217665
+    "modified": 1760220119
 }

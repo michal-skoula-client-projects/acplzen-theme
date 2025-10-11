@@ -23,10 +23,10 @@ $photos = get_sub_field('photos');
 		<?php if($btn): ?>
 			<div class="flex justify-center mt-8">
 				<?= get_template_part('components/blocks/ac_button', args: [
+                    'style' => 'primary',
 					'label' => $btn['title'] ?? 'Klikni mě',
 					'href' => $btn['url'] ?? '#',
 					'target' => '_self',
-					'style' => 'secondary'
 				]); ?>
 			</div>
 		<?php endif; ?>

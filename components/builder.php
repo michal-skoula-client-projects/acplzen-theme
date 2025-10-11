@@ -42,6 +42,7 @@ if(have_rows('sections')):
 			'sponsors' => '/sections/sponsors.php',
 			'gallery_full' => '/sections/gallery_full.php',
 			'gallery_mini' => '/sections/gallery_mini.php',
+			'pamphlets' => '/sections/pamphlets.php',
 			default => null,
 		};
 
