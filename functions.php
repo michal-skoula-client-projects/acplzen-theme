@@ -13,6 +13,8 @@ use TailPress\Framework\Assets\ViteCompiler;
 use TailPress\Framework\Features\MenuOptions;
 use TailPress\Framework\Theme;
 
+const ISSUE_REPORT_EMAIL = 'mailto:michal@skoula.com?subject=Chyba%20na%20webu%20kvitekplzen.cz';
+
 function ac_in_production(): bool
 {
 	return !in_array(wp_get_environment_type(), ['development', 'local']);
@@ -85,8 +87,7 @@ function ac_remove_support_flag(string $post_type, string $flag): void
 	});
 }
 
-//ac_remove_support_flag('page', 'editor');
-//ac_remove_support_flag('page', 'editor');
+ac_remove_support_flag('page', 'editor');
 
 #[NoReturn]
 function ac_404(): void

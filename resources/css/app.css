@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @import './theme.css';
-@import './navbar.css';
+/*@import './navbar.css';*/
 @import '../../public/fonts/fonts.css';
 
 @source '../../vendor/tailpress/framework/**/*.php';
@@ -17,67 +17,6 @@
 }
 
 @layer components {
-    .button__primary {
-        @apply inline-block px-6 py-3 rounded-full text-light-base bg-brand-accent no-underline! motion-safe:duration-200 transition-colors ease-in-out cursor-pointer;
-
-        &:hover {
-            @apply bg-brand-accent-hover;
-        }
-
-        &:active {
-            @apply bg-brand-accent-active;
-        }
-
-        &::after {
-            @apply content-['→'] ml-2 relative bottom-[.06rem] translate-x-0;
-        }
-
-        &:hover::after {
-            @apply translate-x-2;
-        }
-    }
-
-    .button__link {
-        text-decoration-skip-ink: none;
-        @apply inline-block p-2 underline! underline-offset-4 cursor-pointer transition-colors motion-safe:duration-200 ease-in-out rounded-xl;
-
-        &.--dark {
-            @apply text-dark-base ;
-
-            &:hover {
-                @apply text-dark-faint;
-            }
-        }
-
-        &.--light {
-            @apply text-light-base;
-
-            &:hover {
-                @apply text-light-faint;
-            }
-        }
-    }
-
-    .link-icon {
-        /*@apply text-dark-base! hover:text-dark-soft! active:text-dark-faint!;*/
-    }
-
-    .link__icon::before {
-        position: relative;
-        bottom: -0.2rem;
-        margin-inline-end: 0.3rem;
-    }
-
-    .link__icon--mail::before {
-        content: url('../../public/assets/ico-mail.svg');
-    }
-    .link__icon--web::before {
-        content: url('../../public/assets/ico-web.svg');
-    }
-    .link__icon--tel::before {
-         content: url('../../public/assets/ico-tel.svg');
-    }
-
 
     .section__format-text {
         & h1 {

@@ -1,43 +1,64 @@
 <?php
+
 /**
- * Hero homepage component
+ * Component description
  *
  * @author Michal Škoula
  * @since 1.0.0
- */
+ **/
 
-$title = esc_allow_safe(get_field('title'));
-$description = esc_allow_safe(get_field('description'));
-$button = get_field('button');
-$image = get_field('image');
+$heading     = get_field('hero_heading') ?? 'American center Plzeň';
+$description = get_field('hero_description') ?? '';
+
+$posts = get_posts([
+	'post_type'     => 'aktualita',
+	'orderby'       => 'date',
+	'order'         => 'DESC',
+	'numberposts'   => 3,
+]);
 
 ?>
 
-<section class="w-full h-[100lvh] min-h-[30rem] max-h-[50rem] relative bg-primary-base" id="hero">
-    <!-- Background image -->
-    <div class="section__background w-full h-full">
-        <?php if(isset($image)): ?>
-            <img src="<?= esc_html($image['url']) ?>" alt="" class="w-full h-full object-cover">
-        <?php endif; ?>
-    </div>
-
-    <!-- Overlay -->
-    <div class="text-brand-main section__overlay top-0 left-0 absolute z-10 w-full h-full bg-linear-to-t from-[#000]/70 to-[#000]/25">
-
-    </div>
-
-    <!-- Content -->
-    <div class="section__content absolute inset-0 z-20 w-full h-full section max-content-width  flex items-center justify-center">
-        <div class="relative text-center">
-            <h1 class="text-light-base font-bold mb-4 leading-[110%]"><?= $title ?></h1>
-            <p class="text-light-soft text-balance mb-6 mx-auto max-w-2xl"><?= $description ?></p>
-            <?php if($button): ?>
-                <a href="<?= esc_url($button['url']) ?>" class="button__primary py-4">
-                    <?= esc_html($button['title']) ?>
-                </a>
-            <?php endif ?>
+<section class="section">
+	<div class="max-content-width">
+        <div class="text-center mb-16">
+            <h1 class="text-balance text-darkest mb-6 text-8xl font-bold tracking-tight leading-[108%]"><?= esc_allow_safe($heading) ?></h1>
+            <p class="text-balance text-dark text-lg"><?= esc_html($description) ?></p>
         </div>
-    </div>
+
+
+        <div class="bg-light-elevated p-8 rounded-md border-1 border-light-outline">
+            <h2 class="text-darker text-center">Aktuality</h2>
+
+
+
+
+
+			<?php if($posts): global $post; ?>
+                <div class="mt-8 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 mx-auto">
+					<?php foreach($posts as $post): setup_postdata($post); ?>
+
+                        <?= get_template_part('components/blocks/ac_post_card') ?>
+
+					<?php endforeach; wp_reset_postdata(); ?>
+
+					<?php  ?>
+                </div>
+			<?php else: ?>
+                <p>Žádné články nenalezeny.</p>
+			<?php endif; ?>
+            <div class="flex justify-center">
+	            <?php get_template_part('/components/blocks/ac_button', 'ac_button', args: [
+		            'style' => 'primary',
+		            'label' => 'Všechny aktuality',
+		            'href'   => get_post_type_archive_link('aktualita'),
+		            'target' => '_self',
+		            'class' => 'mx-auto mt-8'
+	            ]) ?>
+            </div>
+
+        </div>
+	</div>
 </section>
 
 

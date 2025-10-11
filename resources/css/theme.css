@@ -2,36 +2,31 @@
 
     --color-*: initial; /* Reset */
 
-    --color-brand-main: hsl(47, 92%, 70%);
-    --color-brand-main-hover: color-mix(in srgb, var(--color-brand-main) 80%, black);
-    --color-brand-main-active: color-mix(in srgb, var(--color-brand-main) 60%, black);
+    --color-brand-primary: oklch(60.30% 0.222 27.08);
+    --color-brand-primary-focus: color-mix(in oklch, var(--color-brand-primary) 90%, white);
+    --color-brand-primary-highlight: color-mix(in oklch, var(--color-brand-primary) 85%, white);
 
+    --color-brand-secondary: oklch(44.55% 0.117 255.21);
+    --color-brand-secondary-focus: color-mix(in oklch, var(--color-brand-secondary) 90%, black);
+    --color-brand-secondary-highlight: color-mix(in oklch, var(--color-brand-secondary) 85%, black);
 
-    --color-brand-accent: hsl(249, 87%, 61%);
-    --color-brand-accent-hover: color-mix(in srgb, var(--color-brand-accent) 80%, black);
-    --color-brand-accent-active: color-mix(in srgb, var(--color-brand-accent) 60%, black);
+    --color-dark: oklch(33.33% 0.075 245.52);
+    --color-darker: oklch(30.23% 0.066 244.74);
+    --color-darkest: oklch(25.17% 0.064 255.56);
 
-    --color-primary-highlight: hsl(151, 45%, 70%);
-    --color-primary-elevated: hsl(151, 45%, 60%);
-    --color-primary-surface: hsl(151, 45%, 40%);
-    --color-primary-base: hsl(151, 45%, 27%);
-    --color-primary-muted: hsl(151, 45%, 15%);
+    --color-light-base: oklch(97.91% 0.000 0);
+    --color-light-elevated: oklch(100.00% 0.000 0);
+    --color-light-highlight: oklch(90.06% 0.000 0);
+    --color-light-outline: var(--color-light-highlight);
 
-    --color-light-base: hsl(0, 0%, 100%);
-    --color-light-soft: hsl(0, 0%, 90%);
-    --color-light-faint: hsl(0, 0%, 85%);
+    --font-sans: "Montserrat", sans-serif;
 
-    --color-dark-base: hsl(156 77% 5%);
-    --color-dark-soft: hsl(156 77% 12%);
-    --color-dark-faint: hsl(156 77% 16%);
+    --text-base: 16px;
 
-    --color-state-success: #0DAE3D;
-    --color-state-info: #005DD0;
-    --color-state-warning: #D0A300;
-    --color-state-danger: #D00000;
-
-
-    --font-sans: "Plus Jakarta Sans", sans-serif;
+    --radius-*: initial;
+    --radius-lg: 3rem;
+    --radius-md: 2rem;
+    --radius-sm: 1rem;
 }
 
 @layer base {
@@ -42,7 +37,7 @@
     }
 
     :focus-visible {
-        outline: 2px solid var(--color-brand-main);
+        /*outline: 2px solid var(--color-brand-main);*/
     }
 
     *,
@@ -58,7 +53,7 @@
     }
 
     h1, .h1 {
-        @apply sm:text-5xl text-5xl text-balance;
+        @apply text-5xl;
     }
     h2, .h2 {
         @apply text-4xl;
@@ -77,7 +72,7 @@
     }
 
     p, li {
-        @apply leading-[150%];
+        @apply leading-[150%] text-base;
     }
     ul {
         @apply list-disc ml-6 my-1;
