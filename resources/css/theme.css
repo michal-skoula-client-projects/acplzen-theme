@@ -7,8 +7,8 @@
     --color-brand-primary-highlight: color-mix(in oklch, var(--color-brand-primary) 85%, white);
 
     --color-brand-secondary: oklch(44.55% 0.117 255.21);
-    --color-brand-secondary-focus: color-mix(in oklch, var(--color-brand-secondary) 90%, black);
-    --color-brand-secondary-highlight: color-mix(in oklch, var(--color-brand-secondary) 85%, black);
+    --color-brand-secondary-focus: color-mix(in oklch, var(--color-brand-secondary) 80%, white);
+    --color-brand-secondary-highlight: color-mix(in oklch, var(--color-brand-secondary) 70%, white);
 
     --color-dark: oklch(33.33% 0.075 245.52);
     --color-darker: oklch(30.23% 0.066 244.74);

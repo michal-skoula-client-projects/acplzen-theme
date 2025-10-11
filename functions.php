@@ -138,7 +138,7 @@ ac_disable_gutenberg('program', 'akce');
  * @param  string  $field_name The custom field/meta key (e.g. 'author_name').
  * @param  bool  $sortable   Whether the column should be sortable.
  */
-function kvitek_add_column_to_post_type_table( string $post_type, string $field_name, bool $sortable = false): void
+function ac_add_column_to_post_type_table( string $post_type, string $field_name, bool $sortable = false): void
 {
 	// Try to get the ACF field object to fetch label + choices
 	$field_object = function_exists('acf_get_field') ? acf_get_field($field_name) : null;
@@ -185,8 +185,8 @@ function kvitek_add_column_to_post_type_table( string $post_type, string $field_
 	}
 }
 
-kvitek_add_column_to_post_type_table('tabor', 'availability', true);
-kvitek_add_column_to_post_type_table('album','event_date',true);
+ac_add_column_to_post_type_table('tabor', 'availability', true);
+ac_add_column_to_post_type_table('album','event_date',true);
 
 function esc_allow_safe(string $text): string
 {
@@ -195,4 +195,65 @@ function esc_allow_safe(string $text): string
 		->allowAttribute('class', '*');
 
 	return new HtmlSanitizer($config)->sanitize($text);
+}
+
+/**
+ * Build a breadcrumb trail as an ordered array of ['label' => ..., 'url' => ...].
+ * Handles: front page, blog index, singular (pages, posts, CPT), 404.
+ *
+ * @return array<array<string,string>>
+ */
+function ac_breadcrumbs(): array {
+	global $post;
+
+	$trail = [];
+
+	// 0) Home
+	$trail[] = [ 'label' => 'Domů', 'url' => home_url( '/' ) ];
+
+	// FRONT PAGE
+	if ( is_front_page() ) {
+		return $trail; // just Home
+	}
+
+	// BLOG INDEX (when a static page is used for posts)
+	$page_for_posts = (int) get_option( 'page_for_posts' );
+
+	// ARCHIVES (post type)
+	if ( is_post_type_archive() ) {
+		$pto = get_post_type_object( get_query_var( 'post_type' ) );
+		if ( $pto && ! is_wp_error( $pto ) ) {
+			$trail[] = [ 'label' => $pto->labels->name, 'url' => get_post_type_archive_link( $pto->name ) ];
+		}
+
+		return $trail;
+	}
+
+	// SINGULAR (posts, pages, CPT)
+	if ( is_singular() ) {
+		$post_type = get_post_type( $post );
+
+		// If this is the main blog post type and there is a static posts page, include it.
+		if ( $post_type === 'post' && $page_for_posts ) {
+			$trail[] = [
+				'label' => get_the_title( $page_for_posts ),
+				'url'   => get_permalink( $page_for_posts ),
+			];
+		}
+
+		// If CPT with archive, include its archive link
+		if ( $post_type !== 'post' ) {
+			$pto = get_post_type_object( $post_type );
+			if ( $pto && $pto->has_archive ) {
+				$trail[] = [ 'label' => $pto->labels->name, 'url' => get_post_type_archive_link( $post_type ) ];
+			}
+		}
+
+		// Current item
+		$trail[] = [ 'label' => get_the_title( $post ), 'url' => get_permalink( $post ) ];
+
+		return $trail;
+	}
+
+	return $trail;
 }

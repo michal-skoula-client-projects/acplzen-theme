@@ -3,7 +3,7 @@
 
 get_header();
 
-get_template_part('components/sections/hero-pages');
+get_template_part('components/sections/hero');
 get_template_part('components/builder');
 the_content();
 

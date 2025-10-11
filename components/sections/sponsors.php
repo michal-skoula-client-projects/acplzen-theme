@@ -14,7 +14,7 @@ $sponsors = get_field('partners', 'options');
 <section class="section">
 	<div class="max-content-width p-12 rounded-md border border-light-outline bg-light-elevated">
 		<div>
-			<h2 class="text-center text-darker mb-12"><?= $heading ?></h2>
+			<h2 class="text-center text-darker mb-16"><?= $heading ?></h2>
 
 			<?php if($sponsors): ?>
 				<div class="flex gap-8 items-center flex-wrap justify-center">

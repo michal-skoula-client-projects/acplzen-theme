@@ -19,7 +19,7 @@ $colors = match($color) {
 
 $underline = match($style) {
 	default => 'underline',
-	'dotted' => 'dotted'
+	'dotted' => 'underline decoration-brand-secondary decoration-dotted decoration-2 underline-offset-3 group-hover:decoration-brand-secondary-focus group-focus:decoration-brand-secondary-focus group-active:decoration-brand-secondary-highlight'
 };
 ?>
 <a href="<?= $href ?>" target="<?= $target ?>" class="<?= $class ?> group">
