@@ -40,6 +40,8 @@ if(have_rows('sections')):
 			'services' => '/sections/services.php',
 			'faq' => '/sections/faq.php',
 			'sponsors' => '/sections/sponsors.php',
+			'gallery_full' => '/sections/gallery_full.php',
+			'gallery_mini' => '/sections/gallery_mini.php',
 			default => null,
 		};
 

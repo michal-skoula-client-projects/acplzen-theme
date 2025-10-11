@@ -230,28 +230,37 @@ function ac_breadcrumbs(): array {
 	}
 
 	// SINGULAR (posts, pages, CPT)
-	if ( is_singular() ) {
-		$post_type = get_post_type( $post );
+	if (is_singular()) {
+		$qid = get_queried_object_id();
+		$ptype = get_post_type($qid);
 
-		// If this is the main blog post type and there is a static posts page, include it.
-		if ( $post_type === 'post' && $page_for_posts ) {
-			$trail[] = [
-				'label' => get_the_title( $page_for_posts ),
-				'url'   => get_permalink( $page_for_posts ),
-			];
+		// Blog index if needed
+		$page_for_posts = (int) get_option('page_for_posts');
+		if ($ptype === 'post' && $page_for_posts) {
+			$trail[] = ['label' => get_the_title($page_for_posts), 'url' => get_permalink($page_for_posts)];
 		}
 
-		// If CPT with archive, include its archive link
-		if ( $post_type !== 'post' ) {
-			$pto = get_post_type_object( $post_type );
-			if ( $pto && $pto->has_archive ) {
-				$trail[] = [ 'label' => $pto->labels->name, 'url' => get_post_type_archive_link( $post_type ) ];
+		// CPT archive
+		if ($ptype !== 'post') {
+			$pto = get_post_type_object($ptype);
+			if ($pto && $pto->has_archive) {
+				$trail[] = ['label' => $pto->labels->name, 'url' => get_post_type_archive_link($ptype)];
+			}
+		}
+
+		// Ancestors (works for hierarchical types like 'page')
+		if (is_post_type_hierarchical($ptype)) {
+			$ancestors = array_reverse(get_post_ancestors($qid));
+			foreach ($ancestors as $ancestor_id) {
+				$trail[] = [
+					'label' => get_the_title($ancestor_id),
+					'url'   => get_permalink($ancestor_id),
+				];
 			}
 		}
 
 		// Current item
-		$trail[] = [ 'label' => get_the_title( $post ), 'url' => get_permalink( $post ) ];
-
+		$trail[] = ['label' => get_the_title($qid), 'url' => get_permalink($qid)];
 		return $trail;
 	}
 

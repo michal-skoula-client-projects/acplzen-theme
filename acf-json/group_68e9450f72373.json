@@ -301,6 +301,107 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_68eac4f76df8c": {
+                    "key": "layout_68eac4f76df8c",
+                    "name": "gallery_full",
+                    "label": "Galerie plnohodnotná",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_68eac5086df8e",
+                            "label": "info",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Veškeré nastavení galerie najdete v administraci v sekci \"Fotogalerie\".",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_68eac538cee33": {
+                    "key": "layout_68eac538cee33",
+                    "name": "gallery_mini",
+                    "label": "Galerie mini",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_68eac54bcee35",
+                            "label": "info",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Mini galerie - určená jakožto proklik na hlavní galerii. Sem patří pouze výběr 3 nejhezčích fotek.",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        },
+                        {
+                            "key": "field_68eac580cee36",
+                            "label": "Fotky",
+                            "name": "photos",
+                            "aria-label": "",
+                            "type": "gallery",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min": 1,
+                            "max": 3,
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "insert": "append",
+                            "preview_size": "medium"
+                        },
+                        {
+                            "key": "field_68eac5a7cee37",
+                            "label": "Odkaz na galerii",
+                            "name": "btn_url",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "allow_in_bindings": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -327,5 +428,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760205382
+    "modified": 1760217665
 }
