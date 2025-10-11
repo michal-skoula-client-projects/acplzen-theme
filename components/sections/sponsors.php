@@ -6,28 +6,26 @@
  * @since 1.0.0
  */
 
-$heading = get_sub_field('heading');
-$description = get_sub_field('description');
-$sponsors = get_sub_field('sponsors');
+$heading = get_field('partners_heading', 'options');
+$sponsors = get_field('partners', 'options');
 
 ?>
 
 <section class="section">
-	<div class="max-content-width">
+	<div class="max-content-width p-12 rounded-md border border-light-outline bg-light-elevated">
 		<div>
-			<h2 class="text-center mb-2"><?= $heading ?></h2>
-            <p class="text-center mb-8"><?= $description ?></p>
+			<h2 class="text-center text-darker mb-12"><?= $heading ?></h2>
 
-			<?php if(isset($sponsors)): ?>
+			<?php if($sponsors): ?>
 				<div class="flex gap-8 items-center flex-wrap justify-center">
 					<?php foreach ($sponsors as $sponsor):
-						$name = esc_html($sponsor['name']);
-						$link = esc_url($sponsor['url']);
 						$logo = $sponsor['logo'];
+						$name = esc_html($sponsor['label']);
+						$link = esc_url($sponsor['url']);
                     ?>
 						<div class="relative">
 							<?php if($link): ?>
-								<a href="<?= $link ?>" class="absolute z-10 inset-0 bg-light-base/15" target="_blank"></a>
+								<a href="<?= $link ?>" class="absolute z-10 inset-0" target="_blank"></a>
 							<?php endif; ?>
 
 							<?php if($logo): ?>

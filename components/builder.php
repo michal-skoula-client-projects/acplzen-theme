@@ -39,6 +39,7 @@ if(have_rows('sections')):
 		$section_file = match($section_slug) {
 			'services' => '/sections/services.php',
 			'faq' => '/sections/faq.php',
+			'sponsors' => '/sections/sponsors.php',
 			default => null,
 		};
 

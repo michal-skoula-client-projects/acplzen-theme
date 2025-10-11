@@ -273,6 +273,34 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_68ea9814364fc": {
+                    "key": "layout_68ea9814364fc",
+                    "name": "sponsors",
+                    "label": "Sponzoři",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_68ea9a0f364fe",
+                            "label": "info",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Veškeré informace o sponzorech\/partnerech amerického centra se definují v administraci v sekci \"Partneři\".",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -299,5 +327,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760203236
+    "modified": 1760205382
 }
