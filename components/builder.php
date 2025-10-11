@@ -43,6 +43,8 @@ if(have_rows('sections')):
 			'gallery_full' => '/sections/gallery_full.php',
 			'gallery_mini' => '/sections/gallery_mini.php',
 			'pamphlets' => '/sections/pamphlets.php',
+			'text-button-image-section' => '/sections/text-button-image-section.php',
+			'text_text_section' => '/sections/text-text-section.php',
 			default => null,
 		};
 
