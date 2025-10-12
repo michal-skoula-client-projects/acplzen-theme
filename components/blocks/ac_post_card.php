@@ -41,7 +41,7 @@ $author = get_the_author() === ''
 				'style' => 'underline',
 				'color' => 'primary',
 				'label' => 'Přečíst článek',
-				'href' => get_permalink()
+				'href' => get_permalink($id)
 			]) ?>
 		</div>
 	</div>

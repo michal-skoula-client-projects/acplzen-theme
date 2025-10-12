@@ -49,6 +49,7 @@ if(have_rows('sections')):
 			'video-embed' => '/sections/video-embed.php',
 			'call_to_action' => '/sections/call-to-action.php',
 			'services_archive_section' => '/sections/services_archive_section.php',
+			'three_col_links_section' => '/sections/three-col-links-section.php',
 			default => null,
 		};
 

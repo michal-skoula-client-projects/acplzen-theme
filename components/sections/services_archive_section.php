@@ -24,7 +24,7 @@ $services = get_posts([
 						<h2 class="h3 text-darkest mb-3"><?= esc_allow_safe(get_the_title() ?? 'Neznámá služba') ?></h2>
 						<p class="text-dark mb-5"><?= esc_allow_safe(get_field('about')) ?></p>
 						<?php get_template_part('/components/blocks/ac_link', args: [
-							'color' => 'secondary',
+							'color' => 'primary',
 							'style' => 'underline',
 							'href' => get_post_permalink(),
 							'label' => 'Zjistit více',

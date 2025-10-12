@@ -32,6 +32,15 @@
     --text-8xl: 80px;
 }
 
+:root {
+    /* pb-[calc(var(--section-padding)*2)] p-[var(--section-padding)] */
+    --section-padding: 2rem;
+
+    @media screen and (max-width: 576px) {
+        --section-padding: 1rem;
+    }
+}
+
 @layer base {
     body {
         font-optical-sizing: auto;
@@ -56,10 +65,10 @@
     }
 
     h1, .h1 {
-        @apply text-5xl;
+        @apply text-4xl sm:text-5xl;
     }
     h2, .h2 {
-        @apply text-4xl;
+        @apply text-3xl sm:text-4xl;
     }
     h3, .h3 {
         @apply text-3xl;

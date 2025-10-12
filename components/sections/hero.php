@@ -15,9 +15,9 @@ $description_right = $args['description_right'] ?? get_field('description_right'
 
 ?>
 
-<section class="section lg:pt-32 md:pt-28 pt-20">
+<section class="lg:px-16 md:px-12 px-5 lg:pt-32 md:pt-28 pt-20 lg:pb-10 md:pb-8 pb-4">
 	<div class="max-content-width">
-		<div class="text-dark mb-16">
+		<div class="text-dark">
 			<?= get_template_part('/components/blocks/ac_breadcrumbs', args: ['list_elems' => ac_breadcrumbs()])?>
 			<h1 class="text-darkest mb-6 font-bold tracking-tight leading-[120%]"><?= esc_allow_safe($heading) ?></h1>
 
