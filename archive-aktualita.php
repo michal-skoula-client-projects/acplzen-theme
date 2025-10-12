@@ -101,7 +101,7 @@ function create_pagination_button(callable $disabled, int $to_page, string $labe
             $is_disabled_js
             $inline_styles
             $tab_navigatable
-            href="?page=$to_page#kvitek-gallery" 
+            href="?page=$to_page#obsah" 
             class="$styles py-2 px-4 rounded-sm no-underline! border border-light-outline"
         >
             $label
@@ -122,9 +122,9 @@ get_template_part('components/sections/hero', args: [
 ])
 ?>
 
-<section class="section">
+<section class="section" id="#obsah">
     <div class="max-content-width">
-        <div class="grid grid-cols-3 gap-12 mb-12">
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 mb-12">
 	        <?php if($paginated_ids): ?>
 		        <?php foreach($paginated_ids as $post_id)
                 {
@@ -154,7 +154,7 @@ get_template_part('components/sections/hero', args: [
 				    ?>
                 </div>
 
-                <p><?= 'Strana ' . $current_page . ' / ' . $total_pages ; ?></p>
+                <p class="text-dark"><?= 'Strana ' . $current_page . ' / ' . $total_pages ; ?></p>
 
                 <div class="flex gap-1">
 				    <?php

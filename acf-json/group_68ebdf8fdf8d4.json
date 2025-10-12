@@ -1,0 +1,85 @@
+{
+    "key": "group_68ebdf8fdf8d4",
+    "title": "Informace o Plzeňském rozhovoru",
+    "fields": [
+        {
+            "key": "field_68ebe76ffb454",
+            "label": "Poznámka",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Třízení se řídí podle nastavení data publikace (pravo nahoře), nikoli podle zadaného data. Je to limitace wordpressu. Změňte proto datum publikace, tak, aby bylo ve správný rok a pak se bude třídit automaticky dobře.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_68ebdfccb1b94",
+            "label": "Místo konání",
+            "name": "location",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_68ebdf90b1b93",
+            "label": "Datum akce",
+            "name": "date",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y",
+            "return_format": "Y-m-d",
+            "first_day": 1,
+            "default_to_current_date": 0,
+            "allow_in_bindings": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "plzensky-rozhovor"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1760290810
+}
