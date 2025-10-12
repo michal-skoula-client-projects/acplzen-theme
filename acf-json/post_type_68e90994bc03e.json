@@ -1,6 +1,6 @@
 {
     "key": "post_type_68e90994bc03e",
-    "title": "Služby",
+    "title": "Poradíme",
     "menu_order": 0,
     "active": true,
     "post_type": "sluzba",
@@ -8,7 +8,7 @@
     "import_source": "",
     "import_date": "",
     "labels": {
-        "name": "Služby",
+        "name": "Poradíme",
         "singular_name": "Služba",
         "menu_name": "Poradíme",
         "all_items": "Přehled Služeb",
@@ -30,10 +30,10 @@
         "use_featured_image": "",
         "insert_into_item": "Vložit do obsahu služby",
         "uploaded_to_this_item": "Nahráno do této služby",
-        "filter_items_list": "",
-        "filter_by_date": "",
-        "items_list_navigation": "",
-        "items_list": "",
+        "filter_items_list": "Filtrovat seznam služby",
+        "filter_by_date": "Filtrovat služby podle data",
+        "items_list_navigation": "Navigace v seznamu Služby",
+        "items_list": "Seznam Služby",
         "item_published": "Služba zveřejněna.",
         "item_published_privately": "Služba byla vydána neveřejně.",
         "item_reverted_to_draft": "Služba byla převedena na koncept.",
@@ -67,11 +67,12 @@
     "supports": [
         "title",
         "editor",
+        "thumbnail",
         "custom-fields"
     ],
     "taxonomies": "",
-    "has_archive": false,
-    "has_archive_slug": "",
+    "has_archive": true,
+    "has_archive_slug": "sluzby",
     "rewrite": {
         "permalink_rewrite": "post_type_key",
         "with_front": "1",
@@ -84,5 +85,5 @@
     "delete_with_user": false,
     "register_meta_box_cb": "",
     "enter_title_here": "Název služby",
-    "modified": 1760259623
+    "modified": 1760312220
 }

@@ -39,7 +39,9 @@ $description_right = $args['description_right'] ?? get_field('description_right'
 					'label' => $url['title'] ?? 'Klikni mě',
                     'href' => $url['url'] ?? '',
                     'target' => $url['target'] ?? '_self',
-                    'class' => 'inline-block mt-4'
+                    'class' => 'inline-block mt-4',
+                    'color' => 'secondary',
+                    'style' => 'dotted',
                 ]) ?>
     		<?php endif; ?>
 		</div>

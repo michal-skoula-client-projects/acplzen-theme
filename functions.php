@@ -112,6 +112,16 @@ function ac_disable_single_template_view(string ...$slugs): void
 
 ac_disable_single_template_view('program');
 
+function ac_disable_archive_template_view(string ...$slugs): void
+{
+	add_action('template_redirect', function () use ($slugs) {
+		if (is_archive($slugs)) {
+			ac_404();
+		}
+	});
+}
+
+//ac_disable_archive_template_view('sluzba');
 
 function ac_disable_gutenberg(...$post_types): void
 {
