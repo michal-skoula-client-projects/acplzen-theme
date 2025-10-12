@@ -718,6 +718,34 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_68eaf0204b128": {
+                    "key": "layout_68eaf0204b128",
+                    "name": "contacts_pill",
+                    "label": "Pruh s kontakty ",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_68eaf0374b12a",
+                            "label": "Info",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Veškeré nastavení kontaktů najdete v administraci v sekci \"Kontakt\"",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -744,5 +772,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760225277
+    "modified": 1760227417
 }

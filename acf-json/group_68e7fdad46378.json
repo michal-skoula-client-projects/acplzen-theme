@@ -1,0 +1,170 @@
+{
+    "key": "group_68e7fdad46378",
+    "title": "Kontaktní informace",
+    "fields": [
+        {
+            "key": "field_68e8f209268ce",
+            "label": "Telefon",
+            "name": "tel",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "+420 123 456 789",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_68e8f265268cf",
+            "label": "Email",
+            "name": "email",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "kontakt@acplzen.zcu.cz",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_68eaefd0bb89c",
+            "label": "Otevírací doba",
+            "name": "opening_hours",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_68e8f27a268d0",
+            "label": "Sociální sítě",
+            "name": "socials",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Vyberte využívané sociální sítě. Web se pokusí najít ikonu na základě názvu sítě z databáze ikon fontawesome.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Přidat řádek",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_68e8f2f1268d1",
+                    "label": "Sociální síť",
+                    "name": "item",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0,
+                    "parent_repeater": "field_68e8f27a268d0"
+                }
+            ]
+        },
+        {
+            "key": "field_68e8f31f268d2",
+            "label": "Kontaktní údaje",
+            "name": "contacts",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Víceřádkové kontaktní údaje, které se zobrazí v posledním sloupci zápatí.  Neměla by chybět např. adresa, otevírací doba, atd.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "text",
+            "media_upload": 0,
+            "toolbar": "full",
+            "delay": 0
+        },
+        {
+            "key": "field_68e8f38a268d3",
+            "label": "Odkaz na Google mapy",
+            "name": "maps_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Odkaz z Google Maps iFrame",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "contact_info"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1760227302
+}
