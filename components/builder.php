@@ -47,6 +47,7 @@ if(have_rows('sections')):
 			'text_text_section' => '/sections/text-text-section.php',
 			'contacts_pill' => '/sections/contacts-pill.php',
 			'video-embed' => '/sections/video-embed.php',
+			'call_to_action' => '/sections/call-to-action.php',
 			default => null,
 		};
 

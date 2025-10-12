@@ -795,6 +795,92 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_68eb611f42f55": {
+                    "key": "layout_68eb611f42f55",
+                    "name": "call_to_action",
+                    "label": "Call to action",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_68eb613a42f57",
+                            "label": "Nadpis",
+                            "name": "heading",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "Rezervujte si seminář!",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_68eb615842f58",
+                            "label": "Dodatek",
+                            "name": "description",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "rows": 3,
+                            "placeholder": "Rádi zodpovíme všechny Vaše dotazy, stačí se s námi spojit.",
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_68eb618a42f59",
+                            "label": "Hlavní tlačítko",
+                            "name": "btn_primary",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "allow_in_bindings": 0
+                        },
+                        {
+                            "key": "field_68eb61a542f5a",
+                            "label": "Vedlejší tlačítko (odkaz)",
+                            "name": "btn_secondary",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "allow_in_bindings": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -821,5 +907,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760229703
+    "modified": 1760256451
 }
