@@ -13,7 +13,8 @@ use TailPress\Framework\Assets\ViteCompiler;
 use TailPress\Framework\Features\MenuOptions;
 use TailPress\Framework\Theme;
 
-const ISSUE_REPORT_EMAIL = 'mailto:michal@skoula.com?subject=Chyba%20na%20webu%20kvitekplzen.cz';
+const ISSUE_REPORT_EMAIL = 'mailto:michal@skoula.com?subject=Chyba%20na%20webu%20acplzen.ujp.zcu.cz';
+const PAGINATION_INTERVAL = 12;
 
 function ac_in_production(): bool
 {
@@ -77,7 +78,7 @@ function ac_hide_entry_from_sidebar(...$entries): void
 	}
 }
 
-//ac_hide_entry_from_sidebar('edit.php', 'edit-comments.php');
+ac_hide_entry_from_sidebar('edit.php', 'edit-comments.php');
 
 
 function ac_remove_support_flag(string $post_type, string $flag): void
