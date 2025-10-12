@@ -58,7 +58,7 @@ $location = get_field('location') ?: null
                     <hr class="lg:hidden">
                 </div>
             </div>
-            <div class="text-dark max-w-screen-md lg:mx-auto section__format-text mb-12">
+            <div class="text-dark max-w-screen-md w-full lg:mx-auto section__format-text mb-12">
                 <p class="h3 text-darkest pb-0 mb-0">O tomto ročníku</p>
                 <hr class="max-lg:hidden">
 			    <?php the_content() ?>
