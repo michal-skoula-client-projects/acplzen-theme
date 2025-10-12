@@ -10,9 +10,9 @@
 }
 
 .ac-nav-slideover-menu {
-    @apply bg-light-elevated border-l border-l-light-outline p-8 pt-[calc(4.5rem)]
+    @apply bg-light-elevated border-l border-l-light-outline p-8
 
-    fixed top-0 right-0 z-50 h-screen w-[max(70%,20rem)] max-w-full
+    fixed top-[2.5rem] right-0 z-50 h-screen w-[max(60%,20rem)] max-w-full
     translate-x-[100%] [&.open]:max-nav:translate-x-0
     transition-transform duration-300 ease-in-out motion-reduce:transition-none;
 }
@@ -39,7 +39,7 @@
 }
 
 .ac-nav-open-btn, .ac-nav-close-btn {
-    @apply nav:hidden cursor-pointer border border-light-outline hover:bg-light-highlight sm:p-3 p-2 rounded-sm;
+    @apply nav:hidden cursor-pointer border border-light-outline hover:bg-light-highlight bg-light-base sm:p-3 p-2 rounded-sm;
 }
 
 .ac-nav-close-btn {

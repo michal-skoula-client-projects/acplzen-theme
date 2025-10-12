@@ -57,7 +57,7 @@
         >
             <p>Přeskočit na obsah</p>
         </a>
-        <div class="max-content-width flex items-center justify-between">
+        <div class="max-content-width flex items-center justify-between gap-8">
             <!-- Left side-->
             <div>
 		        <?php if (has_custom_logo()): ?>

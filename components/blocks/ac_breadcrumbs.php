@@ -7,7 +7,7 @@ $styles = 'text-brand-primary group-hover:text-brand-primary-focus group-focus:t
 
 <nav>
 	<?php if($list_elems): ?>
-		<ol id="breadcrumbs" class="flex flex-wrap gap-2 items-center">
+		<ol id="breadcrumbs" class="flex flex-wrap gap-x-2 gap-y-1 items-center">
 			<?php foreach ($list_elems as $index => $list_elem): ?>
 				<li class="flex items-center gap-2">
 					<?php if ($index + 1 < count($list_elems)): ?>

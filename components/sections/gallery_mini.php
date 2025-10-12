@@ -16,7 +16,7 @@ $photos = get_sub_field('photos');
 		<div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
 			<?php if($photos): ?>
 				<?php foreach ($photos as $photo): ?>
-					<img src="<?= $photo['sizes']['medium_large'] ?>" alt="<?= $photo['title'] ?>" class="aspect-4/3 object-cover h-full rounded-sm">
+					<img src="<?= $photo['sizes']['medium_large'] ?>" alt="<?= $photo['title'] ?>" class="aspect-4/3 object-cover w-full h-full rounded-sm">
 				<?php endforeach; ?>
 			<?php endif; ?>
 		</div>
