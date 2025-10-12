@@ -12,7 +12,7 @@
     }
 
     .max-content-width {
-        @apply max-w-screen-xl mx-auto;
+        @apply max-w-screen-xl mx-auto w-full;
     }
 
     h1 {

@@ -746,6 +746,55 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_68eaf8720077c": {
+                    "key": "layout_68eaf8720077c",
+                    "name": "video-embed",
+                    "label": "Video (Youtube)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_68eaf8a60077e",
+                            "label": "Nadpis",
+                            "name": "heading",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "Videonávod",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_68eaf8ba0077f",
+                            "label": "Adresa na youtube embed",
+                            "name": "yt_embed_url",
+                            "aria-label": "",
+                            "type": "url",
+                            "instructions": "POZOR! Je rozdíl mezi klasickým odkazem a \"embed odkazem\". Ten embed získáte kliknutím na sdílet -> vložit -> odkaz je v src=\"...\" kde jej stačí zkopírovat a vložit. V případě problémů mi napište.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "https:\/\/www.youtube.com\/embed\/..."
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -772,5 +821,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760227417
+    "modified": 1760229703
 }
