@@ -17,18 +17,18 @@ $description_right = $args['description_right'] ?? get_field('description_right'
 
 <section class="section lg:pt-32 md:pt-28 pt-20">
 	<div class="max-content-width">
-		<div class="text-dark">
+		<div class="text-dark mb-16">
 			<?= get_template_part('/components/blocks/ac_breadcrumbs', args: ['list_elems' => ac_breadcrumbs()])?>
 			<h1 class="text-darkest mb-6 font-bold tracking-tight leading-[120%]"><?= esc_allow_safe($heading) ?></h1>
 
 			<?php if($style === 'single'): ?>
-				<p class="max-w-screen-md mb-16">
+				<p class="max-w-screen-md section__format-text">
 					<?= esc_allow_safe($description_left) ?>
 				</p>
 			<?php endif; ?>
 
 			<?php if($style === 'side-by-side'): ?>
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-4 mb-16">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-4 section__format-text">
 					<p><?= esc_allow_safe($description_left) ?></p>
 					<p><?= esc_allow_safe($description_right) ?></p>
 				</div>
