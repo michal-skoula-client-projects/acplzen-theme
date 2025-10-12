@@ -95,6 +95,10 @@
     b, strong {
         @apply font-semibold;
     }
+
+    hr {
+        @apply border-0 h-px w-full py-0 my-0 bg-light-outline
+    }
 }
 
 @theme inline {
