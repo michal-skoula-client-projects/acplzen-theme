@@ -22,7 +22,7 @@ $posts = get_posts([
 <section class="section lg:pt-24 md:pt-20 pt-12">
 	<div class="max-content-width">
         <div class="text-center mb-16">
-            <h1 class="text-balance text-darkest mb-6 text-8xl font-bold tracking-tight leading-[120%]"><?= esc_allow_safe($heading) ?></h1>
+            <h1 class="text-balance text-darkest mb-6 lg:text-8xl md:text-6xl sm:text-5xl text-3xl font-bold tracking-tight leading-[120%]"><?= esc_allow_safe($heading) ?></h1>
             <p class="text-balance text-dark text-lg"><?= esc_html($description) ?></p>
         </div>
 

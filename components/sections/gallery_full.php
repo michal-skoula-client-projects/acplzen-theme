@@ -13,7 +13,7 @@ $images = get_field('photo_gallery', 'options')
 <section class="section">
 	<div class="max-content-width">
 		<?php if($images): ?>
-			<div class="grid grid-cols-3 gap-8">
+			<div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1  gap-8">
 				<?php foreach ($images as $image):
 
 					$img_url = esc_url($image['sizes']['large']);

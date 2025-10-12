@@ -881,6 +881,34 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_68eb6758def75": {
+                    "key": "layout_68eb6758def75",
+                    "name": "services_archive_section",
+                    "label": "Výpis nabídky \"poradíme\"",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_68eb677fdef77",
+                            "label": "Info",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Tato sekce vypisuje všechny zveřejněné služby v administraci v sekci \"Poradíme\".",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -907,5 +935,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760256451
+    "modified": 1760257986
 }

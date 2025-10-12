@@ -66,6 +66,27 @@
             "append": ""
         },
         {
+            "key": "field_68eb9a316e6dd",
+            "label": "Adresa",
+            "name": "address",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Adresa, která se zobrazí v navigační liště. Hezky krátce, např. Univerzitní 21",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_68e8f27a268d0",
             "label": "Sociální sítě",
             "name": "socials",
@@ -166,5 +187,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760227302
+    "modified": 1760270946
 }

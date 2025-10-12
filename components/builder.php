@@ -48,6 +48,7 @@ if(have_rows('sections')):
 			'contacts_pill' => '/sections/contacts-pill.php',
 			'video-embed' => '/sections/video-embed.php',
 			'call_to_action' => '/sections/call-to-action.php',
+			'services_archive_section' => '/sections/services_archive_section.php',
 			default => null,
 		};
 

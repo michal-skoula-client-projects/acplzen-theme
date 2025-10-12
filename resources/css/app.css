@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @import './theme.css';
-/*@import './navbar.css';*/
+@import './navbar.css';
 @import '../../public/fonts/fonts.css';
 
 @source '../../vendor/tailpress/framework/**/*.php';
@@ -19,8 +19,7 @@
         & span {
             text-decoration: underline;
             text-decoration-skip-ink: none;
-            text-decoration-thickness: 2rem;
-            text-underline-offset: -1.1rem;
+            @apply decoration-[3vw] lg:decoration-[2rem] underline-offset-[-1.4vw] lg:underline-offset-[-1.1rem]
         }
         & span.underline-red {
             @apply decoration-brand-primary/70

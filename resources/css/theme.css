@@ -4,7 +4,7 @@
 
     --color-brand-primary: oklch(60.30% 0.222 27.08);
     --color-brand-primary-focus: color-mix(in oklch, var(--color-brand-primary) 90%, white);
-    --color-brand-primary-highlight: color-mix(in oklch, var(--color-brand-primary) 85%, white);
+    --color-brand-primary-highlight: color-mix(in oklch, var(--color-brand-primary) 80%, white);
 
     --color-brand-secondary: oklch(44.55% 0.117 255.21);
     --color-brand-secondary-focus: color-mix(in oklch, var(--color-brand-secondary) 80%, white);
@@ -27,6 +27,9 @@
     --radius-lg: 3rem;
     --radius-md: 2rem;
     --radius-sm: 1rem;
+    --radius-xs: 0.5rem;
+
+    --text-8xl: 80px;
 }
 
 @layer base {
@@ -37,7 +40,7 @@
     }
 
     :focus-visible {
-        /*outline: 2px solid var(--color-brand-main);*/
+        outline: 2px solid var(--color-brand-primary);
     }
 
     *,

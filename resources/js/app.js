@@ -66,22 +66,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const media = window.matchMedia(`(width <= ${navBreakpoint})`);
 
     // Hide navbar on scroll
-    let lastScrollPos = 0;
-    window.addEventListener("scroll", () => {
-        let currScrollPos = window.scrollY;
-
-        if(currScrollPos > 50) {
-            lastScrollPos < currScrollPos
-                ? navbar.classList.add("collapsed")
-                : navbar.classList.remove("collapsed");
-        }
-        else {
-            navbar.classList.remove("collapsed")
-        }
-
-
-        lastScrollPos = currScrollPos;
-    });
+    // let lastScrollPos = 0;
+    // window.addEventListener("scroll", () => {
+    //     let currScrollPos = window.scrollY;
+    //
+    //     if(currScrollPos > 50) {
+    //         lastScrollPos < currScrollPos
+    //             ? navbar.classList.add("collapsed")
+    //             : navbar.classList.remove("collapsed");
+    //     }
+    //     else {
+    //         navbar.classList.remove("collapsed")
+    //     }
+    //
+    //
+    //     lastScrollPos = currScrollPos;
+    // });
     skipNavigation.addEventListener("click", closeSlideover);
 
     /*
@@ -169,12 +169,16 @@ document.addEventListener("DOMContentLoaded", () => {
         /** @type {NodeListOf<HTMLElement>} */
         links;
 
-        constructor(dropdownElem, id = null) {
+        /** @type boolean */
+        isMobile;
+
+        constructor(dropdownElem, id = null, isMobile = false) {
             this.dropdown = dropdownElem;
             this.dButton = this.dropdown.querySelector(":scope > a");
             this.dList = this.dropdown.querySelector(":scope > ul");
             this.links = this.dList.querySelectorAll(":scope > li > a");
             this.menuId = `nav-dropdown-menu-${id}` ?? null;
+            this.isMobile = isMobile;
 
             this.modifyDefaultWordpressMarkup();
             this.registerBasicEventListeners();
@@ -288,22 +292,36 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        modifyDefaultWordpressMarkup() {
+        modifyDefaultWordpressMarkup(isMobile = false) {
             // Swap default <a> tag for a proper button
             let button = document.createElement("button");
             button.innerText = this.dButton.innerText;
             button.setAttribute("nav-sub-menu-toggle", "true");
-            button.classList.add("kvitek-nav-dropdown-button");
 
-            this.dropdown.prepend(button);
-            this.dButton.remove();
-            this.dButton = this.dropdown.querySelector(":scope > button[nav-sub-menu-toggle]");
+            if(! this.isMobile) {
+                button.classList.add("ac-nav-dropdown-button");
 
-            // Add necessary classes and groupings to the parent <ul>
-            this.dropdown.classList.add("group", "position-relative");
+                this.dropdown.prepend(button);
+                this.dButton.remove();
+                this.dButton = this.dropdown.querySelector(":scope > button[nav-sub-menu-toggle]");
+
+                // const listWithSubmenu = document.querySelector('#navbar > li:has(button[nav-sub-menu-toggle])')
+                // console.log(listWithSubmenu);
+                // const icon = document.createElement("i");
+                // icon.className = "fa-solid fa-chevron-down mr-2"; // Adjust icon and spacing as needed
+                // this.dList.append(icon); // Or use append if you want it at the end
+
+                // Add necessary classes and groupings to the parent <ul>
+                this.dropdown.classList.add("group", "position-relative");
+            }
+
+            else {
+                // remove the duplicate for the first element that is needed as on desktop its replaced with a open button
+                this.dList.querySelector(":scope > li:first-child").remove();
+            }
 
             // Add necessary classes to the submenu <ul>
-            this.dList.classList.add("kvitek-");
+            this.dList.classList.add("ac-nav-submenu");
         }
     }
 
@@ -314,10 +332,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let dropdowns = [];
     let idCounter = 1;
     dropdownElems.forEach((d) => {
+        const isMobile = d.classList.contains("ac-is-mobile");
         // Remove ARIA from <li>, move to button
 
         // Pass unique id to Dropdown
-        dropdowns.push(new Dropdown(d, idCounter));
+        dropdowns.push(new Dropdown(d, idCounter, isMobile));
         idCounter++;
     });
 

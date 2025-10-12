@@ -1,17 +1,17 @@
 <?php
 
-function kvitek_build_primary_menu(bool $is_mobile = false): void
+function ac_build_primary_menu(bool $is_mobile = false): void
 {
 	$menu = wp_nav_menu([
 		'theme_location'    => 'primary',
 		'container'         => '',
 		'container_class'   => '',
 		'container_id'      => '',
-		'menu_class'        => $is_mobile ? 'kvitek-nav-sidebar-parent-menu' : 'kvitek-nav-parent-ul',
-		'li_class'          => "kvitek-nav-li",
+		'menu_class'        => $is_mobile ? 'ac-nav-sidebar-parent-menu' : 'ac-nav-parent-ul',
+		'li_class'          => $is_mobile ? 'ac-nav-li ac-is-mobile' : 'ac-nav-li',
 		'fallback_cb'       => false,
 		'echo'              => false,
-		'depth'             => 1
+		'depth'             => 2
 	]);
 
 	$menu_without_closing_tag = rtrim($menu, '</ul>');
@@ -21,10 +21,10 @@ function kvitek_build_primary_menu(bool $is_mobile = false): void
 	if(current_user_can('administrator'))
 	{
 		$menu_config_url = esc_url(admin_url('nav-menus.php'));
-		$message = '(Upravit menu)';
+		$message = '<span class="text-brand-primary"><i class="fa-solid fa-pen-to-square fa-sm"></i> Upravit</span>';
 
 		echo <<<BUTTON
-		<li class="kvitek-nav-li text-light-faint/80! hover:bg-primary-darkest! text-md p-2! nav:flex hidden">
+		<li title="Upravit menu - toto vidí pouze administrátoři" class="ac-nav-li nav:flex hidden">
 			<a href="$menu_config_url"> $message </a>
 		</li>
 		BUTTON;

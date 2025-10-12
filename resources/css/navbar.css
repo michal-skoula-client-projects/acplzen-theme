@@ -3,14 +3,14 @@
 }
 
 .ac-nav-navbar {
-    @apply bg-primary-muted/70 backdrop-blur-lg rounded-4xl border-2 border-primary-base/80
+    @apply bg-light-elevated border-b border-b-light-outline py-4 px-6
 
-    max-nav:translate-y-0 [&.collapsed]:max-nav:translate-y-[-95%]
+    max-nav:translate-y-0 [&.collapsed]:max-nav:translate-y-[-100%]
     transition-transform duration-300 ease-in-out motion-reduce:transition-none
 }
 
 .ac-nav-slideover-menu {
-    @apply bg-primary-muted/80 backdrop-blur-xl p-8
+    @apply bg-light-elevated border-l border-l-light-outline p-8 pt-[calc(4.5rem)]
 
     fixed top-0 right-0 z-50 h-screen w-[max(70%,20rem)] max-w-full
     translate-x-[100%] [&.open]:max-nav:translate-x-0
@@ -22,7 +22,7 @@
 }
 
 #navbar .ac-nav-submenu {
-    @apply bg-primary-muted border border-b-primary-surface py-5 px-4 transition-colors rounded-xl
+    @apply bg-light-elevated border border-light-outline py-5 px-4 transition-colors rounded-sm
 
     top-[calc(100%+var(--nav-submenu-distance))] left-0 z-50 hidden w-[max-content] flex-col m-0
     absolute group-[.hover]:flex group-[.open]:flex gap-1;
@@ -39,7 +39,7 @@
 }
 
 .ac-nav-open-btn, .ac-nav-close-btn {
-    @apply nav:hidden cursor-pointer bg-primary-base hover:bg-primary-highlight rounded-full sm:p-3 p-2;
+    @apply nav:hidden cursor-pointer border border-light-outline hover:bg-light-highlight sm:p-3 p-2 rounded-sm;
 }
 
 .ac-nav-close-btn {
@@ -48,17 +48,15 @@
 
 
 #navbar .ac-nav-li, #navbar .ac-nav-li.open {
-    @apply relative inline-block py-2 px-3 text-light-base no-underline rounded-lg hover:bg-primary-base [&.open]:bg-primary-base [&.hover]:bg-primary-base
-
-    transition-colors ease-in-out duration-150;
+    @apply relative inline-block py-2 px-3 text-darkest no-underline hover:text-dark [&.open]:text-dark [&.hover]:text-dark hover:border-light-outline [&.open]:border-light-outline [&.hover]:border-light-outline border border-light-outline/0 cursor-pointer rounded-xs box-border transition-colors ease-in-out duration-150 hover:bg-light-base [&.open]:bg-light-base [&.hover]:bg-light-base;
 }
 
 #navbar .ac-nav-dropdown-button {
-    @apply cursor-pointer text-light-base relative pr-4;
+    @apply cursor-pointer text-darkest relative pr-4;
 }
 
 #navbar .ac-nav-dropdown-button::after {
-    content:url('../../public/assets/ico-nav-dropdown.svg');
+    /*content:url('../../public/assets/ico-nav-dropdown.svg');*/
     @apply inline-block absolute -top-[.12rem] -right-[0.5rem]
 }
 
@@ -66,18 +64,21 @@
     @apply m-0 flex h-full w-full flex-col pt-10;
 }
 
-#slideover .ac-nav-dropdown-button {
-    @apply px-0 pt-3 pb-2 pointer-events-none font-medium text-lg;
+#slideover [aria-haspopup="true"] {
+    @apply mb-4
 }
-
 #slideover .ac-nav-submenu {
-    @apply m-0 ml-3 flex flex-col mb-3;
+    @apply m-0 ml-7 flex flex-col;
 }
 
 #slideover .ac-nav-li {
     @apply list-none mb-3;
 }
 
+#slideover .menu-item-has-children {
+    @apply mb-1;
+}
+
 #slideover .ac-nav-li > a {
-    @apply text-light-base w-full px-6 py-3 block bg-primary-base/50 hover:bg-primary-base rounded-xl border-[1.5px] border-primary-surface transition-colors ease-in-out;
+    @apply text-darkest w-full px-6 py-3 block hover:text-dark hover:bg-light-base border-1 border-light-outline transition-colors ease-in-out rounded-sm;
 }
