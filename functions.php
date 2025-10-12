@@ -110,7 +110,7 @@ function ac_disable_single_template_view(string ...$slugs): void
 	});
 }
 
-ac_disable_single_template_view('kontakt', 'tabor');
+ac_disable_single_template_view('program');
 
 
 function ac_disable_gutenberg(...$post_types): void

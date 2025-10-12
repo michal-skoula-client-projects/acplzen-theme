@@ -1,6 +1,6 @@
 {
     "key": "post_type_68e8f73c56b32",
-    "title": "Akce",
+    "title": "Akce pro veřejnost",
     "menu_order": 0,
     "active": true,
     "post_type": "program",
@@ -8,8 +8,8 @@
     "import_source": "",
     "import_date": "",
     "labels": {
-        "name": "Akce",
-        "singular_name": "Akce",
+        "name": "Akce pro veřejnost",
+        "singular_name": "Akce pro veřejnost",
         "menu_name": "Veřejné akce",
         "all_items": "Přehled Akcí",
         "edit_item": "Upravit akci",
@@ -42,7 +42,7 @@
         "item_link": "Odkaz na akci",
         "item_link_description": "Odkaz na akci."
     },
-    "description": "Všechny veřejné i soukromé akce v AC Plzeň",
+    "description": "VEŘEJNÉ AKCE - tzn. jednoduchý archiv všech akcí s obrázkem atd.",
     "public": true,
     "hierarchical": false,
     "exclude_from_search": false,
@@ -72,7 +72,7 @@
     ],
     "taxonomies": "",
     "has_archive": true,
-    "has_archive_slug": "program",
+    "has_archive_slug": "akce",
     "rewrite": {
         "permalink_rewrite": "post_type_key",
         "with_front": "1",
@@ -85,5 +85,5 @@
     "delete_with_user": false,
     "register_meta_box_cb": "",
     "enter_title_here": "Název akce",
-    "modified": 1760299826
+    "modified": 1760306225
 }

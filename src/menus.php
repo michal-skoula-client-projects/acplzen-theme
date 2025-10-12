@@ -11,14 +11,14 @@ function ac_build_primary_menu(bool $is_mobile = false): void
 		'li_class'          => $is_mobile ? 'ac-nav-li ac-is-mobile' : 'ac-nav-li',
 		'fallback_cb'       => false,
 		'echo'              => false,
-		'depth'             => 2
+		'depth'             => $is_mobile ? 1 : 2,
 	]);
 
 	$menu_without_closing_tag = rtrim($menu, '</ul>');
 	echo $menu_without_closing_tag;
 
 	//<!-- Helper for admins to edit menu easily -->
-	if(current_user_can('administrator'))
+	if(current_user_can('edit_theme_options'))
 	{
 		$menu_config_url = esc_url(admin_url('nav-menus.php'));
 		$message = '<span class="text-brand-primary"><i class="fa-solid fa-pen-to-square fa-sm"></i> Upravit</span>';
