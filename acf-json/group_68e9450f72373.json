@@ -832,6 +832,59 @@
                             "append": ""
                         },
                         {
+                            "key": "field_68ed06cc53780",
+                            "label": "Povolit popisek",
+                            "name": "description_toggled",
+                            "aria-label": "",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "ano": "Ano",
+                                "ne": "Ne"
+                            },
+                            "default_value": "ne",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "layout": "horizontal"
+                        },
+                        {
+                            "key": "field_68ed06fa53781",
+                            "label": "Popisek",
+                            "name": "description",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_68ed06cc53780",
+                                        "operator": "==",
+                                        "value": "ano"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "allow_in_bindings": 0,
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
                             "key": "field_68ec4068e4299",
                             "label": "Bloky",
                             "name": "blocks",
@@ -1580,5 +1633,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760362257
+    "modified": 1760364323
 }

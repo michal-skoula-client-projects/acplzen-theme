@@ -58,6 +58,10 @@
     @apply cursor-pointer text-darkest relative pr-4;
 }
 
+#navbar .ac-nav-dropdown-button > i {
+    @apply ml-1.5;
+}
+
 #navbar .ac-nav-dropdown-button::after {
     /*content:url('../../public/assets/ico-nav-dropdown.svg');*/
     @apply inline-block absolute -top-[.12rem] -right-[0.5rem]

@@ -98,6 +98,7 @@ $address = get_field('contacts', 'options') ?: null;
         <a href="<?= ISSUE_REPORT_EMAIL ?>" class=" underline!">Nahlásit chybu</a>
         <a href="<?= admin_url() ?>" class="underline!">Administrace webu</a>
     </div>
-
 </div>
+
+<?php wp_footer(); ?>
 

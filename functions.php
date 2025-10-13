@@ -42,7 +42,7 @@ function tailpress(): Theme
         ->features(fn($manager) => $manager->add(MenuOptions::class))
         ->menus(fn($manager) => $manager
 	        ->add('primary', 'Hlavní menu')
-	        ->add('footer', 'Zápatí (footer)')
+//	        ->add('footer', 'Zápatí (footer)')
 	    )
         ->themeSupport(fn($manager) => $manager->add([
             'title-tag',
@@ -62,6 +62,7 @@ function tailpress(): Theme
 }
 
 tailpress();
+
 
 function ac_enqueue_fonts(): void
 {

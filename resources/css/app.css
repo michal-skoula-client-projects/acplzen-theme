@@ -117,16 +117,16 @@
             border-radius: var(--radius-sm);
         }
         & a {
-            color: var(--color-brand-primary);
+            color: var(--color-brand-secondary);
             transition: 200ms ease-in-out;
             font-weight: 500;
             text-decoration: underline !important;
 
             &:hover {
-                color: var(--color-brand-primary);
+                color: var(--color-brand-secondary) !important;
             }
             &:active {
-                color: var(--color-brand-primary);
+                color: var(--color-brand-secondary) !important;
             }
         }
         & i {
