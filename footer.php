@@ -75,6 +75,7 @@ $address = get_field('contacts', 'options') ?: null;
 		<!-- Google maps widget -->
         <?php if($map_url): ?>
 		<iframe
+            tabindex="-1"
             src="<?= esc_url($map_url) ?>"
             style="border:0;"
             allowfullscreen=""
@@ -91,7 +92,7 @@ $address = get_field('contacts', 'options') ?: null;
             <span>&copy; <?= get_field('copyright', 'options') ?: get_bloginfo() ?> <?= date('Y') ?>. <span class="md:inline hidden">Všechna práva vyhrazena.</span></span>
 <!--            <a href="--><?php //= ISSUE_REPORT_EMAIL ?><!--" class="text-light-highlight underline! max-md:hidden">Nahlásit chybu</a>-->
         </div>
-        <p>Web vytvořil <a href="https://skoula.com" class="text-light-elevated hover:underline!" rel="nofollow" target="_blank">Michal Škoula</a>.</p>
+        <p>Web vytvořil <a href="https://skoula.com" class="text-light-elevated hover:underline!" rel="nofollow" target="_blank" tabindex="-1">Michal Škoula</a>.</p>
     </div>
     <div class="max-content-width flex flex-wrap gap-6 mt-3.5 text-light-highlight/80">
         <a href="<?= ISSUE_REPORT_EMAIL ?>" class=" underline!">Nahlásit chybu</a>

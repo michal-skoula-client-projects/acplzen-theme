@@ -22,6 +22,13 @@
 </head>
 <body class="bg-light-base">
 <header id="header" class="sticky top-0 z-30">
+    <!-- Tab navigation menu skip link-->
+    <a  href="#content"
+        id="skipNavigation"
+        class="pointer-events-none absolute top-4 left-4 z-50 bg-light-elevated border border-light-outline rounded-sm p-3 opacity-0 focus:opacity-100 text-dark"
+    >
+        <p>Přeskočit na obsah</p>
+    </a>
     <nav id="navbar-quick-action" class="bg-brand-secondary py-2 px-8">
         <div class="max-content-width flex flex-wrap items-center justify-end  gap-x-6 gap-y-2">
 	        <?php if($tel): ?>
@@ -50,13 +57,6 @@
         id="navbar"
         class="ac-nav-navbar"
     >
-<!--         Tab navigation menu skip link-->
-        <a  href="#content"
-            id="skipNavigation"
-            class="pointer-events-none absolute top-4 left-4 z-50 bg-light-highlight border border-light-outline rounded-sm p-3 opacity-0 focus:opacity-100"
-        >
-            <p>Přeskočit na obsah</p>
-        </a>
         <div class="max-content-width flex items-center justify-between gap-8">
             <!-- Left side-->
             <div>

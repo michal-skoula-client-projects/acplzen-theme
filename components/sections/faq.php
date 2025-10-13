@@ -53,9 +53,11 @@ $email = get_field('email', 'options') ?: null;
 				<?php foreach ($faq_blocks as $faq_block): $id++ ?>
 
                     <div class="mb-4 last-of-type:mb-0 rounded-lg shadow-xs">
-                        <input type="checkbox" id="faq<?= $id ?>" class="peer hidden" />
+                        <input type="checkbox" id="faq<?= $id ?>" class="peer hidden"/>
                         <h3 class="h4 text-light-elevated">
+                            <!-- TODO: fix keyboard navigation for these + finish -->
                             <label
+                                tabindex="0"
                                 for="faq<?= $id ?>"
                                 class="icon-faq block relative cursor-pointer font-medium bg-opacity-45 py-4 pl-4 pr-8 peer-checked:rounded-t-lg peer-checked:rounded-b-none rounded-lg mb-0"
                             >

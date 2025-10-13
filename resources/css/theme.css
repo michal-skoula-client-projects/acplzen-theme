@@ -32,7 +32,9 @@
 
     --text-8xl: 80px;
 }
-
+body {
+    scroll-behavior: smooth;
+}
 :root {
     /* pb-[calc(var(--section-padding)*2)] p-[var(--section-padding)] */
     --section-padding: 2rem;
@@ -49,9 +51,9 @@
         @apply tracking-[0.008em]
     }
 
-    :focus-visible {
-        outline: 2px solid var(--color-brand-primary);
-    }
+    /*:focus-visible {*/
+    /*    outline: 2px solid var(--color-brand-primary);*/
+    /*}*/
 
     *,
     ::after,

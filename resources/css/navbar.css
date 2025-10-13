@@ -48,7 +48,10 @@
 
 
 #navbar .ac-nav-li, #navbar .ac-nav-li.open {
-    @apply relative inline-block py-2 px-3 text-darkest no-underline hover:text-dark [&.open]:text-dark [&.hover]:text-dark hover:border-light-outline [&.open]:border-light-outline [&.hover]:border-light-outline border border-light-outline/0 cursor-pointer rounded-xs box-border transition-colors ease-in-out duration-150 hover:bg-light-base [&.open]:bg-light-base [&.hover]:bg-light-base;
+    @apply relative inline-block text-darkest no-underline hover:text-dark [&.open]:text-dark [&.hover]:text-dark hover:border-light-outline [&.open]:border-light-outline [&.hover]:border-light-outline border border-light-outline/0 cursor-pointer rounded-xs box-border transition-colors ease-in-out duration-150 hover:bg-light-base [&.open]:bg-light-base [&.hover]:bg-light-base;
+}
+#navbar .ac-nav-li > a, #navbar .ac-nav-li.open > a, #navbar .ac-nav-li .ac-nav-dropdown-button {
+    @apply py-2 px-3 inline-block;
 }
 
 #navbar .ac-nav-dropdown-button {
