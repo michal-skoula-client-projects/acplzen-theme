@@ -6,7 +6,7 @@
  * @since 1.0.0
  */
 
-$images = get_field('photo_gallery', 'options')
+$images = get_field('photo_gallery', 'options') ?? null
 
 ?>
 

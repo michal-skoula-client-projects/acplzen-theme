@@ -6,10 +6,10 @@
  * @since 1.0.0
  */
 
-$heading = esc_allow_safe(get_sub_field('heading'));
-$description = esc_allow_safe(get_sub_field('description'));
-$btn_primary = get_sub_field('btn_primary');
-$btn_secondary = get_sub_field('btn_secondary')
+$heading = esc_allow_safe(get_sub_field('heading')) ?: '';
+$description = esc_allow_safe(get_sub_field('description')) ?: '';
+$btn_primary = get_sub_field('btn_primary') ?? null;
+$btn_secondary = get_sub_field('btn_secondary') ?? null;
 
 ?>
 

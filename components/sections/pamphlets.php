@@ -6,8 +6,8 @@
  * @since 1.0.0
  */
 
-$heading = esc_html(get_sub_field('heading'));
-$files = get_sub_field('files');
+$heading = esc_html(get_sub_field('heading') ?: '');
+$files = get_sub_field('files') ?? null;
 // Field data retrieval happens here
 
 ?>

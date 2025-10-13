@@ -6,10 +6,10 @@
  * @since 1.0.0
  */
 
-$heading = esc_allow_safe(get_sub_field('heading'));
-$left = (get_sub_field('col_left'));
-$center = (get_sub_field('col_center'));
-$right = (get_sub_field('col_right'));
+$heading = esc_allow_safe(get_sub_field('heading') ?: '');
+$left = get_sub_field('col_left');
+$center = get_sub_field('col_center') ?: null;
+$right = get_sub_field('col_right') ?: null;
 
 ?>
 

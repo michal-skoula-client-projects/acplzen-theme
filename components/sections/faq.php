@@ -6,12 +6,12 @@
  * @since 1.0.0
  */
 
-$heading = esc_html(get_sub_field('heading') ?? 'Chybí nadpis');
-$description = esc_html(get_sub_field('description') ?? '');
-$faq_blocks = get_sub_field('questions');
+$heading = esc_html(get_sub_field('heading') ?: 'Chybí nadpis');
+$description = esc_html(get_sub_field('description') ?: '');
+$faq_blocks = get_sub_field('questions') ?? null;
 
-$tel = get_field('tel', 'options');
-$email = get_field('email', 'options');
+$tel = get_field('tel', 'options') ?: null;
+$email = get_field('email', 'options') ?: null;
 
 ?>
 

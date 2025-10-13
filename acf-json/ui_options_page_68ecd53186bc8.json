@@ -1,0 +1,26 @@
+{
+    "key": "ui_options_page_68ecd53186bc8",
+    "title": "Zápatí",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Zápatí",
+    "menu_slug": "footer",
+    "parent_slug": "none",
+    "advanced_configuration": 1,
+    "icon_url": "",
+    "menu_title": "Zápatí",
+    "position": 150,
+    "redirect": 0,
+    "description": "",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-table-col-after"
+    },
+    "update_button": "Aktualizovat",
+    "updated_message": "Zápatí aktualizováno",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1760351629
+}

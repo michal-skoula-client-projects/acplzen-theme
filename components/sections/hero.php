@@ -6,12 +6,12 @@
  * @since 1.0.0
  */
 
-$heading = $args['heading'] ?? get_field('heading') ?? 'Chybí nadpis';
-$style = $args['style'] ?? get_field('description_style') ?? 'none';
-$call_to_action = get_field('call_to_action') ?? 'ne';
-$url = get_field('url') ?? null;
-$description_left = $args['description_left'] ?? get_field('description_left') ?? '';
-$description_right = $args['description_right'] ?? get_field('description_right') ?? '';
+$heading = $args['heading'] ?? get_field('heading') ?: 'Chybí nadpis';
+$style = $args['style'] ?? get_field('description_style') ?: 'none';
+$call_to_action = get_field('call_to_action') ?: 'ne';
+$url = get_field('url') ?: null;
+$description_left = $args['description_left'] ?: get_field('description_left') ?? '';
+$description_right = $args['description_right'] ?: get_field('description_right') ?? '';
 
 ?>
 

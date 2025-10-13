@@ -7,8 +7,8 @@
  * @since 1.0.0
  **/
 
-$heading     = get_field('hero_heading') ?? 'American center Plzeň';
-$description = get_field('hero_description') ?? '';
+$heading     = get_field('hero_heading') ?: get_bloginfo();
+$description = get_field('hero_description') ?: '';
 
 $posts = get_posts([
 	'post_type'     => 'aktualita',

@@ -6,8 +6,8 @@
  * @since 1.0.0
  */
 
-$heading = get_field('partners_heading', 'options');
-$sponsors = get_field('partners', 'options');
+$heading = get_field('partners_heading', 'options') ?: '';
+$sponsors = get_field('partners', 'options') ?? null;
 
 ?>
 

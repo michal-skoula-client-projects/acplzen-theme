@@ -6,8 +6,8 @@
  * @since 1.0.0
  */
 
-$btn = get_sub_field('btn_url');
-$photos = get_sub_field('photos');
+$btn = get_sub_field('btn_url') ?? null;
+$photos = get_sub_field('photos') ?? null;
 
 ?>
 
@@ -18,6 +18,8 @@ $photos = get_sub_field('photos');
 				<?php foreach ($photos as $photo): ?>
 					<img src="<?= $photo['sizes']['medium_large'] ?>" alt="<?= $photo['title'] ?>" class="aspect-4/3 object-cover w-full h-full rounded-sm">
 				<?php endforeach; ?>
+            <?php else: ?>
+                <p class="text-dark">Zatím tu žádné fotky nejsou.</p>
 			<?php endif; ?>
 		</div>
 		<?php if($btn): ?>

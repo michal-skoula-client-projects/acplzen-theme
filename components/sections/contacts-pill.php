@@ -6,10 +6,10 @@
  * @since 1.0.0
  */
 
-$opening_hours = esc_html(get_field('opening_hours', 'options') ?? '');
-$email = get_field('email', 'options') ?? '';
-$tel = get_field('tel', 'options') ?? '';
-$socials = get_field('socials', 'options');
+$opening_hours = esc_html(get_field('opening_hours', 'options') ?: '');
+$email = get_field('email', 'options') ?: '';
+$tel = get_field('tel', 'options') ?: '';
+$socials = get_field('socials', 'options') ?? null;
 
 ?>
 

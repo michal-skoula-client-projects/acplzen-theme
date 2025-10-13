@@ -40,14 +40,17 @@ function tailpress(): Theme
             ->enqueueAssets()
         )
         ->features(fn($manager) => $manager->add(MenuOptions::class))
-        ->menus(fn($manager) => $manager->add('primary', __( 'Primary Menu', 'tailpress')))
+        ->menus(fn($manager) => $manager
+	        ->add('primary', 'Hlavní menu')
+	        ->add('footer', 'Zápatí (footer)')
+	    )
         ->themeSupport(fn($manager) => $manager->add([
             'title-tag',
             'custom-logo',
             'post-thumbnails',
-            'align-wide',
-            'wp-block-styles',
-            'responsive-embeds',
+//            'align-wide',
+//            'wp-block-styles',
+//            'responsive-embeds',
             'html5' => [
                 'search-form',
                 'comment-form',
@@ -277,3 +280,5 @@ function ac_breadcrumbs(): array {
 
 	return $trail;
 }
+
+//require __DIR__ . '/src/footer-fields.php';
