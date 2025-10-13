@@ -50,6 +50,7 @@ if(have_rows('sections')):
 			'call_to_action' => '/sections/call-to-action.php',
 			'services_archive_section' => '/sections/services_archive_section.php',
 			'three_col_links_section' => '/sections/three-col-links-section.php',
+			'two_cols_blocks_section' => '/sections/two-col-blocks-section.php',
 			default => null,
 		};
 

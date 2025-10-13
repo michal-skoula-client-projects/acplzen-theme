@@ -28,6 +28,7 @@ $btn = $content['url'];
 						'href' => $btn['url'] ?? '#',
 						'label' => $btn['title'] ?? 'Klikni mě',
 						'target' => $btn['target'] ?? '',
+                        'class' => 'mt-3'
 					]) ?>
 				<?php endif; ?>
 			</div>
@@ -36,7 +37,7 @@ $btn = $content['url'];
 					<img
 						src="<?= esc_url($image['sizes']['large']) ?>"
 						alt="<?= esc_html($image['title']) ?>"
-						class="rounded-sm">
+						class="rounded-sm h-full w-full object-cover aspect-16/10">
 				<?php endif; ?>
 			</div>
 		</div>
