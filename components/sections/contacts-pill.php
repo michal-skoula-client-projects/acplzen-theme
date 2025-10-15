@@ -14,16 +14,16 @@ $socials = get_field('socials', 'options') ?? null;
 ?>
 
 <section class="section">
-	<div class="max-content-width bg-light-elevated border border-light-outline p-12 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 max-md:justify-center gap-x-4 gap-y-4 rounded-md">
-		<dl class="flex flex-col gap-2">
+	<div class="max-content-width bg-light-elevated border border-light-outline p-card-xl grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 max-md:justify-center gap-x-4 gap-y-4 rounded-md">
+		<dl class="flex flex-col sm:gap-2 gap-1">
 			<dt><p class="text-dark">Otevírací doba</p></dt>
 			<dd><p class="h5 text-darkest"><?= $opening_hours ?></p></dd>
 		</dl>
-		<dl class="flex flex-col gap-2">
+		<dl class="flex flex-col sm:gap-2 gap-1">
 			<dt><p class="text-dark">Email</p></dt>
 			<dd><a class="h5 text-darkest underline! decoration-2!" href="mailto:<?= $email ?>"><?= $email ?></a></dd>
 		</dl>
-		<dl class="flex flex-col gap-2">
+		<dl class="flex flex-col sm:gap-2 gap-1">
 			<dt><p class="text-dark">Telefon</p></dt>
 			<dd><a class="h5 text-darkest underline! decoration-2!" href="tel:<?= $tel ?>"><?= $tel ?></a></dd>
 		</dl>

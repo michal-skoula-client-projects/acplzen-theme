@@ -33,7 +33,7 @@ $col_3 = get_sub_field('col_3') ?: null;
 			<div class="review-col flex flex-col gap-y-6">
 				<?php if($col_1): ?>
 					<?php foreach($col_1 as $entry): ?>
-						<div class="bg-light-elevated sm:rounded-md rounded-sm sm:p-8 sm:pt-5 p-5 pt-4 last:h-full text-darker">
+						<div class="bg-light-elevated sm:rounded-md rounded-sm p-card p-5 pt-4 last:h-full text-darker">
                             <i class="fa-solid fa-quote-left fa-xl text-brand-primary w-full mb-5"></i>
 							<?= esc_allow_safe($entry['recenze']) ?>
 						</div>
@@ -43,7 +43,7 @@ $col_3 = get_sub_field('col_3') ?: null;
             <div class="review-col flex flex-col gap-y-6">
 				<?php if($col_2): ?>
 					<?php foreach($col_2 as $entry): ?>
-                        <div class="bg-light-elevated rounded-md p-8 pt-5 last:h-full text-darker">
+                        <div class="bg-light-elevated sm:rounded-md rounded-sm p-card p-5 pt-4 last:h-full text-darker">
                             <i class="fa-solid fa-quote-left fa-xl text-brand-primary w-full mb-5"></i>
 							<?= esc_allow_safe($entry['recenze']) ?>
                         </div>
@@ -53,7 +53,7 @@ $col_3 = get_sub_field('col_3') ?: null;
             <div class="review-col flex flex-col gap-y-6">
 				<?php if($col_3): ?>
 					<?php foreach($col_3 as $entry): ?>
-                        <div class="bg-light-elevated rounded-md p-8 pt-5 last:h-full text-darker">
+                        <div class="bg-light-elevated sm:rounded-md rounded-sm p-card p-5 pt-4 last:h-full text-darker">
                             <i class="fa-solid fa-quote-left fa-xl text-brand-primary w-full mb-5"></i>
 							<?= esc_allow_safe($entry['recenze']) ?>
                         </div>

@@ -200,8 +200,9 @@ function ac_add_column_to_post_type_table( string $post_type, string $field_name
 	}
 }
 
-ac_add_column_to_post_type_table('tabor', 'availability', true);
-ac_add_column_to_post_type_table('album','event_date',true);
+ac_add_column_to_post_type_table('program', 'event_type',  sortable: true);
+ac_add_column_to_post_type_table('program', 'datetime', sortable: true);
+
 
 function esc_allow_safe(string $text): string
 {

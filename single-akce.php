@@ -1,4 +1,11 @@
 <?php
+
+$type = get_field('event_type') ?: 'private';
+
+if($type === 'private') {
+    ac_404();
+}
+
 get_header();
 
 $featured_image = get_field('featured_img');

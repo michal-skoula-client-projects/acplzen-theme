@@ -22,9 +22,9 @@ $description = get_sub_field('description') ?: '';
             </div>
         <?php endif; ?>
             <?php if($blocks): ?>
-                <div class="grid md:grid-cols-2 grid-cols-1 gap-6">
+                <div class="grid md:grid-cols-2 grid-cols-1 sm:gap-6 gap-4">
                     <?php foreach($blocks as $block): ?>
-                        <div class="text-center text-dark p-[var(--section-padding)] rounded-md bg-light-elevated border border-light-outline">
+                        <div class="text-center text-dark p-card rounded-md bg-light-elevated border border-light-outline">
                             <?= esc_allow_safe($block['text'] ?? '') ?>
                         </div>
                     <?php endforeach; ?>

@@ -15,7 +15,7 @@ $email = get_field('email', 'options') ?: null;
 
 ?>
 
-<section class="section max-sm:bg-brand-secondary max-sm:section-pt">
+<section class="sm:section max-sm:bg-brand-secondary max-sm:section-dark">
 	<div class="max-content-width sm:bg-brand-secondary text-light-highlight sm:p-card-xl sm:rounded-md grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
 		<!-- Left side -->
 		<div>

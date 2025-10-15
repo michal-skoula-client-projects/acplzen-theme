@@ -1,7 +1,151 @@
 {
     "key": "group_68e901185e414",
-    "title": "Podrobnosti",
+    "title": "Informace o akci",
     "fields": [
+        {
+            "key": "field_68eff358054fa",
+            "label": "Typ akce",
+            "name": "event_type",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "public": "Akce pro veřejnost",
+                "private": "Soukromá akce"
+            },
+            "default_value": "private",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_68eff57603198",
+            "label": "O akci",
+            "name": "private_details",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68eff358054fa",
+                        "operator": "==",
+                        "value": "private"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_68eff2bd6711e",
+            "label": "Náhledový obrázek",
+            "name": "featured_img",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68eff358054fa",
+                        "operator": "==",
+                        "value": "public"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_68eff3076711f",
+            "label": "Popisek akce",
+            "name": "description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Zkráceně o jakou akci se jedná a co můžou návštěvníci očekávat",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68eff358054fa",
+                        "operator": "==",
+                        "value": "public"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 6,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_68e902f623c2a",
+            "label": "Datum a čas akce",
+            "name": "datetime",
+            "aria-label": "",
+            "type": "date_time_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68eff358054fa",
+                        "operator": "==",
+                        "value": "public"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j Y \\v H:i",
+            "return_format": "Y-m-d H:i:s",
+            "first_day": 1,
+            "default_to_current_date": 0,
+            "allow_in_bindings": 0
+        },
         {
             "key": "field_68e9027e8463d",
             "label": "Místo konání",
@@ -9,8 +153,16 @@
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68eff358054fa",
+                        "operator": "==",
+                        "value": "public"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -24,26 +176,6 @@
             "new_lines": ""
         },
         {
-            "key": "field_68e902f623c2a",
-            "label": "Datum a čas akce",
-            "name": "datetime",
-            "aria-label": "",
-            "type": "date_time_picker",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "display_format": "F j Y \\v H:i",
-            "return_format": "Y-m-d H:i:s",
-            "first_day": 1,
-            "default_to_current_date": 0,
-            "allow_in_bindings": 0
-        },
-        {
             "key": "field_68e903c538678",
             "label": "Pro koho",
             "name": "audience",
@@ -51,7 +183,15 @@
             "type": "text",
             "instructions": "Cílová skupina, např. studenti vysokých škol",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68eff358054fa",
+                        "operator": "==",
+                        "value": "public"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -72,7 +212,15 @@
             "type": "textarea",
             "instructions": "Dodatečné informace, např. co si vzít s sebou",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68eff358054fa",
+                        "operator": "==",
+                        "value": "public"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -92,8 +240,16 @@
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68eff358054fa",
+                        "operator": "==",
+                        "value": "public"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -105,6 +261,35 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_68eff52003197",
+            "label": "O akci",
+            "name": "content",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Podrobně kompletní informace o akci, na co se může návštěvník těšit, program atp.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68eff358054fa",
+                        "operator": "==",
+                        "value": "public"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         }
     ],
     "location": [
@@ -112,12 +297,12 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "program"
+                "value": "akce"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "side",
+    "position": "acf_after_title",
     "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -126,5 +311,5 @@
     "description": "Podrobnosti veřejné akce",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760313223
+    "modified": 1760557293
 }

@@ -14,6 +14,10 @@
     @apply lg:pb-32 md:pb-28 pb-20
 }
 
+@utility section-pb-sm {
+    @apply lg:pb-16 md:pb-14 pb-8
+}
+
 @utility section-pt {
     @apply lg:pt-32 md:pt-28 pt-20
 }

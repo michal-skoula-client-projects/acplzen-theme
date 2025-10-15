@@ -84,19 +84,6 @@
 
 		        <?php endif; ?>
 
-
-                <!--            <div class="nav:flex hidden gap-4">-->
-                <!--                <a href="--><?php //= esc_url($header_button['url']) ?><!--" class="btn-primary">-->
-                <!--                    --><?php //= esc_html($header_button['text']) ?>
-                <!--                </a>-->
-                <!--                <a href="mailto:infoac@gmail.com" class="btn-secondary">-->
-                <!--                    Mám otázku-->
-                <!--                </a>-->
-                <!--            </div>-->
-
-
-
-
                 <button
                     id="slideoverOpenBtn"
                     class="ac-nav-open-btn aspect-square w-12.5"
@@ -127,24 +114,17 @@
                     <i class="fa-solid fa-xmark fa-lg"></i>
                 </button>
             </div>
-<!--            <div class="flex gap-2 justify-end">-->
-<!--                <a href="--><?php //= esc_url($header_button['url']) ?><!--" class="btn-primary h-[3.25rem]">-->
-<!--                    --><?php //= esc_html($header_button['text']) ?>
-<!--                </a>-->
-<!--            </div>-->
         </div>
 
-        <div class="h-full overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-			<?php if(has_nav_menu('primary')): ?>
+        <?php if(has_nav_menu('primary')): ?>
 
-				<?php ac_build_primary_menu(is_mobile: true); ?>
+            <?php ac_build_primary_menu(is_mobile: true); ?>
 
-			<?php else: ?>
+        <?php else: ?>
 
-                <p>Menu nenalezeno</p>
+            <p>Menu nenalezeno</p>
 
-			<?php endif; ?>
-        </div>
+        <?php endif; ?>
 
 
     </nav>

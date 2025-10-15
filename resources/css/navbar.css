@@ -1,5 +1,6 @@
 #navbar {
     --nav-submenu-distance: 0.5rem;
+    --top-gap:2.5rem
 }
 
 .ac-nav-navbar {
@@ -10,9 +11,10 @@
 }
 
 .ac-nav-slideover-menu {
-    @apply bg-light-elevated border-l border-l-light-outline p-8
+    @apply bg-light-elevated border-l border-l-light-outline p-8 h-[calc(100dvh-2.5rem)]
+    overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pb-10
 
-    fixed top-[2.5rem] right-0 z-50 h-screen w-[max(60%,20rem)] max-w-full
+    fixed top-[2.5rem] right-0 z-50 w-[max(60%,20rem)] max-w-full
     translate-x-[100%] [&.open]:max-nav:translate-x-0
     transition-transform duration-300 ease-in-out motion-reduce:transition-none;
 }
@@ -68,7 +70,7 @@
 }
 
 #slideover .ac-nav-sidebar-parent-menu {
-    @apply m-0 flex h-full w-full flex-col pt-10;
+    @apply m-0 flex grow w-full flex-col h-auto;
 }
 
 #slideover [aria-haspopup="true"] {

@@ -8,22 +8,22 @@ $map_url = get_field('maps_url', 'options') ?: null;
 $address = get_field('contacts', 'options') ?: null;
 ?>
 
-<footer class="section bg-darkest">
-	<div class="max-content-width lg:pt-32 md:pt-28 pt-20">
+<footer class="section bg-darkest section-pt">
+	<div class="max-content-width">
 		<!-- Footer title -->
 		<p class="h2 text-light-elevated text-center mb-10"><?= get_bloginfo() ?></p>
 
 		<!-- Contact pill -->
-		<div class="bg-dark p-12 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 max-md:justify-center gap-x-4 gap-y-4 rounded-md mb-16">
-			<dl class="flex flex-col gap-2">
+		<div class="bg-dark p-card-xl grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 max-md:justify-center gap-x-4 gap-y-4 rounded-md mb-16">
+			<dl class="flex flex-col sm:gap-2 gap-1">
 				<dt><p class="text-light-base">Otevírací doba</p></dt>
 				<dd><p class="h5 text-light-elevated"><?= $opening_hours ?></p></dd>
 			</dl>
-			<dl class="flex flex-col gap-2">
+			<dl class="flex flex-col sm:gap-2 gap-1">
 				<dt><p class="text-light-base">Email</p></dt>
 				<dd><a class="h5 text-light-elevated underline! decoration-2!" href="mailto:<?= $email ?>"><?= $email ?></a></dd>
 			</dl>
-			<dl class="flex flex-col gap-2">
+			<dl class="flex flex-col sm:gap-2 gap-1">
 				<dt><p class="text-light-base">Telefon</p></dt>
 				<dd><a class="h5 text-light-elevated underline! decoration-2!" href="tel:<?= $tel ?>"><?= $tel ?></a></dd>
 			</dl>
@@ -92,7 +92,7 @@ $address = get_field('contacts', 'options') ?: null;
             <span>&copy; <?= get_field('copyright', 'options') ?: get_bloginfo() ?> <?= date('Y') ?>. <span class="md:inline hidden">Všechna práva vyhrazena.</span></span>
 <!--            <a href="--><?php //= ISSUE_REPORT_EMAIL ?><!--" class="text-light-highlight underline! max-md:hidden">Nahlásit chybu</a>-->
         </div>
-        <p>Web vytvořil <a href="https://skoula.com" class="text-light-elevated hover:underline!" rel="nofollow" target="_blank" tabindex="-1">Michal Škoula</a>.</p>
+        <p>Web vytvořil <a href="https://skoula.com" class="text-light-elevated underline!" rel="nofollow" target="_blank" tabindex="-1">Michal Škoula</a>.</p>
     </div>
     <div class="max-content-width flex flex-wrap gap-6 mt-3.5 text-light-highlight/80">
         <a href="<?= ISSUE_REPORT_EMAIL ?>" class=" underline!">Nahlásit chybu</a>

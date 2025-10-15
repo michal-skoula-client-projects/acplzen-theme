@@ -74,13 +74,13 @@ body {
         @apply text-3xl sm:text-4xl;
     }
     h3, .h3 {
-        @apply text-3xl;
+        @apply sm:text-2xl text-3xl;
     }
     h4, .h4 {
-        @apply text-2xl;
+        @apply sm:text-xl text-2xl;
     }
     h5, .h5 {
-        @apply text-xl;
+        @apply sm:text-lg text-xl;
     }
     h6, .h6 {
         @apply text-lg;

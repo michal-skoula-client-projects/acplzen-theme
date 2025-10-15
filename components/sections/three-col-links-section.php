@@ -18,7 +18,7 @@ $right = get_sub_field('col_right') ?: null;
 		<h2 class="mb-12 text-darkest text-center"><?= $heading ?></h2>
 		<div class="grid md:grid-cols-3 grid-cols-1 gap-x-12 gap-y-8">
 			<div>
-				<h3 class="max-w-sm text-dark text-center mb-2"><?= $left['heading'] ?? 'Chybí nadpis' ?></h3>
+				<h3 class="h4 max-w-sm text-dark text-center mb-2"><?= $left['heading'] ?? 'Chybí nadpis' ?></h3>
 				<div class="section__format-text text-dark text-center mb-4">
 					<?= $left['description'] ?? '' ?>
 				</div>
@@ -59,15 +59,9 @@ $right = get_sub_field('col_right') ?: null;
 					]); ?>
 				</div>
 			</div>
-
-<!--			<div class="section__format-text">-->
-<!--				--><?php //= $right ?>
-<!--			</div>-->
 		</div>
 	</div>
 </section>
-
-?>
 
 
 

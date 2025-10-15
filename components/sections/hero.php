@@ -6,6 +6,7 @@
  * @since 1.0.0
  */
 
+$bottom_gap = $args['bottom_gap'] ?? get_field('bottom_gap') ?: 'small';
 $heading = $args['heading'] ?? get_field('heading') ?: 'Chybí nadpis';
 $style = $args['style'] ?? get_field('description_style') ?: 'none';
 $call_to_action = get_field('call_to_action') ?: 'ne';
@@ -15,7 +16,7 @@ $description_right = $args['description_right'] ?? get_field('description_right'
 
 ?>
 
-<section class="section-px section-pt section-pb">
+<section class="section-px section-pt section-pb <?= $bottom_gap === 'small' ? 'section-pb-sm' : 'section-pb'?>">
 	<div class="max-content-width">
 		<div class="text-dark">
 			<?= get_template_part('/components/blocks/ac_breadcrumbs', args: ['list_elems' => ac_breadcrumbs()])?>
