@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log('loaded')
 
     /*
      * ------------------
@@ -308,7 +307,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Add necessary classes and groupings to the parent <ul>
                 this.dropdown.classList.add("group", "relative");
-                console.log(this.dropdown.classList.contains("group"))
             }
 
             else {
@@ -371,5 +369,4 @@ document.addEventListener("DOMContentLoaded", () => {
         chevron.className = "fa fa-angle-down fa-xs";
         btn.append(chevron);
     });
-
 });

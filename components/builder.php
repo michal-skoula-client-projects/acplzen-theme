@@ -52,6 +52,7 @@ if(have_rows('sections')):
 			'three_col_links_section' => '/sections/three-col-links-section.php',
 			'two_cols_blocks_section' => '/sections/two-col-blocks-section.php',
 			'three_cols_section' => '/sections/three-cols-section.php',
+			'reviews' => '/sections/reviews.php',
 			default => null,
 		};
 

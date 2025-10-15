@@ -31,6 +31,12 @@
     </a>
     <nav id="navbar-quick-action" class="bg-brand-secondary py-2 px-8">
         <div class="max-content-width flex flex-wrap items-center justify-end  gap-x-6 gap-y-2">
+	        <?php if($address): ?>
+                <div class="flex gap-2 items-center text-light-elevated relative">
+                    <i class="fa-solid fa-location-dot fa-md"></i>
+                    <p class="font-medium"><?= $address ?></p>
+                </div>
+	        <?php endif; ?>
 	        <?php if($tel): ?>
                 <div class="flex gap-2 items-center text-light-elevated group relative">
                     <i class="fa-solid fa-phone group-hover:text-brand-primary-highlight transition-colors duration-150 ease-in-out fa-md"></i>
@@ -43,12 +49,6 @@
                     <i class="fa-solid fa-envelope group-hover:text-brand-primary-highlight transition-colors duration-150 ease-in-out fa-md"></i>
                     <p class="group-hover:text-brand-primary-highlight font-medium transition-colors duration-150 ease-in-out hidden sm:block"><?= $email ?></p>
                     <a href="mailto:<?= str_replace(' ', '', $email) ?>" class="absolute inset-0" aria-label="Email"></a>
-                </div>
-	        <?php endif; ?>
-	        <?php if($address): ?>
-                <div class="flex gap-2 items-center text-light-elevated relative">
-                    <i class="fa-solid fa-location-dot fa-md"></i>
-                    <p class="font-medium"><?= $address ?></p>
                 </div>
 	        <?php endif; ?>
         </div>

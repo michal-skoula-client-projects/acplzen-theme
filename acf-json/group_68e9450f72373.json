@@ -1607,6 +1607,193 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_68efbf0fa7a8c": {
+                    "key": "layout_68efbf0fa7a8c",
+                    "name": "reviews",
+                    "label": "Recenze",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_68efbf26a7a8e",
+                            "label": "Nadpis",
+                            "name": "heading",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "Co říkají účastníci seminářů",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_68efbf57a7a8f",
+                            "label": "Popisek",
+                            "name": "description",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "rows": 3,
+                            "placeholder": "",
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_68efbf6ba7a90",
+                            "label": "Sloupec 1",
+                            "name": "col_1",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Přidat řádek",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_68efbfafa7a92",
+                                    "label": "Recenze",
+                                    "name": "recenze",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "rows": 6,
+                                    "placeholder": "",
+                                    "new_lines": "",
+                                    "parent_repeater": "field_68efbf6ba7a90"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_68efc0d8580e6",
+                            "label": "Sloupec 2",
+                            "name": "col_2",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Přidat řádek",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_68efc0d8580e7",
+                                    "label": "Recenze",
+                                    "name": "recenze",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "rows": 6,
+                                    "placeholder": "",
+                                    "new_lines": "",
+                                    "parent_repeater": "field_68efc0d8580e6"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_68efc0da580e8",
+                            "label": "Sloupec 3",
+                            "name": "col_3",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Přidat řádek",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_68efc0da580e9",
+                                    "label": "Recenze",
+                                    "name": "recenze",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "rows": 6,
+                                    "placeholder": "",
+                                    "new_lines": "",
+                                    "parent_repeater": "field_68efc0da580e8"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -1633,5 +1820,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760364323
+    "modified": 1760542940
 }

@@ -9,12 +9,12 @@ $author = get_the_author() === ''
 
 ?>
 
-<article class="rounded-md border border-light-outline overflow-clip">
+<article class="sm:rounded-md rounded-sm border border-light-outline overflow-clip h-full">
 	<div class="relative">
 		<img src="<?= get_the_post_thumbnail_url($id, size: 'medium') ?>" alt="" class="w-full aspect-16/10">
         <a class="absolute inset-0" href="<?= get_permalink($id) ?>" tabindex="-1"></a>
 	</div>
-	<div class="p-6">
+	<div class="sm:p-6 p-5">
 		<!-- Article info -->
 		<div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-darker mb-0.5">
             <div class="flex gap-1 items-center text-sm">
