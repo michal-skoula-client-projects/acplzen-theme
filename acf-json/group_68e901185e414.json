@@ -32,7 +32,7 @@
             "name": "private_details",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Jedna řádka informace o akci",
             "required": 0,
             "conditional_logic": [
                 [
@@ -51,7 +51,7 @@
             "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
-            "placeholder": "",
+            "placeholder": "Workshop | Základní školy",
             "prepend": "",
             "append": ""
         },
@@ -140,7 +140,7 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "F j Y \\v H:i",
+            "display_format": "F j Y v H:i",
             "return_format": "Y-m-d H:i:s",
             "first_day": 1,
             "default_to_current_date": 0,
@@ -151,7 +151,7 @@
             "label": "Místo konání",
             "name": "location",
             "aria-label": "",
-            "type": "textarea",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
@@ -171,9 +171,9 @@
             "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
-            "rows": "",
             "placeholder": "",
-            "new_lines": ""
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_68e903c538678",
@@ -311,5 +311,5 @@
     "description": "Podrobnosti veřejné akce",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760557293
+    "modified": 1760558274
 }

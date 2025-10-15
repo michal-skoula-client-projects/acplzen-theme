@@ -200,8 +200,8 @@ function ac_add_column_to_post_type_table( string $post_type, string $field_name
 	}
 }
 
-ac_add_column_to_post_type_table('program', 'event_type',  sortable: true);
-ac_add_column_to_post_type_table('program', 'datetime', sortable: true);
+ac_add_column_to_post_type_table('akce', 'event_type',  sortable: true);
+ac_add_column_to_post_type_table('akce', 'datetime', sortable: true);
 
 
 function esc_allow_safe(string $text): string
