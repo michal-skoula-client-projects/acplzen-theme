@@ -35,7 +35,6 @@ function tailpress(): Theme
             ->withCompiler(new ViteCompiler, fn( Compiler $compiler) => $compiler
                 ->registerAsset('resources/css/app.css')
                 ->registerAsset('resources/js/app.js')
-                ->editorStyleFile('resources/css/editor-style.css')
             )
             ->enqueueAssets()
         )
@@ -66,7 +65,7 @@ tailpress();
 
 function ac_enqueue_fonts(): void
 {
-	wp_enqueue_style('kvitek-fonts', get_template_directory_uri() . '/public/fonts/fonts.css');
+	wp_enqueue_style('ac-fonts', get_template_directory_uri() . '/public/fonts/fonts.css');
 }
 
 add_action('init', 'ac_enqueue_fonts');

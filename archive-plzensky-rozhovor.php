@@ -101,7 +101,7 @@ function create_pagination_button(callable $disabled, int $to_page, string $labe
             $is_disabled_js
             $inline_styles
             $tab_navigatable
-            href="?page=$to_page#kvitek-gallery" 
+            href="?page=$to_page" 
             class="$styles py-2 px-4 rounded-sm no-underline! border border-light-outline"
         >
             $label
@@ -109,7 +109,6 @@ function create_pagination_button(callable $disabled, int $to_page, string $labe
         </a>
     HTML;
 }
-
 ?>
 
 <?php get_header(); ?>

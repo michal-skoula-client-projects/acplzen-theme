@@ -2,7 +2,6 @@
 
 $date = get_field('date') ?: null;
 $location = get_field('location') ?: null
-
 ?>
 
 <section class="section-pt section-px sm:section-pb section-pb-sm">

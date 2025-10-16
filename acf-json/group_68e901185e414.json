@@ -27,6 +27,26 @@
             "layout": "horizontal"
         },
         {
+            "key": "field_68e902f623c2a",
+            "label": "Datum a čas akce",
+            "name": "datetime",
+            "aria-label": "",
+            "type": "date_time_picker",
+            "instructions": "U soukromých akcí není třeba nastavovat čas akce, u veřejných ano. V základu se totiž nastaví na 00:00 což by nedávalo pro návštěvníky smysl.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y H:i",
+            "return_format": "Y-m-d H:i:s",
+            "first_day": 1,
+            "default_to_current_date": 1,
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_68eff57603198",
             "label": "O akci",
             "name": "private_details",
@@ -117,34 +137,6 @@
             "rows": 6,
             "placeholder": "",
             "new_lines": ""
-        },
-        {
-            "key": "field_68e902f623c2a",
-            "label": "Datum a čas akce",
-            "name": "datetime",
-            "aria-label": "",
-            "type": "date_time_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_68eff358054fa",
-                        "operator": "==",
-                        "value": "public"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "display_format": "F j Y v H:i",
-            "return_format": "Y-m-d H:i:s",
-            "first_day": 1,
-            "default_to_current_date": 0,
-            "allow_in_bindings": 0
         },
         {
             "key": "field_68e9027e8463d",
@@ -308,8 +300,8 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Podrobnosti veřejné akce",
+    "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760558274
+    "modified": 1760572537
 }
