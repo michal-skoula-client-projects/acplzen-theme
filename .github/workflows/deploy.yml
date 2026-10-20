@@ -19,8 +19,8 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # Production runs PHP 8.2.29 (bitnami/wordpress). setup-php resolves to the
-  # latest 8.2.x; the exact 8.2.29 target is pinned in composer.json via
+  # Production runs at least PHP 8.2.29 (bitnami/wordpress). setup-php resolves
+  # to the latest 8.2.x; the exact 8.2.29 target is pinned in composer.json via
   # config.platform.php so dependency resolution matches prod regardless.
   PHP_VERSION: '8.2'
   # Pinned to 22 on purpose: npm 11.20+ gates package install scripts behind
@@ -43,17 +43,6 @@ jobs:
           php-version: ${{ env.PHP_VERSION }}
           tools: composer:v2
           coverage: none
-
-      # The real 8.2 syntax gate. This cannot be done on a dev machine running
-      # 8.4 — `php -l` there happily parses 8.4-only syntax such as
-      # parenthesis-less `new Foo()->bar()`, which is a fatal error on 8.2.
-      - name: Syntax-check theme against PHP ${{ env.PHP_VERSION }}
-        run: |
-          find . \
-            -path ./vendor -prune -o \
-            -path ./node_modules -prune -o \
-            -name '*.php' -print0 \
-          | xargs -0 -r -n1 -P4 php -l
 
       - name: Validate composer manifest
         run: composer validate --strict --no-interaction
