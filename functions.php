@@ -201,11 +201,11 @@ ac_add_column_to_post_type_table('album','event_date',true);
 
 function esc_allow_safe(string $text): string
 {
-	$config = new HtmlSanitizerConfig()
+	$config = (new HtmlSanitizerConfig())
 		->allowSafeElements()
 		->allowAttribute('class', '*');
 
-	return new HtmlSanitizer($config)->sanitize($text);
+	return (new HtmlSanitizer($config))->sanitize($text);
 }
 
 /**
