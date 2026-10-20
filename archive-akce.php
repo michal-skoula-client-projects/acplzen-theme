@@ -124,9 +124,10 @@ function get_date_square(string $month_short, int $day, string $color = 'seconda
 	'bottom_gap' => 'small',
 ]) ?>
 
-<section class="section">
-    <div class="max-content-width">
-	    <?php if($public_events->have_posts()): ?>
+
+<?php if($public_events->have_posts()): ?>
+    <section class="section">
+        <div class="max-content-width">
             <h2 class="text-darkest mb-8">Nadcházející akce pro veřejnost</h2>
 
         	<div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
@@ -171,9 +172,10 @@ function get_date_square(string $month_short, int $day, string $color = 'seconda
                     </article>
 		        <?php endwhile; wp_reset_postdata(); ?>
             </div>
-		<?php endif; ?>
-    </div>
-</section>
+        </div>
+    </section>
+<?php endif; ?>
+
 
 <section class="section" id="timeline">
     <div class="max-content-width">

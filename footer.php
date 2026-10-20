@@ -32,7 +32,7 @@ $address = get_field('contacts', 'options') ?: null;
 				<?php if($socials): ?>
 					<div class="flex flex-wrap gap-3">
 						<?php foreach ($socials as $item): $social = $item['item']; ?>
-							<a href="<?= esc_url($social['url' ?? '#']) ?>" target="_blank" rel="nofollow" class="block text-light-elevated">
+							<a href="<?= esc_url($social['url'] ?? '#') ?>" target="_blank" rel="nofollow" class="block text-light-elevated">
 								<i class="fa-brands fa-<?= esc_html(strtolower($social['title'] ?? 'wordpress-simple')) ?> fa-2xl"></i>
 								<span class="sr-only"><?= $social['title'] ?? 'Neznámá síť' ?></span>
 							</a>
@@ -101,4 +101,3 @@ $address = get_field('contacts', 'options') ?: null;
 </div>
 
 <?php wp_footer(); ?>
-

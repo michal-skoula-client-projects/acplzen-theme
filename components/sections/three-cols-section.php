@@ -42,10 +42,3 @@ $right = (get_sub_field('col_right')) ?: null;
 		</div>
 	</div>
 </section>
-
-?>
-
-
-
-
-

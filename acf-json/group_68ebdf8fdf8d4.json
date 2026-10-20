@@ -3,24 +3,6 @@
     "title": "Informace o Plzeňském rozhovoru",
     "fields": [
         {
-            "key": "field_68ebe76ffb454",
-            "label": "Poznámka",
-            "name": "",
-            "aria-label": "",
-            "type": "message",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "Třízení se řídí podle nastavení data publikace (pravo nahoře), nikoli podle zadaného data. Je to limitace wordpressu. Změňte proto datum publikace, tak, aby bylo ve správný rok a pak se bude třídit automaticky dobře.",
-            "new_lines": "wpautop",
-            "esc_html": 0
-        },
-        {
             "key": "field_68ebdfccb1b94",
             "label": "Místo konání",
             "name": "location",
@@ -81,5 +63,7 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760290810
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1775302225
 }

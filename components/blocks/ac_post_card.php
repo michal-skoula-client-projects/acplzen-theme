@@ -11,7 +11,7 @@ $author = get_the_author() === ''
 
 <article class="sm:rounded-md rounded-sm border border-light-outline overflow-clip h-full">
 	<div class="relative">
-		<img src="<?= get_the_post_thumbnail_url($id, size: 'medium') ?>" alt="" class="w-full aspect-16/10">
+		<img src="<?= get_the_post_thumbnail_url($id, size: 'large') ?>" alt="" class="w-full aspect-16/10" style="object-fit:cover;">
         <a class="absolute inset-0" href="<?= get_permalink($id) ?>" tabindex="-1"></a>
 	</div>
 	<div class="sm:p-6 p-5">

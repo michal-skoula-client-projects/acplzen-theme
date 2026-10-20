@@ -205,11 +205,11 @@ ac_add_column_to_post_type_table('akce', 'datetime', sortable: true);
 
 function esc_allow_safe(string $text): string
 {
-	$config = new HtmlSanitizerConfig()
+	$config = (new HtmlSanitizerConfig())
 		->allowSafeElements()
 		->allowAttribute('class', '*');
 
-	return new HtmlSanitizer($config)->sanitize($text);
+	return (new HtmlSanitizer($config))->sanitize($text);
 }
 
 /**
@@ -282,4 +282,30 @@ function ac_breadcrumbs(): array {
 	return $trail;
 }
 
+// Removing stupid widgets
+add_action('wp_dashboard_setup', function() {
+    remove_meta_box('dashboard_quick_press', 'dashboard', 'side');    // Rychlý koncept
+    remove_meta_box('dashboard_primary', 'dashboard', 'side');        // WP akce a novinky
+    remove_meta_box('dashboard_activity', 'dashboard', 'normal');     // Aktivity
+    //remove_meta_box('dashboard_right_now', 'dashboard', 'normal');    // Aktuální přehled
+});
+
+// Disabling comments
+add_action('admin_init', function() {
+    remove_menu_page('edit-comments.php');
+    
+    add_action('wp_before_admin_bar_render', function() {
+        global $wp_admin_bar;
+        $wp_admin_bar->remove_menu('comments');
+    });
+});
+
+add_filter('comments_open', fn() => false, 20, 2);
+add_filter('pings_open', fn() => false, 20, 2);
+add_filter('comments_array', fn() => [], 10, 2);
+
+add_action('admin_menu', fn() => remove_menu_page('edit-comments.php'));
+
+
+//ACF JSON for the footer, only needs to be imported once.
 //require __DIR__ . '/src/footer-fields.php';

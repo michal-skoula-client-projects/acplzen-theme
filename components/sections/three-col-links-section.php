@@ -32,7 +32,7 @@ $right = get_sub_field('col_right') ?: null;
 				</div>
 			</div>
 			<div>
-				<h3 class="max-w-sm text-dark text-center mb-2"><?= $center['heading'] ?? 'Chybí nadpis' ?></h3>
+				<h3 class="h4 max-w-sm text-dark text-center mb-2"><?= $center['heading'] ?? 'Chybí nadpis' ?></h3>
 				<div class="section__format-text text-dark text-center mb-4">
 					<?= $center['description'] ?? '' ?>
 				</div>
@@ -46,7 +46,7 @@ $right = get_sub_field('col_right') ?: null;
 				</div>
 			</div>
 			<div>
-				<h3 class="max-w-sm text-dark text-center mb-2"><?= $right['heading'] ?? 'Chybí nadpis' ?></h3>
+				<h3 class="h4 max-w-sm text-dark text-center mb-2"><?= $right['heading'] ?? 'Chybí nadpis' ?></h3>
 				<div class="section__format-text text-dark text-center mb-4">
 					<?= $right['description'] ?? '' ?>
 				</div>
