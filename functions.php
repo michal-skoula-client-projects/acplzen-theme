@@ -5,6 +5,11 @@ if (is_file( __DIR__ . '/vendor/autoload_packages.php'))
     require_once __DIR__.'/vendor/autoload_packages.php';
 }
 
+# Check if ACF is installed.
+if (! class_exists('ACF')) {
+    echo 'Admin notice: ACF Pro is not enabled. Install or enable the plugin for the theme to load properly';
+}
+
 use JetBrains\PhpStorm\NoReturn;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
