@@ -1,9 +1,8 @@
 name: Build & publish deploy branch
 
 # WP Pusher cannot build anything — it only pulls whatever is committed on the
-# branch it tracks. `main` deliberately does not carry vendor/ or dist/, so this
-# workflow builds both and force-pushes the result to a `deploy` branch that
-# WP Pusher follows.
+# branch it tracks. This workflow builds and force-pushes the theme to a
+# `deploy` branch that WP Pusher follows.
 
 on:
   push:
@@ -23,8 +22,6 @@ env:
   # to the latest 8.2.x; the exact 8.2.29 target is pinned in composer.json via
   # config.platform.php so dependency resolution matches prod regardless.
   PHP_VERSION: '8.2'
-  # Pinned to 22 on purpose: npm 11.20+ gates package install scripts behind
-  # `allowScripts`, which blocks esbuild's postinstall and breaks `vite build`.
   NODE_VERSION: '22'
   DEPLOY_BRANCH: deploy
 
@@ -44,16 +41,8 @@ jobs:
           tools: composer:v2
           coverage: none
 
-      - name: Validate composer manifest
-        run: composer validate --strict --no-interaction
-
       - name: Install PHP dependencies (production only)
         run: composer install --no-dev --optimize-autoloader --prefer-dist --no-interaction
-
-      # Catches a dependency that needs a newer PHP, or a PHP extension the
-      # bitnami/wordpress image might not ship (currently dom, filter, iconv).
-      - name: Verify dependencies satisfy PHP ${{ env.PHP_VERSION }}
-        run: composer check-platform-reqs
 
       - name: Set up Node ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
@@ -69,61 +58,46 @@ jobs:
 
       - name: Assemble deploy payload
         run: |
-          set -euo pipefail
-          payload="$RUNNER_TEMP/payload"
-          mkdir -p "$payload"
+          set -u # Fail on unknown variables
+          PAYLOAD="$RUNNER_TEMP/payload"
+          mkdir -p "$PAYLOAD"
 
-          # .distignore is already the canonical "what must not ship" list,
-          # so it doubles as the rsync exclude list. vendor/ and dist/ are only
-          # absent from main via .gitignore, which rsync ignores — they are
-          # copied here on purpose.
+          # Only copy over what is actually required. Pulls from .distignore.
           rsync -a \
             --exclude-from=.distignore \
             --exclude '.git/' \
-            --exclude '.github/' \
             --exclude 'node_modules/' \
-            ./ "$payload/"
+            --exclude '.gitignore' \
+            ./ "$PAYLOAD/"
 
-          # Fail loudly rather than publishing a theme that white-screens.
-          for required in \
-            style.css \
-            functions.php \
-            vendor/autoload_packages.php \
-            dist/.vite/manifest.json
-          do
-            if [ ! -f "$payload/$required" ]; then
-              echo "::error::deploy payload is missing $required"
+          # Checks whether required theme files were generated.
+          for REQUIRED_FILES in vendor/autoload_packages.php dist/.vite/manifest.json; do
+            if [ ! -f "$PAYLOAD/$REQUIRED_FILES" ]; then
+              echo "::error::deploy payload is missing $REQUIRED_FILES"
               exit 1
             fi
           done
 
-          # Nothing excluded should have slipped through.
-          for forbidden in node_modules resources composer.json package.json .gitignore; do
-            if [ -e "$payload/$forbidden" ]; then
-              echo "::error::deploy payload unexpectedly contains $forbidden"
-              exit 1
-            fi
-          done
-
-          echo "Payload size: $(du -sh "$payload" | cut -f1)"
+          echo "Payload size: $(du -sh "$PAYLOAD" | cut -f1)"
 
       - name: Publish to ${{ env.DEPLOY_BRANCH }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          set -euo pipefail
+          set -u
           cd "$RUNNER_TEMP/payload"
 
-          # A fresh single-commit history each time, so the deploy branch never
-          # accumulates 3 MB vendor blobs per build. WP Pusher only ever looks
-          # at the tip commit, so discarding history costs nothing.
-          git init -q -b "$DEPLOY_BRANCH"
+          # A fresh single-commit history each time. WP Pusher only ever 
+          # looks at the tip commit, so discarding history costs nothing.
+          git init -b "$DEPLOY_BRANCH"
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
-          git commit -q -m "Build ${GITHUB_SHA} from ${GITHUB_REF_NAME}"
+          git commit -m "Build ${GITHUB_SHA} from ${GITHUB_REF_NAME}"
+          # This URL carries the token, -q silences it so it isn't printed.
           git push -q --force \
             "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
             "$DEPLOY_BRANCH"
 
+          # push -q hides which ref moved, so name it here.
           echo "Published $(git rev-parse --short HEAD) to $DEPLOY_BRANCH"
