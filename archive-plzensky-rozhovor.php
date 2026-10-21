@@ -48,20 +48,24 @@ function get_talks_ids(array $talks): array
 {
 	update_postmeta_cache(wp_list_pluck($talks, 'ID'));
 
-	$albums = array_map(fn(WP_Post $p) => (array) $p, $talks);
+	$timestamps = [];
 
-	// Remove unknown dates from showing
-	$albums = array_filter($albums, fn ($a) => get_the_date(post:  $a));
+	foreach ($talks as $talk) {
+		$timestamp = get_the_date('U', $talk);
+
+		// Skip posts whose publication date cannot be read
+		if (! is_numeric($timestamp)) {
+			continue;
+		}
+
+		$timestamps[(int) $talk->ID] = (int) $timestamp;
+	}
 
 	// Newest first
-	usort($albums, function($a, $b) {
-		$date_a = get_the_date('Y-m-d H:i:s', $a['ID']);
-		$date_b = get_the_date('Y-m-d H:i:s', $b['ID']);
-		return strtotime($date_a) < strtotime($date_b);
-	});
+	arsort($timestamps);
 
     // Array of IDs
-	return array_column($albums, 'ID');
+	return array_keys($timestamps);
 }
 
 function set_pagination_page(int $page_number): void

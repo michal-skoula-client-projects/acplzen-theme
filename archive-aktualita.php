@@ -48,20 +48,24 @@ function get_posts_ids(array $posts): array
 {
 	update_postmeta_cache(wp_list_pluck($posts, 'ID'));
 
-	$albums = array_map(fn(WP_Post $p) => (array) $p, $posts);
+	$timestamps = [];
 
-	// Remove unknown dates from showing
-	$albums = array_filter($albums, fn ($a) => get_the_date(post:  $a));
+	foreach ($posts as $post) {
+		$timestamp = get_the_date('U', $post);
+
+		// Skip posts whose publication date cannot be read
+		if (! is_numeric($timestamp)) {
+			continue;
+		}
+
+		$timestamps[(int) $post->ID] = (int) $timestamp;
+	}
 
 	// Newest first
-	usort($albums, function($a, $b) {
-		$date_a = get_the_date('Y-m-d H:i:s', $a['ID']);
-		$date_b = get_the_date('Y-m-d H:i:s', $b['ID']);
-		return strtotime($date_a) < strtotime($date_b);
-	});
+	arsort($timestamps);
 
     // Array of IDs
-	return array_column($albums, 'ID');
+	return array_keys($timestamps);
 }
 
 function set_pagination_page(int $page_number): void
@@ -71,9 +75,9 @@ function set_pagination_page(int $page_number): void
 }
 
 
-function get_pages_count(int $total_albums_count, int $pagination_interval): int
+function get_pages_count(int $total_posts_count, int $pagination_interval): int
 {
-    return ceil($total_albums_count / $pagination_interval);
+    return ceil($total_posts_count / $pagination_interval);
 }
 
 /**
