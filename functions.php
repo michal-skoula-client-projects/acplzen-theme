@@ -5,6 +5,29 @@ if (is_file( __DIR__ . '/vendor/autoload_packages.php'))
     require_once __DIR__.'/vendor/autoload_packages.php';
 }
 
+# Check if ACF is installed. The theme cannot render without it, so stop the
+# frontend outright, but keep wp-admin, the login screen, REST, cron and WP-CLI
+# alive so the plugin can still be enabled.
+if (! class_exists('ACF')) {
+    $ac_acf_recoverable = is_admin()
+        || wp_doing_cron()
+        || (defined('WP_CLI') && WP_CLI)
+        || (defined('REST_REQUEST') && REST_REQUEST)
+        || (isset($GLOBALS['pagenow']) && $GLOBALS['pagenow'] === 'wp-login.php');
+
+    if ($ac_acf_recoverable) {
+        add_action('admin_notices', function () {
+            echo '<div class="notice notice-error"><p><strong>ACF Pro is not enabled.</strong> Install or enable the plugin for the theme to load properly.</p></div>';
+        });
+    } else {
+        wp_die(
+            'The site is temporarily unavailable.',
+            'Site unavailable',
+            ['response' => 503]
+        );
+    }
+}
+
 use JetBrains\PhpStorm\NoReturn;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;

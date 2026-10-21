@@ -16,10 +16,10 @@
         }
     },
     "require": {
-        "php": ">=8.0.2",
+        "php": ">=8.2",
         "tailpress/framework": "^5.0.3",
         "automattic/jetpack-autoloader": "^2.10",
-        "symfony/html-sanitizer": "^7.3"
+        "symfony/html-sanitizer": "^7.4"
     },
     "require-dev": {
         "tailpress/cli": "^5.0"
@@ -27,6 +27,9 @@
     "config": {
         "allow-plugins": {
             "automattic/jetpack-autoloader": true
+        },
+        "platform": {
+            "php": "8.2.29"
         }
     }
 }
