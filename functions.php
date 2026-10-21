@@ -1,13 +1,17 @@
 <?php
 
-if (is_file( __DIR__ . '/vendor/autoload_packages.php'))
-{
+if (is_file( __DIR__ . '/vendor/autoload_packages.php')) {
     require_once __DIR__.'/vendor/autoload_packages.php';
 }
 
-# Check if ACF is installed. The theme cannot render without it, so stop the
-# frontend outright, but keep wp-admin, the login screen, REST, cron and WP-CLI
-# alive so the plugin can still be enabled.
+use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
+use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
+use TailPress\Framework\Assets\Compiler;
+use TailPress\Framework\Assets\ViteCompiler;
+use TailPress\Framework\Features\MenuOptions;
+use TailPress\Framework\Theme;
+
+# Check if ACF is installed. The theme cannot render without it.
 if (! class_exists('ACF')) {
     $ac_acf_recoverable = is_admin()
         || wp_doing_cron()
@@ -27,14 +31,6 @@ if (! class_exists('ACF')) {
         );
     }
 }
-
-use JetBrains\PhpStorm\NoReturn;
-use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
-use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
-use TailPress\Framework\Assets\Compiler;
-use TailPress\Framework\Assets\ViteCompiler;
-use TailPress\Framework\Features\MenuOptions;
-use TailPress\Framework\Theme;
 
 const ISSUE_REPORT_EMAIL = 'mailto:michal@skoula.com?subject=Chyba%20na%20webu%20acplzen.ujp.zcu.cz';
 const PAGINATION_INTERVAL = 12;
@@ -116,8 +112,8 @@ function ac_remove_support_flag(string $post_type, string $flag): void
 
 ac_remove_support_flag('page', 'editor');
 
-#[NoReturn]
-function ac_404(): void
+
+function ac_404(): never
 {
 	global $wp_query;
 	$wp_query->set_404();
