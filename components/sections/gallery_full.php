@@ -6,35 +6,23 @@
  * @since 1.0.0
  */
 
-$images = get_field('photo_gallery', 'options')
+$images = get_field('photo_gallery', 'options') ?? null
 
 ?>
 
 <section class="section">
 	<div class="max-content-width">
 		<?php if($images): ?>
-			<div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1  gap-8">
+			<div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
 				<?php foreach ($images as $image):
-
-					$img_url = esc_url($image['sizes']['large']);
-					$img_desc = esc_html($image['title']);
-
-					$image_card = <<<HTML
-					<div class="relative rounded-sm overflow-clip">
-						<img src="$img_url" alt="" class="h-full w-full object-cover aspect-4/3" loading="lazy">
-						<a href="$img_url" class="absolute z-10 inset-0">
-							<p class="sr-only">$img_desc</p>
-						</a>
+                    $img_url = esc_url($image['sizes']['large']);
+                    $img_desc = esc_html($image['title']);
+				?>
+					<div class="relative rounded-sm overflow-clip @container">
+						<img src="<?= $img_url ?>" alt="<?= $img_desc ?>" class="h-full w-full object-cover aspect-4/3" loading="lazy">
+                        <p class="absolute bottom-0 lg:p-3 p-2 @max-[22rem]:text-sm left-0 w-full bg-[#000]/40 backdrop-blur-sm text-light-elevated"><?= $img_desc ?></p>
 					</div>
-					HTML;
-
-					if(function_exists('slb_activate')) {
-						// Activates the lightbox if plugin exists
-						$image_card = slb_activate( $image_card );
-					}
-					echo $image_card;
-
-				endforeach; ?>
+				<?php endforeach; ?>
 			</div>
 		<?php else: ?>
 			<p class="text-dark">Nebyly nalezeny žádné fotky.</p>

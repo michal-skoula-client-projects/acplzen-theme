@@ -6,13 +6,13 @@
  * @since 1.0.0
  */
 
-$heading = get_field('partners_heading', 'options');
-$sponsors = get_field('partners', 'options');
+$heading = get_field('partners_heading', 'options') ?: '';
+$sponsors = get_field('partners', 'options') ?? null;
 
 ?>
 
 <section class="section">
-	<div class="max-content-width p-12 rounded-md border border-light-outline bg-light-elevated">
+	<div class="max-content-width p-card-xl rounded-md border border-light-outline bg-light-elevated">
 		<div>
 			<h2 class="text-center text-darker mb-16"><?= $heading ?></h2>
 
@@ -32,7 +32,7 @@ $sponsors = get_field('partners', 'options');
 								<img
                                     src="<?= esc_url($logo['sizes']['medium']) ?>"
                                     alt="<?= $name ?>"
-                                    class="max-h-24"
+                                    class="sm:max-h-24 max-h-18"
                                 >
 							<?php else: ?>
 								<p><?= $name ?></p>

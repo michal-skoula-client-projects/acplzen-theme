@@ -2,10 +2,9 @@
 
 $date = get_field('date') ?: null;
 $location = get_field('location') ?: null
-
 ?>
 
-<section class="section lg:pt-32 md:pt-28 pt-20">
+<section class="section-pt section-px sm:section-pb section-pb-sm">
 	<div class="max-content-width text-dark grid lg:grid-cols-2 grid-cols-1 gap-12">
         <div class="">
 	        <?= get_template_part('/components/blocks/ac_breadcrumbs', args: ['list_elems' => ac_breadcrumbs()])?>

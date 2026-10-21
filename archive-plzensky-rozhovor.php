@@ -101,7 +101,7 @@ function create_pagination_button(callable $disabled, int $to_page, string $labe
             $is_disabled_js
             $inline_styles
             $tab_navigatable
-            href="?page=$to_page#kvitek-gallery" 
+            href="?page=$to_page" 
             class="$styles py-2 px-4 rounded-sm no-underline! border border-light-outline"
         >
             $label
@@ -109,7 +109,6 @@ function create_pagination_button(callable $disabled, int $to_page, string $labe
         </a>
     HTML;
 }
-
 ?>
 
 <?php get_header(); ?>
@@ -119,7 +118,8 @@ function create_pagination_button(callable $disabled, int $to_page, string $labe
 get_template_part('components/sections/hero', args: [
     'heading' => 'Plzeňské rozhovory',
     'style' => 'single',
-    'description_left' => 'Plzeňské rozhovory (Pilsen Talks) je každoroční pravidelná akce, která umožňuje setkání s odborníky z různých oblastí vzdělávání, vědy, výzkumu, kultury a politiky. Při výběru témat a odborníků se zaměřujeme na aktuální fenomény, které hýbou současnou společností.'
+    'description_left' => 'Plzeňské rozhovory (Pilsen Talks) je každoroční pravidelná akce, která umožňuje setkání s odborníky z různých oblastí vzdělávání, vědy, výzkumu, kultury a politiky. Při výběru témat a odborníků se zaměřujeme na aktuální fenomény, které hýbou současnou společností.',
+    'bottom_gap' => 'large',
 ])
 ?>
 
@@ -131,8 +131,8 @@ get_template_part('components/sections/hero', args: [
                     $date = get_field('date', $post_id) ?: null;
                     $location = esc_html(get_field('location', $post_id) ?: '');
                 ?>
-		            <article class="bg-light-elevated border border-light-outline rounded-md grid lg:grid-cols-2 grid-cols-1 gap-12 overflow-clip">
-                        <div class="lg:order-1 order-2 p-12">
+		            <article class="bg-light-elevated border border-light-outline rounded-md grid lg:grid-cols-2 grid-cols-1 gap-x-12 overflow-clip">
+                        <div class="lg:order-1 order-2 p-card-xl">
                             <p class="text-lg text-brand-primary mb-1">Ročník <?= $date ? DateTime::createFromFormat('Y-m-d', $date)?->format('Y') : '?' ?></p>
                             <h2 class="h3 text-darkest mb-2.5"><?= esc_allow_safe(get_the_title($post_id)) ?></h2>
                             <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6 text-darker">

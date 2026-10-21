@@ -1,19 +1,24 @@
 <?php
+$type = get_field('event_type') ?: 'private';
+if($type === 'private') {
+    ac_404();
+}
+
 get_header();
 
 $featured_image = get_field('featured_img');
 $perex = get_field('description') ?: '';
-$date = get_field('date') ?: null;
 
 $location = get_field('location') ?: null;
 $datetime = get_field('datetime') ?: null;
 $audience = get_field('audience') ?: null;
 $information = get_field('information') ?: null;
 $calendar_btn_label = get_field('calendar_btn_label') ?: 'Přidat do kalendáře';
+$content = get_field('content') ?: '';
 ?>
 
-<section class="section">
-	<div class="max-content-width lg:pt-16 md:pt-14 pt-10">
+<section class="section-pt section-px section-pb">
+	<div class="max-content-width">
         <div class="flex justify-center mb-8">
 			<?php get_template_part('components/blocks/ac_breadcrumbs'); ?>
         </div>
@@ -23,22 +28,22 @@ $calendar_btn_label = get_field('calendar_btn_label') ?: 'Přidat do kalendáře
                 src="<?= $featured_image['sizes']['large'] ?? '' ?>"
                 alt="<?= $featured_image['caption'] ?? '' ?>"
             >
-            <div class="pb-[calc(var(--section-padding)*2)] p-[var(--section-padding)]">
+            <div class="p-card-xl">
                 <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-darker mb-1">
-                    <?php if($date): ?>
+                    <?php if($datetime): ?>
                     <div class="flex gap-2 items-center text-sm">
                         <i class="fa-regular fa-calendar"></i>
                         <span>
-                            <time class="text-sm inline" datetime="<?= DateTime::createFromFormat('d/m/Y', $date)->format('Y-m-d') ?>">
-                            <?= DateTime::createFromFormat('d/m/Y', $date)->format('d.m.Y') ?>
+                            <time class="text-sm inline" datetime="<?= DateTime::createFromFormat('Y-m-d H:i:s', $datetime)->format('Y-m-d H:i') ?>">
+                            <?= DateTime::createFromFormat('Y-m-d H:i:s', $datetime)->format('d.m.Y') ?>
                             </time>
                         </span>
                     </div>
                     <?php endif; ?>
                 </div>
-                <h1 class="text-darkest text-center mb-3"><?= get_the_title() ?: 'Chybí titulek' ?></h1>
-                <p class="section__format-text mx-auto max-w-screen-md text-center text-lg text-dark">
-		            <?= get_the_excerpt() ?>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl text-darkest text-center mb-3"><?= get_the_title() ?: 'Chybí titulek' ?></h1>
+                <p class="section__format-text mx-auto max-w-screen-md text-center text-lg text-dark sm:text-lg text-base">
+		            <?= $perex ?>
                 </p>
             </div>
         </div>
@@ -66,7 +71,7 @@ $calendar_btn_label = get_field('calendar_btn_label') ?: 'Přidat do kalendáře
                                 <i class="fa-solid fa-location-dot text-brand-secondary"></i>
                                 <span class="text-darkest text-lg">Místo konání</span>
                             </dt>
-                            <dd class="text-dark"><?= esc_html($location) ?></dd>
+                            <dd class="text-dark"><?= esc_allow_safe($location) ?></dd>
                         </dl>
 	                <?php endif; ?>
 	                <?php if($audience): ?>
@@ -92,16 +97,16 @@ $calendar_btn_label = get_field('calendar_btn_label') ?: 'Přidat do kalendáře
                     <hr class="lg:hidden">
                 </div>
             </div>
-            <div class="text-dark max-w-screen-md w-full lg:mx-auto section__format-text mb-12">
+            <div class="text-dark max-w-screen-md w-full lg:mx-auto section__format-text sm:mb-12 mb-6">
                 <p class="h3 text-darkest pb-0 mb-0">O akci</p>
                 <hr class="max-lg:hidden">
-                <?php the_content() ?>
+                <?= $content ?>
             </div>
         </div>
         <div class="flex justify-center">
 			<?php get_template_part('components/blocks/ac_button', args: [
 				'label' => 'Zpátky na seznam akcí',
-				'href' => get_post_type_archive_link('program'),
+				'href' => get_post_type_archive_link('akce'),
 			]) ?>
         </div>
 	</div>

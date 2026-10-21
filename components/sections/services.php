@@ -6,8 +6,8 @@
  * @since 1.0.0
  */
 
-$heading = get_sub_field('heading');
-$blocks = get_sub_field('cards');
+$heading = get_sub_field('heading') ?: '';
+$blocks = get_sub_field('cards') ?? null;
 
 
 ?>

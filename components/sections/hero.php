@@ -6,16 +6,17 @@
  * @since 1.0.0
  */
 
-$heading = $args['heading'] ?? get_field('heading') ?? 'Chybí nadpis';
-$style = $args['style'] ?? get_field('description_style') ?? 'none';
-$call_to_action = get_field('call_to_action') ?? 'ne';
-$url = get_field('url') ?? null;
-$description_left = $args['description_left'] ?? get_field('description_left') ?? '';
-$description_right = $args['description_right'] ?? get_field('description_right') ?? '';
+$bottom_gap = $args['bottom_gap'] ?? get_field('bottom_gap') ?: 'small';
+$heading = $args['heading'] ?? get_field('heading') ?: 'Chybí nadpis';
+$style = $args['style'] ?? get_field('description_style') ?: 'none';
+$call_to_action = get_field('call_to_action') ?: 'ne';
+$url = get_field('url') ?: null;
+$description_left = $args['description_left'] ?? get_field('description_left') ?: '';
+$description_right = $args['description_right'] ?? get_field('description_right') ?: '';
 
 ?>
 
-<section class="lg:px-16 md:px-12 px-5 lg:pt-32 md:pt-28 pt-20 lg:pb-10 md:pb-8 pb-4">
+<section class="section-px section-pt section-pb <?= $bottom_gap === 'small' ? 'section-pb-sm' : 'section-pb'?>">
 	<div class="max-content-width">
 		<div class="text-dark">
 			<?= get_template_part('/components/blocks/ac_breadcrumbs', args: ['list_elems' => ac_breadcrumbs()])?>

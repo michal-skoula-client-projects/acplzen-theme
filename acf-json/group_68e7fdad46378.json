@@ -144,9 +144,9 @@
             },
             "default_value": "",
             "allow_in_bindings": 0,
-            "tabs": "text",
+            "tabs": "visual",
+            "toolbar": "basic",
             "media_upload": 0,
-            "toolbar": "full",
             "delay": 0
         },
         {
@@ -166,6 +166,27 @@
             "default_value": "",
             "allow_in_bindings": 0,
             "placeholder": ""
+        },
+        {
+            "key": "field_68ecf8616fcc4",
+            "label": "Autorská práva",
+            "name": "copyright",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Název organizace, které patří autorská práva na web pozn. legálně sice k ničemu, ale vypadá to profesionálněji :)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -187,5 +208,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760270946
+    "modified": 1760360650
 }

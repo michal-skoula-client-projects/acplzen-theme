@@ -1,16 +1,16 @@
 {
     "key": "post_type_68e8f73c56b32",
-    "title": "Akce pro veřejnost",
+    "title": "Akce",
     "menu_order": 0,
     "active": true,
-    "post_type": "program",
+    "post_type": "akce",
     "advanced_configuration": true,
     "import_source": "",
     "import_date": "",
     "labels": {
-        "name": "Akce pro veřejnost",
-        "singular_name": "Akce pro veřejnost",
-        "menu_name": "Veřejné akce",
+        "name": "Akce",
+        "singular_name": "Akce",
+        "menu_name": "Program",
         "all_items": "Přehled Akcí",
         "edit_item": "Upravit akci",
         "view_item": "Zobrazit akci",
@@ -42,7 +42,7 @@
         "item_link": "Odkaz na akci",
         "item_link_description": "Odkaz na akci."
     },
-    "description": "VEŘEJNÉ AKCE - tzn. jednoduchý archiv všech akcí s obrázkem atd.",
+    "description": "Veřejné a soukromé akce",
     "public": true,
     "hierarchical": false,
     "exclude_from_search": false,
@@ -66,7 +66,6 @@
     "plural_capability_name": "posts",
     "supports": [
         "title",
-        "editor",
         "revisions",
         "custom-fields"
     ],
@@ -85,5 +84,5 @@
     "delete_with_user": false,
     "register_meta_box_cb": "",
     "enter_title_here": "Název akce",
-    "modified": 1760306225
+    "modified": 1761424715
 }

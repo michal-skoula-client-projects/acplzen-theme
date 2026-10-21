@@ -6,8 +6,8 @@
  * @since 1.0.0
  */
 
-$heading = esc_html(get_sub_field('heading'));
-$files = get_sub_field('files');
+$heading = esc_html(get_sub_field('heading') ?: '');
+$files = get_sub_field('files') ?? null;
 // Field data retrieval happens here
 
 ?>
@@ -35,7 +35,7 @@ $files = get_sub_field('files');
                         </div>
                         <div>
                             <a href="<?= $file['url'] ?? '#' ?>" class="inline-flex text-light-elevated group" download>
-                                <div class="bg-brand-secondary group-hover:bg-brand-secondary-focus group-focus:bg-brand-secondary-focus group-active:bg-brand-secondary-highlight duration-200 transition-colors rounded-full p-3 pl-5 py-2.5 pr-4">
+                                <div class="max-sm:hidden bg-brand-secondary group-hover:bg-brand-secondary-focus group-focus:bg-brand-secondary-focus group-active:bg-brand-secondary-highlight duration-200 transition-colors rounded-full p-3 pl-5 py-2.5 pr-4">
                                     <span class="align-middle font-medium">Stáhnout</span>
                                 </div>
                                 <div class="bg-brand-secondary group-hover:bg-brand-secondary-focus group-focus:bg-brand-secondary-focus group-active:bg-brand-secondary-highlight duration-200 h-full inline-block aspect-1/1 rounded-full py-2.5 px-4 text-light-elevated -translate-x-2 group-hover:-translate-x-3.5 group-focus:-translate-x-3.5 group-active:-translate-x-3.5 transition-transform">

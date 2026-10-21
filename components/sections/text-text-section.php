@@ -6,10 +6,10 @@
  * @since 1.0.0
  */
 
-$heading = esc_html(get_sub_field('heading') ?? '');
-$only_left_col = get_sub_field('only_left_col');
-$left = get_sub_field('description_left');
-$right = get_sub_field('description_right');
+$heading = esc_html(get_sub_field('heading') ?: '');
+$only_left_col = get_sub_field('only_left_col') ?: 'ano';
+$left = get_sub_field('description_left') ?: '';
+$right = get_sub_field('description_right') ?: '';
 
 ?>
 

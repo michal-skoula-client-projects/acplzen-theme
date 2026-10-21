@@ -305,14 +305,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 this.dButton.remove();
                 this.dButton = this.dropdown.querySelector(":scope > button[nav-sub-menu-toggle]");
 
-                // const listWithSubmenu = document.querySelector('#navbar > li:has(button[nav-sub-menu-toggle])')
-                // console.log(listWithSubmenu);
-                // const icon = document.createElement("i");
-                // icon.className = "fa-solid fa-chevron-down mr-2"; // Adjust icon and spacing as needed
-                // this.dList.append(icon); // Or use append if you want it at the end
-
                 // Add necessary classes and groupings to the parent <ul>
-                this.dropdown.classList.add("group", "position-relative");
+                this.dropdown.classList.add("group", "relative");
             }
 
             else {
@@ -367,5 +361,12 @@ document.addEventListener("DOMContentLoaded", () => {
     disabledPaginationButtons.forEach((btn) => {
         btn.removeAttribute('href');
         btn.addEventListener('click', (e) => e.preventDefault());
+    });
+
+    // Add the chevron to desktop nav dropdown list elems
+    document.querySelectorAll(".ac-nav-dropdown-button").forEach(btn => {
+        const chevron = document.createElement("i");
+        chevron.className = "fa fa-angle-down fa-xs";
+        btn.append(chevron);
     });
 });

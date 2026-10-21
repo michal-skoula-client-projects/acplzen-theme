@@ -26,14 +26,15 @@
 		<div class="text-dark max-w-screen-md section__format-text mb-12">
 			<?php the_content() ?>
 		</div>
-		<div class="flex justify-center">
-			<?php get_template_part('components/blocks/ac_button', args: [
-				'label' => 'Zpátky do nabídky',
-				'href' => get_post_type_archive_link('sluzba'),
-			]) ?>
-		</div>
 	</div>
 </section>
+<?php if(get_field('tlacitko')): ?>
+    <?php get_template_part('components/sections/call-to-action', args: [
+        'heading' => get_field('heading') ?: 'Zaujaly vás možnosti?',
+        'description' => get_field('description') ?: 'Rádi to s vámi probereme a se vším vám pomůžeme.',
+        'btn_primary' => get_field('tlacitko') ?: null,
+    ]) ?>
+<?php endif; ?>
 
 
 <?php get_footer() ?>

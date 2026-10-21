@@ -6,9 +6,9 @@
  * @since 1.0.0
  */
 
-$heading = get_sub_field('heading') ?? '';
+$heading = get_sub_field('heading') ?: '';
 $yt_embed_url = esc_url(get_sub_field('yt_embed_url')
-	??  'https://www.youtube.com/embed/dQw4w9WgXcQ?si=s2DeZ-z6yQQU7j4P'); // ;)
+	?:  'https://www.youtube.com/embed/dQw4w9WgXcQ?si=s2DeZ-z6yQQU7j4P'); // wink wink ;)
 
 ?>
 

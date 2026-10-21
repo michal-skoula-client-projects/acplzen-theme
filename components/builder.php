@@ -43,7 +43,7 @@ if(have_rows('sections')):
 			'gallery_full' => '/sections/gallery_full.php',
 			'gallery_mini' => '/sections/gallery_mini.php',
 			'pamphlets' => '/sections/pamphlets.php',
-			'text-button-image-section' => '/sections/text-button-image-section.php',
+			'text-button-image-section', 'text-image-section' => '/sections/text-button-image-section.php', // same markup excl. button
 			'text_text_section' => '/sections/text-text-section.php',
 			'contacts_pill' => '/sections/contacts-pill.php',
 			'video-embed' => '/sections/video-embed.php',
@@ -51,6 +51,8 @@ if(have_rows('sections')):
 			'services_archive_section' => '/sections/services_archive_section.php',
 			'three_col_links_section' => '/sections/three-col-links-section.php',
 			'two_cols_blocks_section' => '/sections/two-col-blocks-section.php',
+			'three_cols_section' => '/sections/three-cols-section.php',
+			'reviews' => '/sections/reviews.php',
 			default => null,
 		};
 

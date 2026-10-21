@@ -13,6 +13,7 @@
     --color-dark: oklch(33.33% 0.075 245.52);
     --color-darker: oklch(30.23% 0.066 244.74);
     --color-darkest: oklch(25.17% 0.064 255.56);
+    --color-darkest-footer: oklch(18.17% 0.064 255.56);
 
     --color-light-base: oklch(97.91% 0.000 0);
     --color-light-elevated: oklch(100.00% 0.000 0);
@@ -31,7 +32,9 @@
 
     --text-8xl: 80px;
 }
-
+body {
+    scroll-behavior: smooth;
+}
 :root {
     /* pb-[calc(var(--section-padding)*2)] p-[var(--section-padding)] */
     --section-padding: 2rem;
@@ -48,9 +51,9 @@
         @apply tracking-[0.008em]
     }
 
-    :focus-visible {
-        outline: 2px solid var(--color-brand-primary);
-    }
+    /*:focus-visible {*/
+    /*    outline: 2px solid var(--color-brand-primary);*/
+    /*}*/
 
     *,
     ::after,
@@ -71,13 +74,13 @@
         @apply text-3xl sm:text-4xl;
     }
     h3, .h3 {
-        @apply text-3xl;
+        @apply sm:text-2xl text-3xl;
     }
     h4, .h4 {
-        @apply text-2xl;
+        @apply sm:text-xl text-2xl;
     }
     h5, .h5 {
-        @apply text-xl;
+        @apply sm:text-lg text-xl;
     }
     h6, .h6 {
         @apply text-lg;
@@ -102,5 +105,5 @@
 }
 
 @theme inline {
-    --breakpoint-nav: 70rem;
+    --breakpoint-nav: 78rem;
 }

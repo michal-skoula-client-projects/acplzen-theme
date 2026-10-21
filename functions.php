@@ -1,13 +1,17 @@
 <?php
 
-if (is_file( __DIR__ . '/vendor/autoload_packages.php'))
-{
+if (is_file( __DIR__ . '/vendor/autoload_packages.php')) {
     require_once __DIR__.'/vendor/autoload_packages.php';
 }
 
-# Check if ACF is installed. The theme cannot render without it, so stop the
-# frontend outright, but keep wp-admin, the login screen, REST, cron and WP-CLI
-# alive so the plugin can still be enabled.
+use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
+use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
+use TailPress\Framework\Assets\Compiler;
+use TailPress\Framework\Assets\ViteCompiler;
+use TailPress\Framework\Features\MenuOptions;
+use TailPress\Framework\Theme;
+
+# Check if ACF is installed. The theme cannot render without it.
 if (! class_exists('ACF')) {
     $ac_acf_recoverable = is_admin()
         || wp_doing_cron()
@@ -27,14 +31,6 @@ if (! class_exists('ACF')) {
         );
     }
 }
-
-use JetBrains\PhpStorm\NoReturn;
-use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
-use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
-use TailPress\Framework\Assets\Compiler;
-use TailPress\Framework\Assets\ViteCompiler;
-use TailPress\Framework\Features\MenuOptions;
-use TailPress\Framework\Theme;
 
 const ISSUE_REPORT_EMAIL = 'mailto:michal@skoula.com?subject=Chyba%20na%20webu%20acplzen.ujp.zcu.cz';
 const PAGINATION_INTERVAL = 12;
@@ -58,19 +54,21 @@ function tailpress(): Theme
             ->withCompiler(new ViteCompiler, fn( Compiler $compiler) => $compiler
                 ->registerAsset('resources/css/app.css')
                 ->registerAsset('resources/js/app.js')
-                ->editorStyleFile('resources/css/editor-style.css')
             )
             ->enqueueAssets()
         )
         ->features(fn($manager) => $manager->add(MenuOptions::class))
-        ->menus(fn($manager) => $manager->add('primary', __( 'Primary Menu', 'tailpress')))
+        ->menus(fn($manager) => $manager
+	        ->add('primary', 'Hlavní menu')
+//	        ->add('footer', 'Zápatí (footer)')
+	    )
         ->themeSupport(fn($manager) => $manager->add([
             'title-tag',
             'custom-logo',
             'post-thumbnails',
-            'align-wide',
-            'wp-block-styles',
-            'responsive-embeds',
+//            'align-wide',
+//            'wp-block-styles',
+//            'responsive-embeds',
             'html5' => [
                 'search-form',
                 'comment-form',
@@ -83,9 +81,10 @@ function tailpress(): Theme
 
 tailpress();
 
+
 function ac_enqueue_fonts(): void
 {
-	wp_enqueue_style('kvitek-fonts', get_template_directory_uri() . '/public/fonts/fonts.css');
+	wp_enqueue_style('ac-fonts', get_template_directory_uri() . '/public/fonts/fonts.css');
 }
 
 add_action('init', 'ac_enqueue_fonts');
@@ -113,8 +112,8 @@ function ac_remove_support_flag(string $post_type, string $flag): void
 
 ac_remove_support_flag('page', 'editor');
 
-#[NoReturn]
-function ac_404(): void
+
+function ac_404(): never
 {
 	global $wp_query;
 	$wp_query->set_404();
@@ -219,8 +218,9 @@ function ac_add_column_to_post_type_table( string $post_type, string $field_name
 	}
 }
 
-ac_add_column_to_post_type_table('tabor', 'availability', true);
-ac_add_column_to_post_type_table('album','event_date',true);
+ac_add_column_to_post_type_table('akce', 'event_type',  sortable: true);
+ac_add_column_to_post_type_table('akce', 'datetime', sortable: true);
+
 
 function esc_allow_safe(string $text): string
 {
@@ -300,3 +300,31 @@ function ac_breadcrumbs(): array {
 
 	return $trail;
 }
+
+// Removing stupid widgets
+add_action('wp_dashboard_setup', function() {
+    remove_meta_box('dashboard_quick_press', 'dashboard', 'side');    // Rychlý koncept
+    remove_meta_box('dashboard_primary', 'dashboard', 'side');        // WP akce a novinky
+    remove_meta_box('dashboard_activity', 'dashboard', 'normal');     // Aktivity
+    //remove_meta_box('dashboard_right_now', 'dashboard', 'normal');    // Aktuální přehled
+});
+
+// Disabling comments
+add_action('admin_init', function() {
+    remove_menu_page('edit-comments.php');
+    
+    add_action('wp_before_admin_bar_render', function() {
+        global $wp_admin_bar;
+        $wp_admin_bar->remove_menu('comments');
+    });
+});
+
+add_filter('comments_open', fn() => false, 20, 2);
+add_filter('pings_open', fn() => false, 20, 2);
+add_filter('comments_array', fn() => [], 10, 2);
+
+add_action('admin_menu', fn() => remove_menu_page('edit-comments.php'));
+
+
+//ACF JSON for the footer, only needs to be imported once.
+//require __DIR__ . '/src/footer-fields.php';

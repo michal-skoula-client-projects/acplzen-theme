@@ -6,11 +6,11 @@ export default defineConfig(({ command }) => {
 
     return {
         publicDir: 'public',
-        base: isBuild ? '/wp-content/themes/kvitek/dist/' : '/',
+        base: isBuild ? '/wp-content/themes/acplzen/dist/' : '/',
         server: {
             port: 3000,
             cors: true,
-            origin: 'http://kvitek-plzen.local',
+            origin: 'http://acplzen.local',
         },
         build: {
             manifest: true,
@@ -19,7 +19,6 @@ export default defineConfig(({ command }) => {
                 input: [
                     'resources/js/app.js',
                     'resources/css/app.css',
-                    'resources/css/editor-style.css'
                 ],
             },
         },

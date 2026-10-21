@@ -6,11 +6,44 @@
 @source '../../vendor/tailpress/framework/**/*.php';
 @source '../../vendor/tailpress/framework/**/**/*.php';
 
-@layer utilities {
-    .section {
-        @apply lg:pb-32 lg:px-16 md:pb-28 md:px-12 px-5 pb-20
-    }
+@utility section-px {
+    @apply lg:px-16 md:px-12 px-4
+}
 
+@utility section-pb {
+    @apply lg:pb-32 md:pb-28 pb-20
+}
+
+@utility section-pb-sm {
+    @apply lg:pb-16 md:pb-14 pb-8
+}
+
+@utility section-pt {
+    @apply lg:pt-32 md:pt-28 pt-20
+}
+
+@utility section {
+    @apply section-px section-pb
+}
+
+@utility section-dark {
+    @apply section-px section-pb section-pt lg:mb-32 md:mb-28 mb-20
+}
+
+@utility p-card {
+    @apply p-8 max-sm:px-4 max-sm:py-6
+}
+
+@utility p-card-xl {
+    @apply p-12 max-sm:px-6 max-sm:py-8
+}
+@utility p-card-sm {
+    @apply p-5 max-sm:p-3;
+}
+
+
+
+@layer utilities {
     .max-content-width {
         @apply max-w-screen-xl mx-auto w-full;
     }
@@ -19,7 +52,7 @@
         & span {
             text-decoration: underline;
             text-decoration-skip-ink: none;
-            @apply decoration-[3vw] lg:decoration-[2rem] underline-offset-[-1.4vw] lg:underline-offset-[-1.1rem]
+            @apply decoration-[3vw] lg:decoration-[2rem] underline-offset-[-1.4vw] lg:underline-offset-[-1.1rem];
         }
         & span.underline-red {
             @apply decoration-brand-primary/70
@@ -117,22 +150,38 @@
             border-radius: var(--radius-sm);
         }
         & a {
-            color: var(--color-brand-primary);
+            color: var(--color-brand-secondary);
             transition: 200ms ease-in-out;
             font-weight: 500;
             text-decoration: underline !important;
 
             &:hover {
-                color: var(--color-brand-primary);
+                color: var(--color-brand-secondary);
+                text-underline-color: var(--color-brand-secondary);
             }
             &:active {
-                color: var(--color-brand-primary);
+                color: var(--color-brand-secondary);
+                text-underline-color: var(--color-brand-secondary);
             }
         }
         & i {
             color: var(--color-dark)
         }
 
+    }
+}
+.darkbg {
+    & a {
+        @apply text-light-elevated
+    }
+    & a:focus {
+        @apply text-light-base;
+    }
+    & a:hover {
+        @apply text-light-base;
+    }
+    &:active {
+        @apply text-light-base;
     }
 }
 

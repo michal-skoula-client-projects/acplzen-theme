@@ -6,12 +6,12 @@
  * @since 1.0.0
  */
 
-$content = get_sub_field('content');
-$image = get_sub_field('img');
+$content = get_sub_field('content') ?? null;
+$image = get_sub_field('img') ?? null;
 
 $heading = $content['heading'] ?? 'Chybí nadpis';
 $description = $content['description'] ?? '';
-$btn = $content['url'];
+$btn = $content['url'] ?? null;
 
 ?>
 

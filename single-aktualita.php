@@ -18,7 +18,7 @@ $author = get_the_author() === ''
                 src="<?= get_the_post_thumbnail_url(size: 'large') ?: '' ?>"
                 alt="<?= get_the_post_thumbnail_caption() ?: '' ?>"
             >
-            <div class="pb-[calc(var(--section-padding)*2)] p-[var(--section-padding)]">
+            <div class="p-card-xl">
                 <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-darker mb-1">
                     <div class="flex gap-1 items-center text-sm">
                         <i class="fa-regular fa-user"></i>
@@ -34,8 +34,8 @@ $author = get_the_author() === ''
                 </span>
                     </div>
                 </div>
-                <h1 class="text-darkest text-center mb-3"><?= get_the_title() ?: 'Chybí titulek' ?></h1>
-                <p class="section__format-text mx-auto max-w-screen-md text-center text-lg text-dark">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl text-darkest text-center mb-3"><?= get_the_title() ?: 'Chybí titulek' ?></h1>
+                <p class="section__format-text mx-auto max-w-screen-md text-center text-base sm:text-lg text-dark">
 		            <?= get_the_excerpt() ?>
                 </p>
             </div>

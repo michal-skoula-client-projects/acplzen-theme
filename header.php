@@ -22,8 +22,21 @@
 </head>
 <body class="bg-light-base">
 <header id="header" class="sticky top-0 z-30">
+    <!-- Tab navigation menu skip link-->
+    <a  href="#content"
+        id="skipNavigation"
+        class="pointer-events-none absolute top-4 left-4 z-50 bg-light-elevated border border-light-outline rounded-sm p-3 opacity-0 focus:opacity-100 text-dark"
+    >
+        <p>Přeskočit na obsah</p>
+    </a>
     <nav id="navbar-quick-action" class="bg-brand-secondary py-2 px-8">
         <div class="max-content-width flex flex-wrap items-center justify-end  gap-x-6 gap-y-2">
+	        <?php if($address): ?>
+                <div class="flex gap-2 items-center text-light-elevated relative">
+                    <i class="fa-solid fa-location-dot fa-md"></i>
+                    <p class="font-medium"><?= $address ?></p>
+                </div>
+	        <?php endif; ?>
 	        <?php if($tel): ?>
                 <div class="flex gap-2 items-center text-light-elevated group relative">
                     <i class="fa-solid fa-phone group-hover:text-brand-primary-highlight transition-colors duration-150 ease-in-out fa-md"></i>
@@ -38,25 +51,12 @@
                     <a href="mailto:<?= str_replace(' ', '', $email) ?>" class="absolute inset-0" aria-label="Email"></a>
                 </div>
 	        <?php endif; ?>
-	        <?php if($address): ?>
-                <div class="flex gap-2 items-center text-light-elevated relative">
-                    <i class="fa-solid fa-location-dot fa-md"></i>
-                    <p class="font-medium"><?= $address ?></p>
-                </div>
-	        <?php endif; ?>
         </div>
     </nav>
     <nav
         id="navbar"
         class="ac-nav-navbar"
     >
-<!--         Tab navigation menu skip link-->
-        <a  href="#content"
-            id="skipNavigation"
-            class="pointer-events-none absolute top-4 left-4 z-50 bg-light-highlight border border-light-outline rounded-sm p-3 opacity-0 focus:opacity-100"
-        >
-            <p>Přeskočit na obsah</p>
-        </a>
         <div class="max-content-width flex items-center justify-between gap-8">
             <!-- Left side-->
             <div>
@@ -83,19 +83,6 @@
                     <p>Menu nenalezeno</p>
 
 		        <?php endif; ?>
-
-
-                <!--            <div class="nav:flex hidden gap-4">-->
-                <!--                <a href="--><?php //= esc_url($header_button['url']) ?><!--" class="btn-primary">-->
-                <!--                    --><?php //= esc_html($header_button['text']) ?>
-                <!--                </a>-->
-                <!--                <a href="mailto:infoac@gmail.com" class="btn-secondary">-->
-                <!--                    Mám otázku-->
-                <!--                </a>-->
-                <!--            </div>-->
-
-
-
 
                 <button
                     id="slideoverOpenBtn"
@@ -127,24 +114,17 @@
                     <i class="fa-solid fa-xmark fa-lg"></i>
                 </button>
             </div>
-<!--            <div class="flex gap-2 justify-end">-->
-<!--                <a href="--><?php //= esc_url($header_button['url']) ?><!--" class="btn-primary h-[3.25rem]">-->
-<!--                    --><?php //= esc_html($header_button['text']) ?>
-<!--                </a>-->
-<!--            </div>-->
         </div>
 
-        <div class="h-full overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-			<?php if(has_nav_menu('primary')): ?>
+        <?php if(has_nav_menu('primary')): ?>
 
-				<?php ac_build_primary_menu(is_mobile: true); ?>
+            <?php ac_build_primary_menu(is_mobile: true); ?>
 
-			<?php else: ?>
+        <?php else: ?>
 
-                <p>Menu nenalezeno</p>
+            <p>Menu nenalezeno</p>
 
-			<?php endif; ?>
-        </div>
+        <?php endif; ?>
 
 
     </nav>
