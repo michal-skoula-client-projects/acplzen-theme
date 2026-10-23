@@ -2,9 +2,6 @@
 get_header();
 
 $id = get_the_ID();
-$author = get_the_author() === ''
-	? get_the_author_meta('display_name', get_post_field('post_author', $id))
-	: get_the_author()
 ?>
 
 <section class="section">
@@ -20,10 +17,16 @@ $author = get_the_author() === ''
             >
             <div class="p-card-xl">
                 <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-darker mb-1">
+                    <?php if (SHOW_AUTHOR_NAMES):
+                        $author = get_the_author() === ''
+                            ? get_the_author_meta('display_name', get_post_field('post_author', $id))
+                            : get_the_author();
+                    ?>
                     <div class="flex gap-1 items-center text-sm">
                         <i class="fa-regular fa-user"></i>
                         <span><?= $author ?></span>
                     </div>
+                    <?php endif; ?>
 
                     <div class="flex gap-2 items-center text-sm">
                         <i class="fa-regular fa-calendar"></i>

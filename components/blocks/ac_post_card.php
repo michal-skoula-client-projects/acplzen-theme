@@ -2,11 +2,6 @@
 assert(isset($args));
 
 $id = $args['id'] ?? 0;
-$author = get_the_author() === ''
-    ? get_the_author_meta('display_name', get_post_field('post_author', $id))
-    : get_the_author()
-
-
 ?>
 
 <article class="sm:rounded-md rounded-sm border border-light-outline overflow-clip h-full">
@@ -17,11 +12,19 @@ $author = get_the_author() === ''
 	<div class="sm:p-6 p-5">
 		<!-- Article info -->
 		<div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-darker mb-0.5">
+            <?php if (SHOW_AUTHOR_NAMES):
+                $author = get_the_author() === ''
+                    ? get_the_author_meta('display_name', get_post_field('post_author', $id))
+                    : get_the_author();
+            ?>
+            <!-- Author -->
             <div class="flex gap-1 items-center text-sm">
                 <i class="fa-regular fa-user"></i>
                 <span><?= $author ?></span>
             </div>
+            <?php endif; ?>
 
+            <!-- Date -->
             <div class="flex gap-2 items-center text-sm">
                 <i class="fa-regular fa-calendar"></i>
                 <span>

@@ -35,6 +35,11 @@ if (! class_exists('ACF')) {
 const ISSUE_REPORT_EMAIL = 'mailto:michal@skoula.com?subject=Chyba%20na%20webu%20acplzen.ujp.zcu.cz';
 const PAGINATION_INTERVAL = 12;
 
+/** Client wants to hide author names since there's only one author
+ * for now. This is to make it easy to re-enable later
+ */
+const SHOW_AUTHOR_NAMES = false;
+
 function ac_in_production(): bool
 {
 	return !in_array(wp_get_environment_type(), ['development', 'local']);
