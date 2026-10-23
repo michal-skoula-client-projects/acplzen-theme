@@ -1,0 +1,47 @@
+{
+    "key": "group_68e90b911d1c3",
+    "title": "Informace o službě",
+    "fields": [
+        {
+            "key": "field_68e90b91f45a6",
+            "label": "O službě",
+            "name": "about",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Zkráceně o co se jedná a proč je to zajímavé. Tento text se zobrazí v přehledu \"Poradíme\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "sluzba"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1760214770
+}

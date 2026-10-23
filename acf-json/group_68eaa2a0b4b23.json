@@ -1,0 +1,215 @@
+{
+    "key": "group_68eaa2a0b4b23",
+    "title": "Hero sekce",
+    "fields": [
+        {
+            "key": "field_68eaa2a10992d",
+            "label": "Nadpis",
+            "name": "heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_68eaa2d60992e",
+            "label": "Styl popisku",
+            "name": "description_style",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Styl zobrazení sekce",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "Bez popisku",
+                "single": "Jeden sloupec",
+                "side-by-side": "Dva sloupce"
+            },
+            "default_value": "single",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_68eaa35d7572a",
+            "label": "Popisek levý sloupec",
+            "name": "description_left",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68eaa2d60992e",
+                        "operator": "==",
+                        "value": "single"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_68eaa2d60992e",
+                        "operator": "==",
+                        "value": "side-by-side"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_68eaa3847572b",
+            "label": "Popisek pravý sloupec",
+            "name": "description_right",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68eaa2d60992e",
+                        "operator": "==",
+                        "value": "side-by-side"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_68eac089c68a8",
+            "label": "Call to action",
+            "name": "call_to_action",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Zda se pod sekcí zobrazí odkaz s provoláním do akce, např. \"kontaktujte nás\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "ano": "Ano",
+                "ne": "Ne"
+            },
+            "default_value": "ne",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_68eac0c0c68a9",
+            "label": "Odkaz",
+            "name": "url",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68eac089c68a8",
+                        "operator": "==",
+                        "value": "ano"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_68efe1459bd4a",
+            "label": "Velikost spodního odsazení",
+            "name": "bottom_gap",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "small": "Malá",
+                "large": "Velká"
+            },
+            "default_value": "small",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            },
+            {
+                "param": "page",
+                "operator": "!=",
+                "value": "154"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1761419778
+}

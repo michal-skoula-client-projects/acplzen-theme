@@ -1,0 +1,21 @@
+{
+  "public/fonts/montserrat-italic.woff2": {
+    "file": "assets/montserrat-italic-DLzCfu_J.woff2",
+    "src": "public/fonts/montserrat-italic.woff2"
+  },
+  "public/fonts/montserrat-regular.woff2": {
+    "file": "assets/montserrat-regular-DbzI1qGp.woff2",
+    "src": "public/fonts/montserrat-regular.woff2"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-Voj8ytde.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-DQjidqNL.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
