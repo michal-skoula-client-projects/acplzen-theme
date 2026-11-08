@@ -1,6 +1,12 @@
 /node_modules
-/dist
 /vendor
+
+# Built by `npm run build`, and by CI before it publishes the deploy branch.
+# Never committed: a stale committed copy is worse than none.
+assets/styles/output.css
+
+.claude/settings.local.json
+
 /.fleet
 /.idea
 /.nova
