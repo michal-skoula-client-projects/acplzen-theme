@@ -1,4 +1,15 @@
 <?php
+/**
+ * dump() and rdump(), for use while developing.
+ *
+ * Guarded in here rather than at the require site so functions.php stays a
+ * flat list of requires.
+ */
+
+if ( ac_in_production() ) {
+	return;
+}
+
 
 /**
  * Nicer var dump with `<pre>` tag formatting
