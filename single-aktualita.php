@@ -12,8 +12,8 @@ $id = get_the_ID();
         <div class="rounded-md border border-light-outline bg-light-elevated overflow-clip mb-16">
             <img
                 class="w-full aspect-16/9 object-cover"
-                src="<?= get_the_post_thumbnail_url(size: 'large') ?: '' ?>"
-                alt="<?= get_the_post_thumbnail_caption() ?: '' ?>"
+                src="<?= esc_url(get_the_post_thumbnail_url(size: 'large') ?: '') ?>"
+                alt="<?= esc_attr(get_the_post_thumbnail_caption() ?: '') ?>"
             >
             <div class="p-card-xl">
                 <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-darker mb-1">
@@ -24,22 +24,22 @@ $id = get_the_ID();
                     ?>
                     <div class="flex gap-1 items-center text-sm">
                         <i class="fa-regular fa-user"></i>
-                        <span><?= $author ?></span>
+                        <span><?= esc_html($author) ?></span>
                     </div>
                     <?php endif; ?>
 
                     <div class="flex gap-2 items-center text-sm">
                         <i class="fa-regular fa-calendar"></i>
                         <span>
-                    <time class="text-sm inline" datetime="<?= get_the_date('Y-m-d h:m', $id) ?>">
-                    <?= get_the_date('d. m. Y', $id) ?>
+                    <time class="text-sm inline" datetime="<?= esc_attr(get_the_date('c', $id)) ?>">
+                    <?= esc_html(get_the_date('d. m. Y', $id)) ?>
                     </time>
                 </span>
                     </div>
                 </div>
-                <h1 class="text-3xl md:text-4xl lg:text-5xl text-darkest text-center mb-3"><?= get_the_title() ?: 'Chybí titulek' ?></h1>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl text-darkest text-center mb-3"><?= esc_html(get_the_title() ?: 'Chybí titulek') ?></h1>
                 <p class="section__format-text mx-auto max-w-screen-md text-center text-base sm:text-lg text-dark">
-		            <?= get_the_excerpt() ?>
+		            <?= esc_html(get_the_excerpt()) ?>
                 </p>
             </div>
         </div>

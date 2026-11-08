@@ -8,7 +8,7 @@
 
 $heading = esc_html(get_sub_field('heading') ?: 'Chybí nadpis');
 $description = esc_html(get_sub_field('description') ?: '');
-$faq_blocks = get_sub_field('questions') ?? null;
+$faq_blocks = get_sub_field('questions') ?: null;
 
 $tel = get_field('tel', 'options') ?: null;
 $email = get_field('email', 'options') ?: null;
@@ -27,9 +27,9 @@ $email = get_field('email', 'options') ?: null;
 						<i class="fa-solid fa-envelope text-light-elevated"></i>
 						<a
 							class="text-lg underline! hover:text-light-elevated focus:text-light-elevated transition-colors duration-150"
-							href="<?= $tel ?>"
+							href="<?= esc_url('tel:' . str_replace(' ', '', $tel)) ?>"
 						>
-							<?= $tel ?>
+							<?= esc_html($tel) ?>
 						</a>
 					</div>
 				<?php endif; ?>
@@ -38,9 +38,9 @@ $email = get_field('email', 'options') ?: null;
 						<i class="fa-solid fa-phone text-light-elevated"></i>
 						<a
 							class="text-lg underline! hover:text-light-elevated focus:text-light-elevated transition-colors duration-150"
-							href="<?= $email ?>"
+							href="<?= esc_url('mailto:' . str_replace(' ', '', $email)) ?>"
 						>
-							<?= $email ?>
+							<?= esc_html($email) ?>
 						</a>
 					</div>
 				<?php endif; ?>
@@ -65,7 +65,7 @@ $email = get_field('email', 'options') ?: null;
                                     faq-checkbox
 
                                 >
-                                    <span class="font-medium mb-0"><?= $faq_block['question'] ?></span>
+                                    <span class="font-medium mb-0"><?= esc_html($faq_block['question'] ?? '') ?></span>
                                 </label>
                             </h3>
                             <i class="absolute right-5 z-10 top-1/2 -translate-y-1/2 fa-solid fa-chevron-down fa-md peer-checked:bg-brand-primary -rotate-90 group-checked:rotate-0 transition-transform duration-300"></i>
@@ -74,7 +74,7 @@ $email = get_field('email', 'options') ?: null;
 
                         <div class="hidden peer-checked:block bg-opacity-30" id="faq-answer-<?= $id ?>">
                             <div class="px-5 pb-5 section__format-text darkbg">
-								<?= $faq_block['answer'] ?>
+								<?= ac_rich($faq_block['answer'] ?? '') ?>
                             </div>
                         </div>
                     </div>

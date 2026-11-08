@@ -20,12 +20,12 @@ $right = get_sub_field('description_right') ?: '';
 		<?php endif; ?>
 		<div class="grid md:grid-cols-2 grid-cols-1 gap-x-16 gap-y-4">
             <div class="section__format-text text-dark">
-                <?= $left ?>
+                <?= ac_rich($left) ?>
             </div>
 
             <?php if($only_left_col === 'ne'): ?>
             <div class="section__format-text text-dark">
-                <?= $right ?>
+                <?= ac_rich($right) ?>
             </div>
             <?php endif; ?>
 		</div>

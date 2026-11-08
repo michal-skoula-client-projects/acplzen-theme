@@ -4,14 +4,13 @@ if (is_file( __DIR__ . '/vendor/autoload_packages.php')) {
     require_once __DIR__.'/vendor/autoload_packages.php';
 }
 
-use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
-use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
 use TailPress\Framework\Assets\Compiler;
 use TailPress\Framework\Assets\ViteCompiler;
 use TailPress\Framework\Features\MenuOptions;
 use TailPress\Framework\Theme;
 
 require_once __DIR__ . '/inc/acf-notice.php';
+require_once __DIR__ . '/inc/helpers.php';
 
 const ISSUE_REPORT_EMAIL = 'mailto:michal@skoula.com?subject=Chyba%20na%20webu%20acplzen.ujp.zcu.cz';
 const PAGINATION_INTERVAL = 12;
@@ -207,15 +206,6 @@ function ac_add_column_to_post_type_table( string $post_type, string $field_name
 ac_add_column_to_post_type_table('akce', 'event_type',  sortable: true);
 ac_add_column_to_post_type_table('akce', 'datetime', sortable: true);
 
-
-function esc_allow_safe(string $text): string
-{
-	$config = (new HtmlSanitizerConfig())
-		->allowSafeElements()
-		->allowAttribute('class', '*');
-
-	return (new HtmlSanitizer($config))->sanitize($text);
-}
 
 /**
  * Build a breadcrumb trail as an ordered array of ['label' => ..., 'url' => ...].

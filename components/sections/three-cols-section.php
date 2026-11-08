@@ -6,7 +6,7 @@
  * @since 1.0.0
  */
 
-$heading = esc_allow_safe(get_sub_field('heading') ?: null);
+$heading = get_sub_field('heading') ?: '';
 $left = (get_sub_field('col_left')) ?: null;
 $center = (get_sub_field('col_center') ?: null);
 $right = (get_sub_field('col_right')) ?: null;
@@ -15,24 +15,24 @@ $right = (get_sub_field('col_right')) ?: null;
 
 <section class="section">
 	<div class="max-content-width">
-		<h2 class="mb-12 text-darkest"><?= $heading ?></h2>
+		<h2 class="mb-12 text-darkest"><?= esc_html($heading) ?></h2>
 		<div class="grid md:grid-cols-3 grid-cols-1 gap-x-12 gap-y-8">
 			<div>
-				<h3 class="max-w-sm text-dark mb-2"><?= $left['heading'] ?: 'Chybí nadpis' ?></h3>
+				<h3 class="max-w-sm text-dark mb-2"><?= esc_html(($left['heading'] ?? '') ?: 'Chybí nadpis') ?></h3>
 				<div class="section__format-text text-dark mb-4">
-					<?= $left['description'] ?: '' ?>
+					<?= ac_rich($left['description'] ?? '') ?>
 				</div>
 			</div>
 			<div>
-				<h3 class="max-w-sm text-dark mb-2"><?= $center['heading'] ?: 'Chybí nadpis' ?></h3>
+				<h3 class="max-w-sm text-dark mb-2"><?= esc_html(($center['heading'] ?? '') ?: 'Chybí nadpis') ?></h3>
 				<div class="section__format-text text-dark mb-4">
-					<?= $center['description'] ?: '' ?>
+					<?= ac_rich($center['description'] ?? '') ?>
 				</div>
 			</div>
 			<div>
-				<h3 class="max-w-sm text-dark mb-2"><?= $right['heading'] ?: 'Chybí nadpis' ?></h3>
+				<h3 class="max-w-sm text-dark mb-2"><?= esc_html(($right['heading'] ?? '') ?: 'Chybí nadpis') ?></h3>
 				<div class="section__format-text text-dark mb-4">
-					<?= $right['description'] ?: '' ?>
+					<?= ac_rich($right['description'] ?? '') ?>
 				</div>
 			</div>
 

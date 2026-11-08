@@ -7,7 +7,7 @@
  */
 
 $heading = esc_html(get_sub_field('heading') ?: '');
-$files = get_sub_field('files') ?? null;
+$files = get_sub_field('files') ?: null;
 // Field data retrieval happens here
 
 ?>
@@ -21,7 +21,7 @@ $files = get_sub_field('files') ?? null;
 				<?php foreach ($files as $data):
                     $file = $data['file'] ?? null;
 					$filesize_visual = null;
-					$filesize = (int)$file['filesize'] ?? 0;
+					$filesize = (int) ($file['filesize'] ?? 0);
 
                     if($filesize === 0) $filesize_visual = '? bajtů';
 					else if($filesize < 1000) $filesize_visual = "{$filesize} bajtů";
@@ -30,11 +30,11 @@ $files = get_sub_field('files') ?? null;
                 ?>
                     <li class="flex justify-between p-4 border-b border-b-light-outline items-center">
                         <div>
-                            <p class="text-dark text-sm"><?= $filesize_visual ?></p>
-                            <p class="text-lg text-darker"><?= $data['title'] ?? 'Letáček bez názvu' ?></p>
+                            <p class="text-dark text-sm"><?= esc_html($filesize_visual) ?></p>
+                            <p class="text-lg text-darker"><?= esc_html($data['title'] ?? 'Letáček bez názvu') ?></p>
                         </div>
                         <div>
-                            <a href="<?= $file['url'] ?? '#' ?>" class="inline-flex text-light-elevated group" download>
+                            <a href="<?= esc_url($file['url'] ?? '#') ?>" class="inline-flex text-light-elevated group" download>
                                 <div class="max-sm:hidden bg-brand-secondary group-hover:bg-brand-secondary-focus group-focus:bg-brand-secondary-focus group-active:bg-brand-secondary-highlight duration-200 transition-colors rounded-full p-3 pl-5 py-2.5 pr-4">
                                     <span class="align-middle font-medium">Stáhnout</span>
                                 </div>

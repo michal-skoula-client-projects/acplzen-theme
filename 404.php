@@ -11,7 +11,7 @@ get_header();
 <section class="section">
     <div class="max-content-width">
         <div class="pt-28 pb-16">
-            <img src="<?= get_template_directory_uri() . '/public/assets/mac_404.jpg' ?>" alt="" class="mx-auto mb-12">
+            <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/mac_404.jpg') ?>" alt="" class="mx-auto mb-12">
             <h1 class="text-center mb-4 text-darkest">Error 404</h1>
             <div class="text-center">
                 <p class="max-w-2xl mx-auto text-lg text-dark mb-8">

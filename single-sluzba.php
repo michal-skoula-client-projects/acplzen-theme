@@ -5,16 +5,16 @@
 		<div>
 			<?= get_template_part('/components/blocks/ac_breadcrumbs', args: ['list_elems' => ac_breadcrumbs()]) ?>
 			<h1 class="text-darkest mb-6 mt-2 font-bold tracking-tight leading-[120%]">
-				<?= esc_allow_safe(get_the_title()) ?>
+				<?= esc_html(get_the_title()) ?>
 			</h1>
 			<p class="max-w-screen-md section__format-text">
-				<?= esc_allow_safe(get_field('about' ?? '')) ?>
+				<?= ac_rich(get_field('about')) ?>
 			</p>
 		</div>
 		<div>
 			<img
-				src="<?= get_the_post_thumbnail_url(size: 'large') ?>"
-				alt="<?= get_the_post_thumbnail_caption() ?>"
+				src="<?= esc_url(get_the_post_thumbnail_url(size: 'large') ?: '') ?>"
+				alt="<?= esc_attr(get_the_post_thumbnail_caption()) ?>"
 				class="w-full h-full aspect-16/10 rounded-sm object-cover"
 			>
 		</div>

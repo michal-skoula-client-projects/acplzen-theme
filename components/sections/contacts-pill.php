@@ -9,7 +9,7 @@
 $opening_hours = esc_html(get_field('opening_hours', 'options') ?: '');
 $email = get_field('email', 'options') ?: '';
 $tel = get_field('tel', 'options') ?: '';
-$socials = get_field('socials', 'options') ?? null;
+$socials = get_field('socials', 'options') ?: null;
 
 ?>
 
@@ -21,11 +21,11 @@ $socials = get_field('socials', 'options') ?? null;
 		</dl>
 		<dl class="flex flex-col sm:gap-2 gap-1">
 			<dt><p class="text-dark">Email</p></dt>
-			<dd><a class="h5 text-darkest underline! decoration-2!" href="mailto:<?= $email ?>"><?= $email ?></a></dd>
+			<dd><a class="h5 text-darkest underline! decoration-2!" href="<?= esc_url('mailto:' . str_replace(' ', '', $email)) ?>"><?= esc_html($email) ?></a></dd>
 		</dl>
 		<dl class="flex flex-col sm:gap-2 gap-1">
 			<dt><p class="text-dark">Telefon</p></dt>
-			<dd><a class="h5 text-darkest underline! decoration-2!" href="tel:<?= $tel ?>"><?= $tel ?></a></dd>
+			<dd><a class="h5 text-darkest underline! decoration-2!" href="<?= esc_url('tel:' . str_replace(' ', '', $tel)) ?>"><?= esc_html($tel) ?></a></dd>
 		</dl>
 		<div class="flex flex-col gap-2">
 			<p class="text-dark">Sociální sítě</p>
@@ -34,7 +34,7 @@ $socials = get_field('socials', 'options') ?? null;
 					<?php foreach ($socials as $item): $social = $item['item']; ?>
 						<a href="<?= esc_url($social['url' ?? '#']) ?>" target="_blank" rel="nofollow" class="block text-darkest">
 							<i class="fa-brands fa-<?= esc_html(strtolower($social['title'] ?? 'wordpress-simple')) ?> fa-2xl"></i>
-							<span class="sr-only"><?= $social['title'] ?? 'Neznámá síť' ?></span>
+							<span class="sr-only"><?= esc_html($social['title'] ?? 'Neznámá síť') ?></span>
 						</a>
 					<?php endforeach; ?>
 				</div>

@@ -11,7 +11,7 @@ $address = get_field('contacts', 'options') ?: null;
 <footer class="section bg-darkest section-pt">
 	<div class="max-content-width">
 		<!-- Footer title -->
-		<p class="h2 text-light-elevated text-center mb-10"><?= get_bloginfo() ?></p>
+		<p class="h2 text-light-elevated text-center mb-10"><?= esc_html(get_bloginfo()) ?></p>
 
 		<!-- Contact pill -->
 		<div class="bg-dark p-card-xl grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 max-md:justify-center gap-x-4 gap-y-4 rounded-md mb-16">
@@ -21,11 +21,11 @@ $address = get_field('contacts', 'options') ?: null;
 			</dl>
 			<dl class="flex flex-col sm:gap-2 gap-1">
 				<dt><p class="text-light-base">Email</p></dt>
-				<dd><a class="h5 text-light-elevated underline! decoration-2!" href="mailto:<?= $email ?>"><?= $email ?></a></dd>
+				<dd><a class="h5 text-light-elevated underline! decoration-2!" href="<?= esc_url('mailto:' . str_replace(' ', '', $email)) ?>"><?= esc_html($email) ?></a></dd>
 			</dl>
 			<dl class="flex flex-col sm:gap-2 gap-1">
 				<dt><p class="text-light-base">Telefon</p></dt>
-				<dd><a class="h5 text-light-elevated underline! decoration-2!" href="tel:<?= $tel ?>"><?= $tel ?></a></dd>
+				<dd><a class="h5 text-light-elevated underline! decoration-2!" href="<?= esc_url('tel:' . str_replace(' ', '', $tel)) ?>"><?= esc_html($tel) ?></a></dd>
 			</dl>
 			<div class="flex flex-col gap-2">
 				<p class="text-light-base">Sociální sítě</p>
@@ -34,7 +34,7 @@ $address = get_field('contacts', 'options') ?: null;
 						<?php foreach ($socials as $item): $social = $item['item']; ?>
 							<a href="<?= esc_url($social['url'] ?? '#') ?>" target="_blank" rel="nofollow" class="block text-light-elevated">
 								<i class="fa-brands fa-<?= esc_html(strtolower($social['title'] ?? 'wordpress-simple')) ?> fa-2xl"></i>
-								<span class="sr-only"><?= $social['title'] ?? 'Neznámá síť' ?></span>
+								<span class="sr-only"><?= esc_html($social['title'] ?? 'Neznámá síť') ?></span>
 							</a>
 						<?php endforeach; ?>
 					</div>
@@ -63,7 +63,7 @@ $address = get_field('contacts', 'options') ?: null;
                     <div class="flex flex-col gap-2 max-md:w-full max-w-sm">
                         <strong class="h6 font-medium mb-3 text-light-elevated">Kontaktní údaje</strong>
                         <div class="m-0 text-light-base section__format-text">
-                            <?= esc_allow_safe($address) ?>
+                            <?= ac_rich($address) ?>
                         </div>
                     </div>
                 <?php endif; ?>
@@ -89,14 +89,14 @@ $address = get_field('contacts', 'options') ?: null;
 <div class="text-light-highlight bg-darkest-footer lg:px-16 md:px-12 px-5 py-4">
     <div class="max-content-width flex flex-wrap items-center justify-between gap-4">
         <div class="flex gap-5">
-            <span>&copy; <?= get_field('copyright', 'options') ?: get_bloginfo() ?> <?= date('Y') ?>. <span class="md:inline hidden">Všechna práva vyhrazena.</span></span>
+            <span>&copy; <?= esc_html(get_field('copyright', 'options') ?: get_bloginfo()) ?> <?= esc_html(wp_date('Y')) ?>. <span class="md:inline hidden">Všechna práva vyhrazena.</span></span>
 <!--            <a href="--><?php //= ISSUE_REPORT_EMAIL ?><!--" class="text-light-highlight underline! max-md:hidden">Nahlásit chybu</a>-->
         </div>
         <p>Web vytvořil <a href="https://skoula.com" class="text-light-elevated underline!" rel="nofollow" target="_blank" tabindex="-1">Michal Škoula</a>.</p>
     </div>
     <div class="max-content-width flex flex-wrap gap-6 mt-3.5 text-light-highlight/80">
-        <a href="<?= ISSUE_REPORT_EMAIL ?>" class=" underline!">Nahlásit chybu</a>
-        <a href="<?= admin_url() ?>" class="underline!">Administrace webu</a>
+        <a href="<?= esc_url(ISSUE_REPORT_EMAIL) ?>" class=" underline!">Nahlásit chybu</a>
+        <a href="<?= esc_url(admin_url()) ?>" class="underline!">Administrace webu</a>
     </div>
 </div>
 

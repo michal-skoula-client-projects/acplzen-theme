@@ -7,21 +7,21 @@
  */
 
 $heading = get_field('partners_heading', 'options') ?: '';
-$sponsors = get_field('partners', 'options') ?? null;
+$sponsors = get_field('partners', 'options') ?: null;
 
 ?>
 
 <section class="section">
 	<div class="max-content-width p-card-xl rounded-md border border-light-outline bg-light-elevated">
 		<div>
-			<h2 class="text-center text-darker mb-16"><?= $heading ?></h2>
+			<h2 class="text-center text-darker mb-16"><?= esc_html($heading) ?></h2>
 
 			<?php if($sponsors): ?>
 				<div class="flex gap-8 items-center flex-wrap justify-center">
 					<?php foreach ($sponsors as $sponsor):
 						$logo = $sponsor['logo'];
-						$name = esc_html($sponsor['label']);
-						$link = esc_url($sponsor['url']);
+						$name = esc_html($sponsor['label'] ?? '');
+						$link = esc_url($sponsor['url'] ?? '');
                     ?>
 						<div class="relative">
 							<?php if($link): ?>
@@ -30,7 +30,7 @@ $sponsors = get_field('partners', 'options') ?? null;
 
 							<?php if($logo): ?>
 								<img
-                                    src="<?= esc_url($logo['sizes']['medium']) ?>"
+                                    src="<?= esc_url($logo['sizes']['medium'] ?? '') ?>"
                                     alt="<?= $name ?>"
                                     class="sm:max-h-24 max-h-18"
                                 >

@@ -6,7 +6,7 @@
  * @since 1.0.0
  */
 
-$images = get_field('photo_gallery', 'options') ?? null
+$images = get_field('photo_gallery', 'options') ?: null;
 
 ?>
 
@@ -15,8 +15,8 @@ $images = get_field('photo_gallery', 'options') ?? null
 		<?php if($images): ?>
 			<div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
 				<?php foreach ($images as $image):
-                    $img_url = esc_url($image['sizes']['large']);
-                    $img_desc = esc_html($image['title']);
+                    $img_url = esc_url($image['sizes']['large'] ?? '');
+                    $img_desc = esc_html($image['title'] ?? '');
 				?>
 					<div class="relative rounded-sm overflow-clip @container">
 						<img src="<?= $img_url ?>" alt="<?= $img_desc ?>" class="h-full w-full object-cover aspect-4/3" loading="lazy">

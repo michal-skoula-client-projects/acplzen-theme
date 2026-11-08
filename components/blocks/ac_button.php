@@ -6,8 +6,8 @@ $style = in_array($args['style'] ?? '', ['primary', 'secondary'])
     : 'primary';
 $label = esc_html($args['label'] ?? 'Klikni mě');
 $href = esc_url($args['href'] ?? '#');
-$target = esc_html($args['target'] ?? '');
-$class = esc_html($args['class'] ?? '');
+$target = esc_attr($args['target'] ?? '');
+$class = esc_attr($args['class'] ?? '');
 
 $colors = match($style) {
     default => 'bg-brand-primary group-hover:bg-brand-primary-focus group-focus:bg-brand-primary-focus group-active:bg-brand-primary-highlight',

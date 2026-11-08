@@ -6,8 +6,8 @@
  * @since 1.0.0
  */
 
-$btn = get_sub_field('btn_url') ?? null;
-$photos = get_sub_field('photos') ?? null;
+$btn    = get_sub_field('btn_url') ?: null;
+$photos = get_sub_field('photos') ?: null;
 
 ?>
 
@@ -16,7 +16,7 @@ $photos = get_sub_field('photos') ?? null;
 		<div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
 			<?php if($photos): ?>
 				<?php foreach ($photos as $photo): ?>
-					<img src="<?= $photo['sizes']['medium_large'] ?>" alt="<?= $photo['title'] ?>" class="aspect-4/3 object-cover w-full h-full rounded-sm">
+					<img src="<?= esc_url($photo['sizes']['medium_large'] ?? '') ?>" alt="<?= esc_attr($photo['title'] ?? '') ?>" class="aspect-4/3 object-cover w-full h-full rounded-sm">
 				<?php endforeach; ?>
             <?php else: ?>
                 <p class="text-dark">Zatím tu žádné fotky nejsou.</p>

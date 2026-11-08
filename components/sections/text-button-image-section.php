@@ -6,8 +6,8 @@
  * @since 1.0.0
  */
 
-$content = get_sub_field('content') ?? null;
-$image = get_sub_field('img') ?? null;
+$content = get_sub_field('content') ?: null;
+$image   = get_sub_field('img') ?: null;
 
 $heading = $content['heading'] ?? 'Chybí nadpis';
 $description = $content['description'] ?? '';
@@ -19,9 +19,9 @@ $btn = $content['url'] ?? null;
 	<div class="max-content-width">
 		<div class="grid md:grid-cols-2 grid-cols-1 gap-x-16 gap-y-4">
 			<div class="md:order-1 order-2">
-				<h2 class="mb-6 text-darkest"><?= $heading ?></h2>
+				<h2 class="mb-6 text-darkest"><?= esc_html($heading) ?></h2>
 				<div class="section__format-text text-dark">
-					<?= $description ?>
+					<?= ac_rich($description) ?>
 				</div>
 				<?php if($btn): ?>
 					<?php get_template_part('/components/blocks/ac_button', args: [
@@ -35,8 +35,8 @@ $btn = $content['url'] ?? null;
 			<div class="md:order-2 order-1">
 				<?php if($image): ?>
 					<img
-						src="<?= esc_url($image['sizes']['large']) ?>"
-						alt="<?= esc_html($image['title']) ?>"
+						src="<?= esc_url($image['sizes']['large'] ?? '') ?>"
+						alt="<?= esc_attr($image['title'] ?? '') ?>"
 						class="rounded-sm h-full w-full object-cover aspect-16/10">
 				<?php endif; ?>
 			</div>

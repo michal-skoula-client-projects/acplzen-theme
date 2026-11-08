@@ -1,0 +1,11 @@
+{
+	"version": "0.0.1",
+	"configurations": [
+		{
+			"name": "wp",
+			"runtimeExecutable": "bash",
+			"runtimeArgs": [".claude/skills/local-dev-server/scripts/serve.sh"],
+			"port": 8882
+		}
+	]
+}

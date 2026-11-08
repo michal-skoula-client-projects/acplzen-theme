@@ -25,8 +25,8 @@ $content = get_field('content') ?: '';
         <div class="rounded-md border border-light-outline bg-light-elevated overflow-clip mb-16">
             <img
                 class="w-full aspect-16/9 object-cover"
-                src="<?= $featured_image['sizes']['large'] ?? '' ?>"
-                alt="<?= $featured_image['caption'] ?? '' ?>"
+                src="<?= esc_url($featured_image['sizes']['large'] ?? '') ?>"
+                alt="<?= esc_attr($featured_image['caption'] ?? '') ?>"
             >
             <div class="p-card-xl">
                 <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-darker mb-1">
@@ -34,16 +34,16 @@ $content = get_field('content') ?: '';
                     <div class="flex gap-2 items-center text-sm">
                         <i class="fa-regular fa-calendar"></i>
                         <span>
-                            <time class="text-sm inline" datetime="<?= DateTime::createFromFormat('Y-m-d H:i:s', $datetime)->format('Y-m-d H:i') ?>">
-                            <?= DateTime::createFromFormat('Y-m-d H:i:s', $datetime)->format('d.m.Y') ?>
+                            <time class="text-sm inline" datetime="<?= esc_attr(ac_format_date($datetime, 'c')) ?>">
+                            <?= esc_html(ac_format_date($datetime, 'd.m.Y')) ?>
                             </time>
                         </span>
                     </div>
                     <?php endif; ?>
                 </div>
-                <h1 class="text-3xl md:text-4xl lg:text-5xl text-darkest text-center mb-3"><?= get_the_title() ?: 'Chybí titulek' ?></h1>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl text-darkest text-center mb-3"><?= esc_html(get_the_title() ?: 'Chybí titulek') ?></h1>
                 <p class="section__format-text mx-auto max-w-screen-md text-center text-lg text-dark sm:text-lg text-base">
-		            <?= $perex ?>
+		            <?= ac_rich($perex) ?>
                 </p>
             </div>
         </div>
@@ -61,7 +61,7 @@ $content = get_field('content') ?: '';
                                 <i class="fa-solid fa-calendar text-brand-secondary"></i>
                                 <span class="text-darkest text-lg">Datum akce</span>
                             </dt>
-                            <dd class="text-dark mb-4"><?= DateTime::createFromFormat('Y-m-d H:i:s', $datetime)->format('d.m.Y \o\d H:i') ?></dd>
+                            <dd class="text-dark mb-4"><?= esc_html(ac_format_date($datetime, 'd.m.Y \o\d H:i')) ?></dd>
                         </dl>
 
 	                <?php endif; ?>
@@ -71,7 +71,7 @@ $content = get_field('content') ?: '';
                                 <i class="fa-solid fa-location-dot text-brand-secondary"></i>
                                 <span class="text-darkest text-lg">Místo konání</span>
                             </dt>
-                            <dd class="text-dark"><?= esc_allow_safe($location) ?></dd>
+                            <dd class="text-dark"><?= esc_html($location) ?></dd>
                         </dl>
 	                <?php endif; ?>
 	                <?php if($audience): ?>
@@ -89,7 +89,7 @@ $content = get_field('content') ?: '';
                                 <i class="fa-solid fa-circle-exclamation text-brand-secondary"></i>
                                 <span class="text-darkest text-lg">Důležité informace</span>
                             </dt>
-                            <dd class="text-dark"><?= esc_allow_safe($information) ?></dd>
+                            <dd class="text-dark"><?= ac_rich($information) ?></dd>
                         </dl>
 	                <?php endif; ?>
                 </div>
@@ -100,7 +100,7 @@ $content = get_field('content') ?: '';
             <div class="text-dark max-w-screen-md w-full lg:mx-auto section__format-text sm:mb-12 mb-6">
                 <p class="h3 text-darkest pb-0 mb-0">O akci</p>
                 <hr class="max-lg:hidden">
-                <?= $content ?>
+                <?= ac_rich($content) ?>
             </div>
         </div>
         <div class="flex justify-center">
