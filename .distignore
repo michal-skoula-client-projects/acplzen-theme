@@ -1,20 +1,29 @@
-/resources
+# Everything listed here is kept out of the payload CI publishes to the
+# `deploy` branch, i.e. out of what WP Pusher pulls onto the server.
+
+# Build inputs. Only assets/styles/output.css ships; the fonts and images it
+# references do too.
+/assets/styles/global.css
+/assets/styles/theme.css
+/assets/styles/navbar.css
+/assets/styles/fonts.css
 /node_modules
-/webpack.mix.js
-/vite.config.mjs
 /package.json
 /package-lock.json
+
+# Repo and tooling
+.git
+.gitignore
+.gitattributes
+.github
+.distignore
+/.claude
+/AGENTS.md
+phpcs.xml
+
+# Editors
 /.fleet
 /.idea
 /.nova
 /.vscode
 /.zed
-.git
-.github
-phpcs.xml
-composer.json
-composer.lock
-.gitignore
-.gitattributes
-.distignore
-bitbucket-pipelines.yml

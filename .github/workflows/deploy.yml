@@ -18,10 +18,6 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # Production runs at least PHP 8.2.29 (bitnami/wordpress). setup-php resolves
-  # to the latest 8.2.x; the exact 8.2.29 target is pinned in composer.json via
-  # config.platform.php so dependency resolution matches prod regardless.
-  PHP_VERSION: '8.2'
   NODE_VERSION: '22'
   DEPLOY_BRANCH: deploy
 
@@ -33,16 +29,41 @@ jobs:
     steps:
       - name: Check out ${{ github.ref_name }}
         uses: actions/checkout@v4
-
-      - name: Set up PHP ${{ env.PHP_VERSION }}
-        uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ env.PHP_VERSION }}
-          tools: composer:v2
-          coverage: none
+          # Need the parent commit to tell whether APP_VERSION moved with the
+          # assets.
+          fetch-depth: 2
 
-      - name: Install PHP dependencies (production only)
-        run: composer install --no-dev --optimize-autoloader --prefer-dist --no-interaction
+      - name: Lint PHP
+        run: |
+          set -u
+          find . -name '*.php' -not -path './node_modules/*' -print0 \
+            | xargs -0 -n1 -P4 php -l > /dev/null
+
+      - name: Check APP_VERSION was bumped with the assets
+        if: github.event_name == 'push'
+        run: |
+          set -u
+          if ! git rev-parse --verify -q HEAD~1 >/dev/null; then
+            echo 'No parent commit to compare against, skipping.'
+            exit 0
+          fi
+
+          CHANGED="$(git diff --name-only HEAD~1 HEAD -- assets/styles assets/js)"
+          if [ -z "$CHANGED" ]; then
+            echo 'No asset source changes in this push.'
+            exit 0
+          fi
+
+          if git diff -U0 HEAD~1 HEAD -- functions.php | grep -q '^[+-]const APP_VERSION'; then
+            echo 'APP_VERSION moved with:'
+            printf '%s\n' "$CHANGED"
+            exit 0
+          fi
+
+          echo '::error::These asset sources changed but APP_VERSION in functions.php did not, so browsers will keep serving the files they already have. Bump it and push again.'
+          printf '%s\n' "$CHANGED"
+          exit 1
 
       - name: Set up Node ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
@@ -70,13 +91,12 @@ jobs:
             --exclude '.gitignore' \
             ./ "$PAYLOAD/"
 
-          # Checks whether required theme files were generated.
-          for REQUIRED_FILES in vendor/autoload_packages.php dist/.vite/manifest.json; do
-            if [ ! -f "$PAYLOAD/$REQUIRED_FILES" ]; then
-              echo "::error::deploy payload is missing $REQUIRED_FILES"
-              exit 1
-            fi
-          done
+          # The only generated file the theme needs. Without it the site
+          # renders unstyled, so never publish a payload that lacks it.
+          if [ ! -s "$PAYLOAD/assets/styles/output.css" ]; then
+            echo '::error::deploy payload is missing assets/styles/output.css'
+            exit 1
+          fi
 
           echo "Payload size: $(du -sh "$PAYLOAD" | cut -f1)"
 
