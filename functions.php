@@ -11,26 +11,7 @@ use TailPress\Framework\Assets\ViteCompiler;
 use TailPress\Framework\Features\MenuOptions;
 use TailPress\Framework\Theme;
 
-# Check if ACF is installed. The theme cannot render without it.
-if (! class_exists('ACF')) {
-    $ac_acf_recoverable = is_admin()
-        || wp_doing_cron()
-        || (defined('WP_CLI') && WP_CLI)
-        || (defined('REST_REQUEST') && REST_REQUEST)
-        || (isset($GLOBALS['pagenow']) && $GLOBALS['pagenow'] === 'wp-login.php');
-
-    if ($ac_acf_recoverable) {
-        add_action('admin_notices', function () {
-            echo '<div class="notice notice-error"><p><strong>ACF Pro is not enabled.</strong> Install or enable the plugin for the theme to load properly.</p></div>';
-        });
-    } else {
-        wp_die(
-            'The site is temporarily unavailable.',
-            'Site unavailable',
-            ['response' => 503]
-        );
-    }
-}
+require_once __DIR__ . '/inc/acf-notice.php';
 
 const ISSUE_REPORT_EMAIL = 'mailto:michal@skoula.com?subject=Chyba%20na%20webu%20acplzen.ujp.zcu.cz';
 const PAGINATION_INTERVAL = 12;
