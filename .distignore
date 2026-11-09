@@ -1,20 +1,27 @@
-/resources
+# Kept out of the deploy branch.
+
+# Build inputs
+/assets/styles/global.css
+/assets/styles/theme.css
+/assets/styles/navbar.css
+/assets/styles/fonts.css
 /node_modules
-/webpack.mix.js
-/vite.config.mjs
 /package.json
 /package-lock.json
+
+# Repo and tooling
+.git
+.gitignore
+.gitattributes
+.github
+.distignore
+/.claude
+/AGENTS.md
+phpcs.xml
+
+# Editors
 /.fleet
 /.idea
 /.nova
 /.vscode
 /.zed
-.git
-.github
-phpcs.xml
-composer.json
-composer.lock
-.gitignore
-.gitattributes
-.distignore
-bitbucket-pipelines.yml

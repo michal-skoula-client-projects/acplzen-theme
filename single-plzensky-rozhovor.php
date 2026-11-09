@@ -1,22 +1,22 @@
 <?php get_header();
 
 $date = get_field('date') ?: null;
-$location = get_field('location') ?: null
+$location = get_field('location') ?: null;
 ?>
 
 <section class="section-pt section-px sm:section-pb section-pb-sm">
 	<div class="max-content-width text-dark grid lg:grid-cols-2 grid-cols-1 gap-12">
         <div class="">
 	        <?= get_template_part('/components/blocks/ac_breadcrumbs', args: ['list_elems' => ac_breadcrumbs()])?>
-            <h1 class="text-darkest mb-6 mt-2 font-bold tracking-tight leading-[120%]"><?= esc_allow_safe(get_the_title()) ?></h1>
+            <h1 class="text-darkest mb-6 mt-2 font-bold tracking-tight leading-[120%]"><?= esc_html(get_the_title()) ?></h1>
             <p class="max-w-screen-md section__format-text">
-		        <?= esc_allow_safe(get_the_excerpt()) ?>
+		        <?= esc_html(get_the_excerpt()) ?>
             </p>
         </div>
         <div class="">
             <img
-                src="<?= get_the_post_thumbnail_url(size: 'large') ?>"
-                alt="<?= get_the_post_thumbnail_caption() ?>"
+                src="<?= esc_url(get_the_post_thumbnail_url(size: 'large') ?: '') ?>"
+                alt="<?= esc_attr(get_the_post_thumbnail_caption()) ?>"
                 class="w-full h-full aspect-16/10 rounded-sm object-cover"
             >
         </div>
@@ -39,7 +39,7 @@ $location = get_field('location') ?: null
                                 <i class="fa-solid fa-calendar text-brand-secondary"></i>
                                 <span class="text-darkest text-lg">Datum akce</span>
                             </dt>
-                            <dd class="text-dark mb-4"><?= DateTime::createFromFormat('Y-m-d', $date)->format('d.m.Y') ?></dd>
+                            <dd class="text-dark mb-4"><?= esc_html(ac_format_date($date, 'd.m.Y', 'Y-m-d')) ?></dd>
                         </dl>
 
 				    <?php endif; ?>

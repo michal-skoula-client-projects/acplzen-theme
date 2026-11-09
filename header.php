@@ -15,9 +15,9 @@
 	<?php
         wp_head();
 
-        $address = esc_html(get_field('address', 'option') ?? 'Chybí adresa');
-        $email =get_field('email', 'option');
-        $tel = get_field('tel', 'option');
+        $address = get_field('address', 'option') ?: 'Chybí adresa';
+        $email   = get_field('email', 'option') ?: '';
+        $tel     = get_field('tel', 'option') ?: '';
     ?>
 </head>
 <body class="bg-light-base">
@@ -34,21 +34,21 @@
 	        <?php if($address): ?>
                 <div class="flex gap-2 items-center text-light-elevated relative">
                     <i class="fa-solid fa-location-dot fa-md"></i>
-                    <p class="font-medium"><?= $address ?></p>
+                    <p class="font-medium"><?= esc_html($address) ?></p>
                 </div>
 	        <?php endif; ?>
 	        <?php if($tel): ?>
                 <div class="flex gap-2 items-center text-light-elevated group relative">
                     <i class="fa-solid fa-phone group-hover:text-brand-primary-highlight transition-colors duration-150 ease-in-out fa-md"></i>
-                    <p class="group-hover:text-brand-primary-highlight font-medium transition-colors duration-150 ease-in-out hidden sm:block"><?= $tel ?></p>
-                    <a href="tel:<?= $tel ?>" class="absolute inset-0" aria-label="Phone"></a>
+                    <p class="group-hover:text-brand-primary-highlight font-medium transition-colors duration-150 ease-in-out hidden sm:block"><?= esc_html($tel) ?></p>
+                    <a href="<?= esc_url('tel:' . str_replace(' ', '', $tel)) ?>" class="absolute inset-0" aria-label="Phone"></a>
                 </div>
 	        <?php endif; ?>
 	        <?php if($email): ?>
                 <div class="flex gap-2 items-center text-light-elevated group relative">
                     <i class="fa-solid fa-envelope group-hover:text-brand-primary-highlight transition-colors duration-150 ease-in-out fa-md"></i>
-                    <p class="group-hover:text-brand-primary-highlight font-medium transition-colors duration-150 ease-in-out hidden sm:block"><?= $email ?></p>
-                    <a href="mailto:<?= str_replace(' ', '', $email) ?>" class="absolute inset-0" aria-label="Email"></a>
+                    <p class="group-hover:text-brand-primary-highlight font-medium transition-colors duration-150 ease-in-out hidden sm:block"><?= esc_html($email) ?></p>
+                    <a href="<?= esc_url('mailto:' . str_replace(' ', '', $email)) ?>" class="absolute inset-0" aria-label="Email"></a>
                 </div>
 	        <?php endif; ?>
         </div>

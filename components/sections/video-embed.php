@@ -14,7 +14,7 @@ $yt_embed_url = esc_url(get_sub_field('yt_embed_url')
 
 <section class="section">
     <div class="mx-auto max-w-screen-lg">
-        <h2 class="text-darkest mb-8 text-center"><?= $heading ?></h2>
+        <h2 class="text-darkest mb-8 text-center"><?= esc_html($heading) ?></h2>
         <div class="relative w-full max-w-screen-xl mx-auto" style="padding-top:56.25%;">
             <iframe
                 class="absolute inset-0 w-full h-full block rounded-sm"

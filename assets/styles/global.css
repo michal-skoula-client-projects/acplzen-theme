@@ -1,10 +1,10 @@
 @import 'tailwindcss';
 @import './theme.css';
 @import './navbar.css';
-@import '../../public/fonts/fonts.css';
+@import './fonts.css';
 
-@source '../../vendor/tailpress/framework/**/*.php';
-@source '../../vendor/tailpress/framework/**/**/*.php';
+@source '../../**/*.php';
+@source '../js/**/*.js';
 
 @utility section-px {
     @apply lg:px-16 md:px-12 px-4

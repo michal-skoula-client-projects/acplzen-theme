@@ -137,8 +137,8 @@ get_template_part('components/sections/hero', args: [
                 ?>
 		            <article class="bg-light-elevated border border-light-outline rounded-md grid lg:grid-cols-2 grid-cols-1 gap-x-12 overflow-clip">
                         <div class="lg:order-1 order-2 p-card-xl">
-                            <p class="text-lg text-brand-primary mb-1">Ročník <?= $date ? DateTime::createFromFormat('Y-m-d', $date)?->format('Y') : '?' ?></p>
-                            <h2 class="h3 text-darkest mb-2.5"><?= esc_allow_safe(get_the_title($post_id)) ?></h2>
+                            <p class="text-lg text-brand-primary mb-1">Ročník <?= esc_html(ac_format_date($date, 'Y', 'Y-m-d') ?: '?') ?></p>
+                            <h2 class="h3 text-darkest mb-2.5"><?= esc_html(get_the_title($post_id)) ?></h2>
                             <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6 text-darker">
                                 <?php if($location): ?>
                                 <div class="flex gap-2 items-center">
@@ -149,18 +149,18 @@ get_template_part('components/sections/hero', args: [
                                 <?php if($date): ?>
                                 <div class="flex gap-2 items-center">
                                     <i class="text-brand-secondary fa-solid fa-calendar fa-md"></i>
-                                    <span><?= DateTime::createFromFormat('Y-m-d', $date)?->format('d.m.Y') ?></span>
+                                    <span><?= esc_html(ac_format_date($date, 'd.m.Y', 'Y-m-d')) ?></span>
                                 </div>
                                 <?php endif; ?>
                             </div>
-                            <p class="text-dark mb-8"><?= esc_allow_safe(get_the_excerpt($post_id)) ?></p>
+                            <p class="text-dark mb-8"><?= esc_html(get_the_excerpt($post_id)) ?></p>
                             <?php get_template_part('/components/blocks/ac_button', args: [
                                 'label' => 'Zjistit více',
                                 'href' => get_permalink($post_id),
                             ]) ?>
                         </div>
                         <div class="lg:order-2 order-1">
-                            <img src="<?= get_the_post_thumbnail_url($post_id) ?? '' ?>" alt="<?= esc_html(get_the_post_thumbnail_caption()) ?>" class="aspect-16/10 w-full h-full object-cover">
+                            <img src="<?= esc_url(get_the_post_thumbnail_url($post_id) ?: '') ?>" alt="<?= esc_attr(get_the_post_thumbnail_caption($post_id)) ?>" class="aspect-16/10 w-full h-full object-cover">
                         </div>
 
                     </article>

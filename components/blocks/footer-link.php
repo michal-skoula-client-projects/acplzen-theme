@@ -2,7 +2,7 @@
 	<a
 		class="block text-light-highlight hover:text-light-elevated no-underline! transition-colors duration-150 ease-in-out"
 		href="<?= esc_url($link['url'] ?? '#'); ?>"
-		target="<?= $link['target'] ?? '' ?>"
+		target="<?= esc_attr($link['target'] ?? '') ?>"
 	>
 		<?= esc_html($link['title'] ?? 'Chybí titulek'); ?>
 	</a>

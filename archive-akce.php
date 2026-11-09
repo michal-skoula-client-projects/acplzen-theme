@@ -55,6 +55,7 @@ $all_events = new WP_Query([
 function create_pagination_button(callable $disabled, string $to_page_url, string $label, string $sr_only_label = ''): void
 {
 	$is_disabled = (bool)$disabled();
+	$to_page_url = esc_url($to_page_url);
 	$is_disabled_js = !$is_disabled ?: 'pagination-button-disabled';
 	$tab_navigatable = !$is_disabled ?: 'tabindex="-1"';
 	$inline_styles = !$is_disabled ?: 'style="cursor: not-allowed;"';
@@ -138,8 +139,8 @@ function get_date_square(string $month_short, int $day, string $color = 'seconda
 				?>
                     <article class="sm:rounded-md rounded-sm border border-light-outline overflow-clip h-full">
                         <div class="relative">
-                            <img src="<?= $img['sizes']['large'] ?? '' ?>" alt="<?= $img['caption'] ?: ' ' ?>" class="w-full aspect-16/10">
-                            <a class="absolute inset-0" href="<?= get_permalink() ?>" tabindex="-1"></a>
+                            <img src="<?= esc_url($img['sizes']['large'] ?? '') ?>" alt="<?= esc_attr($img['caption'] ?? '') ?>" class="w-full aspect-16/10">
+                            <a class="absolute inset-0" href="<?= esc_url(get_permalink()) ?>" tabindex="-1"></a>
                         </div>
                         <div class="sm:p-6 p-5">
                             <!-- Info -->
@@ -148,8 +149,8 @@ function get_date_square(string $month_short, int $day, string $color = 'seconda
                                     <div class="flex gap-2 items-center text-sm">
                                         <i class="fa-solid fa-calendar fa-sm"></i>
                                         <span>
-									<time class="text-sm inline" datetime="<?= DateTime::createFromFormat('Y-m-d H:i:s', $datetime)->format('') ?>">
-									<?= DateTime::createFromFormat('Y-m-d H:i:s', $datetime)->format('d. m. Y \o\d H:i') ?>
+									<time class="text-sm inline" datetime="<?= esc_attr(ac_format_date($datetime, 'c')) ?>">
+									<?= esc_html(ac_format_date($datetime, 'd. m. Y \o\d H:i')) ?>
 									</time>
                 				</span>
                                     </div>
@@ -157,8 +158,8 @@ function get_date_square(string $month_short, int $day, string $color = 'seconda
                             </div>
                             <!-- Content -->
                             <div class="mb-4">
-                                <h3 class="h4 text-darkest mb-1"><?= get_the_title() ?></h3>
-                                <p class="text-dark"><?= $description; ?></p>
+                                <h3 class="h4 text-darkest mb-1"><?= esc_html(get_the_title()) ?></h3>
+                                <p class="text-dark"><?= wp_kses_post($description) ?></p>
                             </div>
                             <div>
 						        <?= get_template_part('/components/blocks/ac_link', args: [
@@ -186,18 +187,22 @@ function get_date_square(string $month_short, int $day, string $color = 'seconda
 	        <?php if ($all_events->have_posts()): ?>
 		        <?php while ($all_events->have_posts()):
 			        $all_events->the_post();
-			        $dt = DateTime::createFromFormat('Y-m-d H:i:s', get_field('datetime'), wp_timezone());
-			        $bucket = $dt->format('Y-m');
+			        $dt = ac_parse_date(get_field('datetime'));
 
-			        $date_formatted = date_i18n('F Y', $dt->getTimestamp());
-			        $month_short = get_month_shortcode($dt->format('n'));
-			        $day = date_i18n('d', $dt->getTimestamp());
+			        if (! $dt) {
+			            continue;
+			        }
+
+			        $bucket = $dt->format('Y-m');
+			        $date_formatted = wp_date('F Y', $dt->getTimestamp());
+			        $month_short = get_month_shortcode((int) $dt->format('n'));
+			        $day = (int) $dt->format('d');
 			        $event_type = get_field('event_type');
 			        ?>
                     <div class="grid md:grid-cols-[2fr_3fr] grid-cols-1 mb-5 [&:has(h3):not(:first-of-type)]:mt-12">
 				        <?php if($bucket !== $prev_bucket): $prev_bucket = $bucket ?>
                             <div>
-                                <h3 class="text-darkest mb-5"><?= $date_formatted ?></h3>
+                                <h3 class="text-darkest mb-5"><?= esc_html($date_formatted) ?></h3>
                             </div>
 				        <?php endif; ?>
                         <div class="md:col-start-2 @container">
@@ -206,11 +211,11 @@ function get_date_square(string $month_short, int $day, string $color = 'seconda
                                     <div class="p-card-sm flex flex-col">
                                         <div class="mb-2">
 		                                    <?= get_date_square($month_short, $day, 'primary') ?>
-                                            <p class="sr-only"><?= date_i18n('d. F', $dt->getTimestamp()) ?></p>
+                                            <p class="sr-only"><?= esc_html(wp_date('d. F', $dt->getTimestamp())) ?></p>
                                         </div>
                                         <p class="text-dark/85 text-sm">Akce pro veřejnost</p>
                                         <strong class="text-darker text-xl mb-2"><?= esc_html(get_the_title())?></strong>
-                                        <p class="text-sm text-dark mb-4"><?= esc_allow_safe(get_field('description') ?: '') ?></p>
+                                        <p class="text-sm text-dark mb-4"><?= wp_kses_post(get_field('description') ?: '') ?></p>
 	                                    <?php get_template_part('/components/blocks/ac_link', args: [
 		                                    'color' => 'primary',
 		                                    'style' => 'underline',
@@ -223,8 +228,8 @@ function get_date_square(string $month_short, int $day, string $color = 'seconda
                                         <?php $img = get_field('featured_img') ?: null ?>
                                         <img
                                             class="h-full w-full object-cover aspect-16/10"
-                                            src="<?= $img['sizes']['large'] ?? '' ?>"
-                                            alt="<?= $img['captiom'] ?? '' ?>">
+                                            src="<?= esc_url($img['sizes']['large'] ?? '') ?>"
+                                            alt="<?= esc_attr($img['caption'] ?? '') ?>">
                                     </div>
 
 
@@ -234,7 +239,7 @@ function get_date_square(string $month_short, int $day, string $color = 'seconda
                                 <div class="p-card-sm bg-light-elevated border border-light-outline rounded-md flex gap-x-4 items-center">
                                     <div>
 								        <?= get_date_square($month_short, $day, 'secondary') ?>
-                                        <p class="sr-only"><?= date_i18n('d. F', $dt->getTimestamp()) ?></p>
+                                        <p class="sr-only"><?= esc_html(wp_date('d. F', $dt->getTimestamp())) ?></p>
                                     </div>
                                     <div class="items-center">
                                         <strong class="inline-block text-darker text-lg -mb-0.5"><?= esc_html(get_the_title())?></strong>

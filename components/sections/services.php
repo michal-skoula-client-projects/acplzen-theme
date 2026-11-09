@@ -7,19 +7,19 @@
  */
 
 $heading = get_sub_field('heading') ?: '';
-$blocks = get_sub_field('cards') ?? null;
+$blocks = get_sub_field('cards') ?: null;
 
 
 ?>
 
 <section class="section">
     <div class="mx-auto max-w-[900px]">
-        <h2 class="text-darkest text-center mb-12"><?= $heading ?></h2>
+        <h2 class="text-darkest text-center mb-12"><?= esc_html($heading) ?></h2>
 
         <?php if($blocks): ?>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
             <?php foreach ($blocks as $block):
-	            $icon = esc_html($block['icon'] ?? 'fa-solid fa-border-none');
+	            $icon = esc_attr($block['icon'] ?? 'fa-solid fa-border-none');
                 $title = esc_html($block['title'] ?? 'Chybí název služby');
                 $description = esc_html($block['description'] ?? '');
                 $link = $block['url'] ?? null

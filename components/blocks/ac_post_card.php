@@ -6,8 +6,8 @@ $id = $args['id'] ?? 0;
 
 <article class="sm:rounded-md rounded-sm border border-light-outline overflow-clip h-full">
 	<div class="relative">
-		<img src="<?= get_the_post_thumbnail_url($id, size: 'large') ?>" alt="" class="w-full aspect-16/10" style="object-fit:cover;">
-        <a class="absolute inset-0" href="<?= get_permalink($id) ?>" tabindex="-1"></a>
+		<img src="<?= esc_url(get_the_post_thumbnail_url($id, size: 'large') ?: '') ?>" alt="" class="w-full aspect-16/10" style="object-fit:cover;">
+        <a class="absolute inset-0" href="<?= esc_url(get_permalink($id)) ?>" tabindex="-1"></a>
 	</div>
 	<div class="sm:p-6 p-5">
 		<!-- Article info -->
@@ -20,7 +20,7 @@ $id = $args['id'] ?? 0;
             <!-- Author -->
             <div class="flex gap-1 items-center text-sm">
                 <i class="fa-regular fa-user"></i>
-                <span><?= $author ?></span>
+                <span><?= esc_html($author) ?></span>
             </div>
             <?php endif; ?>
 
@@ -28,16 +28,16 @@ $id = $args['id'] ?? 0;
             <div class="flex gap-2 items-center text-sm">
                 <i class="fa-regular fa-calendar"></i>
                 <span>
-                    <time class="text-sm inline" datetime="<?= get_the_date('Y-m-d h:m', $id) ?>">
-                    <?= get_the_date('d. m. Y', $id) ?>
+                    <time class="text-sm inline" datetime="<?= esc_attr(get_the_date('c', $id)) ?>">
+                    <?= esc_html(get_the_date('d. m. Y', $id)) ?>
                     </time>
                 </span>
             </div>
 		</div>
 		<!-- Content -->
 		<div class="mb-4">
-			<h3 class="h4 text-darkest mb-1"><?= get_the_title($id) ?></h3>
-			<p class="text-dark"><?= get_the_excerpt($id); ?></p>
+			<h3 class="h4 text-darkest mb-1"><?= esc_html(get_the_title($id)) ?></h3>
+			<p class="text-dark"><?= esc_html(get_the_excerpt($id)) ?></p>
 		</div>
 		<div>
 			<?= get_template_part('/components/blocks/ac_link', args: [

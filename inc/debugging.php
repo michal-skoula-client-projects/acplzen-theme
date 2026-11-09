@@ -1,4 +1,8 @@
 <?php
+if ( ac_in_production() ) {
+	return;
+}
+
 
 /**
  * Nicer var dump with `<pre>` tag formatting

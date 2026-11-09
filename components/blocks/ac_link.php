@@ -9,8 +9,8 @@ $color = in_array($args['color'] ?? '', ['primary', 'secondary', 'dark'])
 	: 'primary';
 $label = esc_html($args['label'] ?? 'Klikni mě');
 $href = esc_url($args['href'] ?? '#');
-$target = esc_html($args['target'] ?? '_self');
-$class = esc_html($args['class'] ?? '');
+$target = esc_attr($args['target'] ?? '_self');
+$class = esc_attr($args['class'] ?? '');
 
 $colors = match($color) {
 	default => 'text-brand-primary group-hover:text-brand-primary-focus group-focus:text-brand-primary-focus group-active:text-brand-primary-highlight',

@@ -6,13 +6,13 @@
  * @since 1.0.0
  */
 
-$bottom_gap = $args['bottom_gap'] ?? get_field('bottom_gap') ?: 'small';
-$heading = $args['heading'] ?? get_field('heading') ?: 'Chybí nadpis';
-$style = $args['style'] ?? get_field('description_style') ?: 'none';
-$call_to_action = get_field('call_to_action') ?: 'ne';
-$url = get_field('url') ?: null;
-$description_left = $args['description_left'] ?? get_field('description_left') ?: '';
-$description_right = $args['description_right'] ?? get_field('description_right') ?: '';
+$bottom_gap        = $args['bottom_gap'] ?? ( get_field('bottom_gap') ?: 'small' );
+$heading           = $args['heading'] ?? ( get_field('heading') ?: 'Chybí nadpis' );
+$style             = $args['style'] ?? ( get_field('description_style') ?: 'none' );
+$call_to_action    = get_field('call_to_action') ?: 'ne';
+$url               = get_field('url') ?: null;
+$description_left  = $args['description_left'] ?? ( get_field('description_left') ?: '' );
+$description_right = $args['description_right'] ?? ( get_field('description_right') ?: '' );
 
 ?>
 
@@ -20,18 +20,18 @@ $description_right = $args['description_right'] ?? get_field('description_right'
 	<div class="max-content-width">
 		<div class="text-dark">
 			<?= get_template_part('/components/blocks/ac_breadcrumbs', args: ['list_elems' => ac_breadcrumbs()])?>
-			<h1 class="text-darkest mb-6 font-bold tracking-tight leading-[120%]"><?= esc_allow_safe($heading) ?></h1>
+			<h1 class="text-darkest mb-6 font-bold tracking-tight leading-[120%]"><?= esc_html($heading) ?></h1>
 
 			<?php if($style === 'single'): ?>
 				<p class="max-w-screen-md section__format-text">
-					<?= esc_allow_safe($description_left) ?>
+					<?= wp_kses_post($description_left) ?>
 				</p>
 			<?php endif; ?>
 
 			<?php if($style === 'side-by-side'): ?>
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-4 section__format-text">
-					<p><?= esc_allow_safe($description_left) ?></p>
-					<p><?= esc_allow_safe($description_right) ?></p>
+					<p><?= wp_kses_post($description_left) ?></p>
+					<p><?= wp_kses_post($description_right) ?></p>
 				</div>
 			<?php endif; ?>
 
