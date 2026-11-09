@@ -3,9 +3,6 @@
 @import './navbar.css';
 @import './fonts.css';
 
-/* Explicit, so the build does not depend on automatic source detection
-   guessing the theme root. app.js adds utilities (group, relative) at
-   runtime, so it has to be scanned too. */
 @source '../../**/*.php';
 @source '../js/**/*.js';
 

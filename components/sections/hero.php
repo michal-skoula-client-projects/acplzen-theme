@@ -24,14 +24,14 @@ $description_right = $args['description_right'] ?? ( get_field('description_righ
 
 			<?php if($style === 'single'): ?>
 				<p class="max-w-screen-md section__format-text">
-					<?= ac_rich($description_left) ?>
+					<?= wp_kses_post($description_left) ?>
 				</p>
 			<?php endif; ?>
 
 			<?php if($style === 'side-by-side'): ?>
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-4 section__format-text">
-					<p><?= ac_rich($description_left) ?></p>
-					<p><?= ac_rich($description_right) ?></p>
+					<p><?= wp_kses_post($description_left) ?></p>
+					<p><?= wp_kses_post($description_right) ?></p>
 				</div>
 			<?php endif; ?>
 

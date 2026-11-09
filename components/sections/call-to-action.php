@@ -16,7 +16,7 @@ $btn_secondary = $args['btn_secondary'] ?? ( get_sub_field('btn_secondary') ?: n
 <section class="section">
 	<div class="max-content-width rounded-md border border-light-outline bg-light-elevated p-card-xl">
 		<h2 class="text-darkest text-center mb-2.5"><?= esc_html($heading) ?></h2>
-		<p class="text-dark text-center mb-6"><?= ac_rich($description) ?></p>
+		<p class="text-dark text-center mb-6"><?= wp_kses_post($description) ?></p>
 		<div class="flex items-center justify-center sm:gap-4 gap-2.5 flex-wrap">
 			<?php if($btn_primary): ?>
 				<?php get_template_part('/components/blocks/ac_button', args: [

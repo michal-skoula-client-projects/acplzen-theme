@@ -1,8 +1,6 @@
-# Everything listed here is kept out of the payload CI publishes to the
-# `deploy` branch, i.e. out of what WP Pusher pulls onto the server.
+# Kept out of the deploy branch.
 
-# Build inputs. Only assets/styles/output.css ships; the fonts and images it
-# references do too.
+# Build inputs
 /assets/styles/global.css
 /assets/styles/theme.css
 /assets/styles/navbar.css

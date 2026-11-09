@@ -20,12 +20,12 @@ $right = get_sub_field('description_right') ?: '';
 		<?php endif; ?>
 		<div class="grid md:grid-cols-2 grid-cols-1 gap-x-16 gap-y-4">
             <div class="section__format-text text-dark">
-                <?= ac_rich($left) ?>
+                <?= wp_kses_post($left) ?>
             </div>
 
             <?php if($only_left_col === 'ne'): ?>
             <div class="section__format-text text-dark">
-                <?= ac_rich($right) ?>
+                <?= wp_kses_post($right) ?>
             </div>
             <?php endif; ?>
 		</div>

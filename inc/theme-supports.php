@@ -1,8 +1,4 @@
 <?php
-/**
- * What the theme supports, and the assets it loads.
- */
-
 add_action( 'wp_enqueue_scripts', function (): void
 {
 	wp_enqueue_style(
@@ -37,7 +33,6 @@ add_action( 'after_setup_theme', function (): void
 		'caption',
 	] );
 
-	// So the block editor previews content in the theme's own styles.
 	add_theme_support( 'editor-styles' );
 	add_editor_style( [ 'assets/styles/output.css' ] );
 

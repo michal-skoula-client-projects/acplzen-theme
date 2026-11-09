@@ -7,7 +7,7 @@
  */
 
 $heading = esc_html(get_sub_field('heading') ?: 'Chybí nadpis');
-$description = ac_rich(get_sub_field('description'));
+$description = wp_kses_post(get_sub_field('description') ?: '');
 $col_1 = get_sub_field('col_1') ?: null;
 $col_2 = get_sub_field('col_2') ?: null;
 $col_3 = get_sub_field('col_3') ?: null;
@@ -35,7 +35,7 @@ $col_3 = get_sub_field('col_3') ?: null;
 					<?php foreach($col_1 as $entry): ?>
 						<div class="bg-light-elevated sm:rounded-md rounded-sm p-card p-5 pt-4 last:h-full text-darker">
                             <i class="fa-solid fa-quote-left fa-xl text-brand-primary w-full mb-5"></i>
-							<?= ac_rich($entry['recenze'] ?? '') ?>
+							<?= wp_kses_post($entry['recenze'] ?? '') ?>
 						</div>
 					<?php endforeach; ?>
 				<?php endif; ?>
@@ -45,7 +45,7 @@ $col_3 = get_sub_field('col_3') ?: null;
 					<?php foreach($col_2 as $entry): ?>
                         <div class="bg-light-elevated sm:rounded-md rounded-sm p-card p-5 pt-4 last:h-full text-darker">
                             <i class="fa-solid fa-quote-left fa-xl text-brand-primary w-full mb-5"></i>
-							<?= ac_rich($entry['recenze'] ?? '') ?>
+							<?= wp_kses_post($entry['recenze'] ?? '') ?>
                         </div>
 					<?php endforeach; ?>
 				<?php endif; ?>
@@ -55,7 +55,7 @@ $col_3 = get_sub_field('col_3') ?: null;
 					<?php foreach($col_3 as $entry): ?>
                         <div class="bg-light-elevated sm:rounded-md rounded-sm p-card p-5 pt-4 last:h-full text-darker">
                             <i class="fa-solid fa-quote-left fa-xl text-brand-primary w-full mb-5"></i>
-							<?= ac_rich($entry['recenze'] ?? '') ?>
+							<?= wp_kses_post($entry['recenze'] ?? '') ?>
                         </div>
 					<?php endforeach; ?>
 				<?php endif; ?>

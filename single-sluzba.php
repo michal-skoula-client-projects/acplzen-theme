@@ -8,7 +8,7 @@
 				<?= esc_html(get_the_title()) ?>
 			</h1>
 			<p class="max-w-screen-md section__format-text">
-				<?= ac_rich(get_field('about')) ?>
+				<?= wp_kses_post(get_field('about') ?: '') ?>
 			</p>
 		</div>
 		<div>

@@ -63,7 +63,7 @@ $address = get_field('contacts', 'options') ?: null;
                     <div class="flex flex-col gap-2 max-md:w-full max-w-sm">
                         <strong class="h6 font-medium mb-3 text-light-elevated">Kontaktní údaje</strong>
                         <div class="m-0 text-light-base section__format-text">
-                            <?= ac_rich($address) ?>
+                            <?= wp_kses_post($address) ?>
                         </div>
                     </div>
                 <?php endif; ?>

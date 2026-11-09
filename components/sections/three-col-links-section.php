@@ -20,7 +20,7 @@ $right = get_sub_field('col_right') ?: null;
 			<div>
 				<h3 class="h4 max-w-sm text-dark text-center mb-2"><?= esc_html(($left['heading'] ?? '') ?: 'Chybí nadpis') ?></h3>
 				<div class="section__format-text text-dark text-center mb-4">
-					<?= ac_rich($left['description'] ?? '') ?>
+					<?= wp_kses_post($left['description'] ?? '') ?>
 				</div>
 				<div class="flex justify-center">
 					<?php get_template_part('components/blocks/ac_link', args: [
@@ -34,7 +34,7 @@ $right = get_sub_field('col_right') ?: null;
 			<div>
 				<h3 class="h4 max-w-sm text-dark text-center mb-2"><?= esc_html(($center['heading'] ?? '') ?: 'Chybí nadpis') ?></h3>
 				<div class="section__format-text text-dark text-center mb-4">
-					<?= ac_rich($center['description'] ?? '') ?>
+					<?= wp_kses_post($center['description'] ?? '') ?>
 				</div>
 				<div class="flex justify-center">
 					<?php get_template_part('components/blocks/ac_link', args: [
@@ -48,7 +48,7 @@ $right = get_sub_field('col_right') ?: null;
 			<div>
 				<h3 class="h4 max-w-sm text-dark text-center mb-2"><?= esc_html(($right['heading'] ?? '') ?: 'Chybí nadpis') ?></h3>
 				<div class="section__format-text text-dark text-center mb-4">
-					<?= ac_rich($right['description'] ?? '') ?>
+					<?= wp_kses_post($right['description'] ?? '') ?>
 				</div>
 				<div class="flex justify-center">
 					<?php get_template_part('components/blocks/ac_link', args: [

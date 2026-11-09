@@ -1,13 +1,4 @@
 <?php
-/**
- * Per-post-type tweaks: which editor a type gets, which templates are
- * reachable, and which custom fields show as admin columns.
- *
- * Every registration below runs inside after_setup_theme rather than at file
- * scope. That keeps functions.php free of anything that executes, and all of
- * these hooks (init, template_redirect, admin columns) still fire afterwards.
- */
-
 /** Removes a post type support flag, e.g. the editor on pages. */
 function ac_remove_support_flag( string $post_type, string $flag ): void
 {
@@ -48,16 +39,7 @@ function ac_disable_gutenberg( string ...$post_types ): void
 
 /**
  * Shows a custom field as a column in a post type's admin list table.
- *
- * The ACF field object is resolved lazily inside the callbacks: ACF is not
- * loaded while the theme's functions.php runs, so asking it for a field at
- * registration time returned nothing and the column fell back to a
- * prettified field name. Values are read with get_post_meta(), so the column
- * still renders if ACF is deactivated.
- *
- * @param  string  $post_type   Post type slug, e.g. 'akce'.
- * @param  string  $field_name  Meta key / ACF field name, e.g. 'datetime'.
- * @param  bool    $sortable    Whether the column should be sortable.
+ * The field object is fetched inside the callbacks because ACF isn't loaded yet here.
  */
 function ac_add_column_to_post_type_table( string $post_type, string $field_name, bool $sortable = false ): void
 {
@@ -83,7 +65,7 @@ function ac_add_column_to_post_type_table( string $post_type, string $field_name
 
 		$value = get_post_meta( $post_id, $field_name, true );
 
-		// Button groups, selects and radios store the key -- show the label.
+		// Choice fields store the key; show the label.
 		$choices = $get_field_object()['choices'] ?? null;
 		if ( $choices && isset( $choices[ $value ] ) ) {
 			$value = $choices[ $value ];

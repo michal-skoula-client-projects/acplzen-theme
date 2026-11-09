@@ -1,13 +1,11 @@
 /node_modules
 /vendor
 
-# Built by `npm run build`, and by CI before it publishes the deploy branch.
-# Never committed: a stale committed copy is worse than none.
+# Built by CI
 assets/styles/output.css
 
 .claude/settings.local.json
 
-# Credentials, if this project ever grows any. See the acplzen-hosting skill.
 .secrets
 
 /.fleet

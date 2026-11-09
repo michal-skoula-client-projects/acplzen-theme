@@ -21,7 +21,7 @@ $btn = $content['url'] ?? null;
 			<div class="md:order-1 order-2">
 				<h2 class="mb-6 text-darkest"><?= esc_html($heading) ?></h2>
 				<div class="section__format-text text-dark">
-					<?= ac_rich($description) ?>
+					<?= wp_kses_post($description) ?>
 				</div>
 				<?php if($btn): ?>
 					<?php get_template_part('/components/blocks/ac_button', args: [

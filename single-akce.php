@@ -43,7 +43,7 @@ $content = get_field('content') ?: '';
                 </div>
                 <h1 class="text-3xl md:text-4xl lg:text-5xl text-darkest text-center mb-3"><?= esc_html(get_the_title() ?: 'Chybí titulek') ?></h1>
                 <p class="section__format-text mx-auto max-w-screen-md text-center text-lg text-dark sm:text-lg text-base">
-		            <?= ac_rich($perex) ?>
+		            <?= wp_kses_post($perex) ?>
                 </p>
             </div>
         </div>
@@ -89,7 +89,7 @@ $content = get_field('content') ?: '';
                                 <i class="fa-solid fa-circle-exclamation text-brand-secondary"></i>
                                 <span class="text-darkest text-lg">Důležité informace</span>
                             </dt>
-                            <dd class="text-dark"><?= ac_rich($information) ?></dd>
+                            <dd class="text-dark"><?= wp_kses_post($information) ?></dd>
                         </dl>
 	                <?php endif; ?>
                 </div>
@@ -100,7 +100,7 @@ $content = get_field('content') ?: '';
             <div class="text-dark max-w-screen-md w-full lg:mx-auto section__format-text sm:mb-12 mb-6">
                 <p class="h3 text-darkest pb-0 mb-0">O akci</p>
                 <hr class="max-lg:hidden">
-                <?= ac_rich($content) ?>
+                <?= wp_kses_post($content) ?>
             </div>
         </div>
         <div class="flex justify-center">

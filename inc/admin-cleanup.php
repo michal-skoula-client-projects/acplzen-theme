@@ -1,8 +1,4 @@
 <?php
-/**
- * Trims wp-admin down to what the client actually uses.
- */
-
 add_action( 'wp_dashboard_setup', function (): void
 {
 	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );   // Rychlý koncept

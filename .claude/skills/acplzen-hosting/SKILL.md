@@ -26,11 +26,8 @@ Everything below follows from that. **Plan for the failure you cannot debug.**
 **Never point WP Pusher at `main`.** It tracks `deploy`, which CI force-pushes with
 `assets/styles/output.css` already built. `main` has no built CSS. WP Pusher's branch
 picker defaults to the repository's default branch, so this is one careless dropdown
-away at all times — and pulling `main` is exactly what caused the outage this work came out of.
-
-Since Composer was dropped, a mistakenly-pulled `main` is survivable: no PHP depends on
-anything generated, so the site renders unstyled rather than fataling. Don't rely on
-that. Check the branch.
+away at all times. A pulled `main` renders unstyled rather than fataling, but check the
+branch anyway.
 
 ## Reading a broken production URL
 
@@ -84,9 +81,8 @@ after **1 day**, so it is usually stale by the time anyone looks.
 
 ## Before publishing anything
 
-- `php -l` every changed PHP file. CI does this too, but find it locally.
+- `php -l` every changed PHP file.
 - Confirm `functions.php` still contains nothing but constants and `require_once`.
-  See AGENTS.md for why.
 - Check the theme renders on a checkout with no `node_modules` and no
   `assets/styles/output.css`: unstyled is acceptable, a fatal is not.
 - Reproduce on the local site at PHP 8.3.36 (`local-dev-server` skill) rather than

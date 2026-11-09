@@ -22,7 +22,7 @@ $services = get_posts([
 				<?php foreach($services as $post): setup_postdata($post); ?>
 					<div class="rounded-md border border-light-outline bg-light-elevated p-card-xl">
 						<h2 class="h3 text-darkest mb-3"><?= esc_html(get_the_title()) ?></h2>
-						<p class="text-dark mb-5"><?= ac_rich(get_field('about')) ?></p>
+						<p class="text-dark mb-5"><?= wp_kses_post(get_field('about') ?: '') ?></p>
 						<?php get_template_part('/components/blocks/ac_link', args: [
 							'color' => 'primary',
 							'style' => 'underline',

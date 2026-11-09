@@ -159,7 +159,7 @@ function get_date_square(string $month_short, int $day, string $color = 'seconda
                             <!-- Content -->
                             <div class="mb-4">
                                 <h3 class="h4 text-darkest mb-1"><?= esc_html(get_the_title()) ?></h3>
-                                <p class="text-dark"><?= ac_rich($description) ?></p>
+                                <p class="text-dark"><?= wp_kses_post($description) ?></p>
                             </div>
                             <div>
 						        <?= get_template_part('/components/blocks/ac_link', args: [
@@ -189,8 +189,6 @@ function get_date_square(string $month_short, int $day, string $color = 'seconda
 			        $all_events->the_post();
 			        $dt = ac_parse_date(get_field('datetime'));
 
-			        // An akce whose datetime is missing or unreadable has no place on a
-			        // timeline. Skipping it beats fataling the whole archive.
 			        if (! $dt) {
 			            continue;
 			        }
@@ -217,7 +215,7 @@ function get_date_square(string $month_short, int $day, string $color = 'seconda
                                         </div>
                                         <p class="text-dark/85 text-sm">Akce pro veřejnost</p>
                                         <strong class="text-darker text-xl mb-2"><?= esc_html(get_the_title())?></strong>
-                                        <p class="text-sm text-dark mb-4"><?= ac_rich(get_field('description')) ?></p>
+                                        <p class="text-sm text-dark mb-4"><?= wp_kses_post(get_field('description') ?: '') ?></p>
 	                                    <?php get_template_part('/components/blocks/ac_link', args: [
 		                                    'color' => 'primary',
 		                                    'style' => 'underline',

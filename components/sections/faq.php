@@ -74,7 +74,7 @@ $email = get_field('email', 'options') ?: null;
 
                         <div class="hidden peer-checked:block bg-opacity-30" id="faq-answer-<?= $id ?>">
                             <div class="px-5 pb-5 section__format-text darkbg">
-								<?= ac_rich($faq_block['answer'] ?? '') ?>
+								<?= wp_kses_post($faq_block['answer'] ?? '') ?>
                             </div>
                         </div>
                     </div>

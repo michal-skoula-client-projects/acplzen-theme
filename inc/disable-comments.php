@@ -1,8 +1,4 @@
 <?php
-/**
- * Comments are off site-wide: no UI, no open threads, nothing to moderate.
- */
-
 add_filter( 'comments_open', fn() => false, 20, 2 );
 add_filter( 'pings_open', fn() => false, 20, 2 );
 add_filter( 'comments_array', fn() => [], 10, 2 );
