@@ -31,8 +31,8 @@ $socials = get_field('socials', 'options') ?: null;
 			<p class="text-dark">Sociální sítě</p>
 			<?php if($socials): ?>
 				<div class="flex flex-wrap gap-3">
-					<?php foreach ($socials as $item): $social = $item['item']; ?>
-						<a href="<?= esc_url($social['url' ?? '#']) ?>" target="_blank" rel="nofollow" class="block text-darkest">
+					<?php foreach ($socials as $item): $social = $item['item'] ?: null; if (! $social) continue; ?>
+						<a href="<?= esc_url($social['url'] ?? '#') ?>" target="_blank" rel="nofollow" class="block text-darkest">
 							<i class="fa-brands fa-<?= esc_html(strtolower($social['title'] ?? 'wordpress-simple')) ?> fa-2xl"></i>
 							<span class="sr-only"><?= esc_html($social['title'] ?? 'Neznámá síť') ?></span>
 						</a>
