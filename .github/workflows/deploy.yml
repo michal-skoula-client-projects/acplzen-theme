@@ -70,6 +70,16 @@ jobs:
 
           echo "Payload size: $(du -sh "$PAYLOAD" | cut -f1)"
 
+      - name: Stamp APP_VERSION into style.css
+        run: |
+          set -u
+          VERSION="$(sed -nE "s/^const APP_VERSION = '([^']+)';/\1/p" functions.php)"
+          [ -n "$VERSION" ] || { echo '::error::APP_VERSION not found in functions.php'; exit 1; }
+          CSS="$RUNNER_TEMP/payload/style.css"
+          awk -v v="$VERSION" '/^Version: /{next} /^Text Domain: /{print "Version: " v} {print}' "$CSS" > "$CSS.tmp"
+          mv "$CSS.tmp" "$CSS"
+          grep -q "^Version: $VERSION$" "$CSS"
+
       - name: Publish to ${{ env.DEPLOY_BRANCH }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

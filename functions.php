@@ -4,6 +4,7 @@
 const APP_VERSION = '1.0.0';
 
 const ISSUE_REPORT_EMAIL = 'mailto:michal@skoula.com?subject=Chyba%20na%20webu%20acplzen.zcu.cz';
+
 const PAGINATION_INTERVAL = 12;
 
 /**
@@ -19,6 +20,3 @@ require_once __DIR__ . '/inc/post-types.php';
 require_once __DIR__ . '/inc/admin-cleanup.php';
 require_once __DIR__ . '/inc/disable-comments.php';
 require_once __DIR__ . '/inc/debugging.php';
-
-// ACF JSON for the footer only needs importing once.
-// require __DIR__ . '/inc/footer-fields.php';
