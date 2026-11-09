@@ -1,0 +1,26 @@
+{
+    "key": "ui_options_page_68e7fd1144a37",
+    "title": "Kontaktní údaje",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Kontaktní údaje",
+    "menu_slug": "contact_info",
+    "parent_slug": "none",
+    "advanced_configuration": 1,
+    "icon_url": "",
+    "menu_title": "Kontakt",
+    "position": 110,
+    "redirect": 0,
+    "description": "Kontaktní informace",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-phone"
+    },
+    "update_button": "Aktualizovat",
+    "updated_message": "Kontaktní údaje aktualizovány",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1760313257
+}

@@ -1,0 +1,26 @@
+{
+    "key": "ui_options_page_68eac36e737c5",
+    "title": "Fotogalerie",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Fotogalerie",
+    "menu_slug": "photo_gallery",
+    "parent_slug": "none",
+    "advanced_configuration": 1,
+    "icon_url": "",
+    "menu_title": "Fotogalerie",
+    "position": 102,
+    "redirect": 0,
+    "description": "Fotogalerie fotek",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-format-image"
+    },
+    "update_button": "Aktualizovat",
+    "updated_message": "Galerie aktualizována",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1760216085
+}

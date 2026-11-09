@@ -1,0 +1,26 @@
+{
+    "key": "ui_options_page_68e8f44b3d3e7",
+    "title": "Partneři",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Partneři",
+    "menu_slug": "partners",
+    "parent_slug": "none",
+    "advanced_configuration": 1,
+    "icon_url": "",
+    "menu_title": "Partneři",
+    "position": 111,
+    "redirect": 0,
+    "description": "Nastavení log a odkazů sponzorů a partnerů",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-heart"
+    },
+    "update_button": "Aktualizovat",
+    "updated_message": "Partneři aktualizováni",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1760313265
+}
